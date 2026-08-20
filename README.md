@@ -1,4 +1,4 @@
-# [Aura IT]
+# Aura IT
 
 Integrantes: Martin Alejandro Didolich, [nombre 2], [nombre 3], [nombre 4], [nombre 5]
 
