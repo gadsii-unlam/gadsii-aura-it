@@ -1,6 +1,6 @@
-# [Nombre del equipo]
+# [Aura IT]
 
-Integrantes: [nombre 1], [nombre 2], [nombre 3], [nombre 4], [nombre 5]
+Integrantes: Martin Alejandro Didolich, [nombre 2], [nombre 3], [nombre 4], [nombre 5]
 
 Producto: [una línea describiendo el producto — se completa en el TP1]
 
