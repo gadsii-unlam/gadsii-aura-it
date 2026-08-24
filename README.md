@@ -1,7 +1,7 @@
 # Aura IT
 
-Integrantes: Martin Alejandro Didolich, [nombre 2], [nombre 3], [nombre 4], [nombre 5]
+Integrantes: Mathieu Andrés Santamaría Loiacono, Martin Alejandro Didolich, Alejo Rodrigo Lopez Rodofile, Agustín Ignacio Garcia Riveros, Juan Ignacio Bernardez 
 
-Producto: [una línea describiendo el producto — se completa en el TP1]
+Producto: **App BuffetYa!** que resuelve la perdida de tiempo al trasladarse, esperar fila para comprar y pagar en el buffet universitario. 
 
-Segmento de la comunidad UNLaM: [se completa en el TP1]
+Segmento de la comunidad UNLaM: Estudiantes y personal docente de carreras universitarias del DIIT de la UNLaM.
