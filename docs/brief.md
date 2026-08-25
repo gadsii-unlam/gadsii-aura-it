@@ -5,7 +5,7 @@
 
 ## Segmento elegido de la comunidad UNLaM y por qué ese.
 
-Estudiantes y personal docente de carreras universitarias del departamento de Ingeniería e Investigaciones Tecnológicas de la UNLaM, que utilizan habitualmente el buffet universitario y necesitan optimizar el tiempo para comprar comida.
+Estudiantes, personal docente y administrativo de carreras universitarias del departamento de Ingeniería e Investigaciones Tecnológicas de la UNLaM, que utilizan habitualmente el buffet universitario y necesitan optimizar el tiempo para comprar comida. 
 
 ## Producto: nombre, problema, a quién le resuelve.
 
@@ -30,9 +30,9 @@ A estudiantes y docentes de carreras universitarias del DIIT de la UNLaM.
 
 ## Grupos de usuarios y usuario primario elegido
 
-* Estudiantes de grado de Ingeniería del turno noche que trabajan full-time  (usuario primario)
-* Docentes del DIIT.
-* Estudiantes de grado de Ingeniería del turno mañana/tarde. 
+* Estudiantes de grado del departamento de Ingeniería e Investigaciones Tecnológicas. 
+* Docentes del departamento de Ingeniería e Investigaciones Tecnológicas.
+* Personal administrativo del departamento de Ingeniería e Investigaciones Tecnológicas. 
 
 ## La lista de supuestos, con el supuesto crítico marcado
 
