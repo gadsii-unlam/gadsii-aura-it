@@ -1,17 +1,19 @@
 # Brief de Producto
 
 ## Cambios en la versión
-1. Primera entrega, sin cambios.
+1. Primera entrega, con cambios.
+1.1 Actualización con correcciones vistas en clase y de devolución del docente.
 
 ## Segmento elegido de la comunidad UNLaM y por qué ese.
 
-Estudiantes, personal docente y administrativo de carreras universitarias del departamento de Ingeniería e Investigaciones Tecnológicas de la UNLaM, que utilizan habitualmente el buffet universitario y necesitan optimizar el tiempo para comprar comida. 
+Estudiantes del departamento de Derecho y Ciencia Política, Humanidades y Ciencias Sociales y Ciencias de la Salud, personal docente de la UNLaM y personal administrativo de la UNLaM que utilizan habitualmente el buffet universitario y necesitan optimizar el tiempo para comprar comida. 
 
 ## Producto: nombre, problema, a quién le resuelve.
 
 _**BuffetYa!**_
 
 Pérdida de tiempo al trasladarse, esperar fila para comprar y pagar en el buffet universitario.
+
 A estudiantes y docentes de carreras universitarias del DIIT de la UNLaM.
 
 ## Funcionalidades core
@@ -30,9 +32,9 @@ A estudiantes y docentes de carreras universitarias del DIIT de la UNLaM.
 
 ## Grupos de usuarios y usuario primario elegido
 
-* **Estudiantes universitarios. (GRUPO PRINCIPAL)**
-* Docentes universitarios.
-* Personal administrativo universitario. 
+* **Estudiantes del departamento de Derecho y Ciencia Política, Humanidades y Ciencias Sociales y Ciencias de la Salud. (GRUPO PRINCIPAL)**
+* Docentes de la UNLaM.
+* Personal administrativo de la UNLaM. 
 
 ## La lista de supuestos, con el supuesto crítico marcado
 
