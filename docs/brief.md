@@ -30,9 +30,9 @@ A estudiantes y docentes de carreras universitarias del DIIT de la UNLaM.
 
 ## Grupos de usuarios y usuario primario elegido
 
-* Estudiantes de grado del departamento de Ingeniería e Investigaciones Tecnológicas. 
-* Docentes del departamento de Ingeniería e Investigaciones Tecnológicas.
-* Personal administrativo del departamento de Ingeniería e Investigaciones Tecnológicas. 
+* **Estudiantes universitarios. (GRUPO PRINCIPAL)**
+* Docentes universitarios.
+* Personal administrativo universitario. 
 
 ## La lista de supuestos, con el supuesto crítico marcado
 
