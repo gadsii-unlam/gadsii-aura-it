@@ -4,4 +4,4 @@ Integrantes: Mathieu Andrés Santamaría Loiacono, Martin Alejandro Didolich, Al
 
 Producto: **App BuffetYa!** que resuelve la pérdida de tiempo al esperar la fila para comprar y pagar en el buffet universitario. 
 
-Segmento de la comunidad UNLaM: Estudiantes y personal docente de carreras universitarias del DIIT de la UNLaM.
+Segmento de la comunidad UNLaM: Estudiantes del departamento de Derecho y Ciencia Política, Humanidades y Ciencias Sociales y Ciencias de la Salud, personal docente de la UNLaM y personal administrativo de la UNLaM. 
