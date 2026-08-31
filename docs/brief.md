@@ -7,7 +7,7 @@
 
 ## Segmento elegido de la comunidad UNLaM y por qué ese.
 
-Estudiantes del departamento de Derecho y Ciencia Política, Humanidades y Ciencias Sociales y Ciencias de la Salud, personal docente de la UNLaM y personal administrativo de la UNLaM que utilizan habitualmente el buffet universitario y necesitan optimizar el tiempo para comprar comida. 
+Estudiantes del departamento de Derecho y Ciencia Política, Humanidades y Ciencias Sociales y Ciencias de la Salud, personal docente de la UNLaM y personal administrativo de la UNLaM que utilizan habitualmente el buffet universitario y necesitan optimizar el tiempo para comprar comida.Estimamos que unas <b>2000</b> personas usan habitualmente el buffet. 
 
 ## Producto: nombre, problema, a quién le resuelve.
 
@@ -39,12 +39,12 @@ A estudiantes y docentes de carreras universitarias del DIIT de la UNLaM.
 
 ## La lista de supuestos, con el supuesto crítico marcado
 
-1.	Asumimos que los usuarios no tienen tiempo de sobra para estar esperando en una fila.
-2.	Asumimos que los usuarios consideran útil e importante conocer de antemano el menú y los precios del buffet antes de dirigirse al lugar.
-3.	**Asumimos que la mayoría de los usuarios del buffet dispone de un teléfono inteligente con acceso a Internet y una cuenta de Mercado Pago.**
-4.	Asumimos que los usuarios consideran beneficioso ser notificados cuando el pedido está listo para retirar.
-5.	Asumimos que los usuarios no recuerdan que compraron recientemente en el buffet.
-6.	Asumimos que los usuarios priorizan buscar directamente productos filtrados según sus necesidades alimenticias (celíacos, vegetarianos, veganos) en lugar de recorrer todo el menú.
+1.	Asumimos que los usuarios no tienen tiempo de sobra para estar esperando en una fila.<br><u>Evidencia para comprobarlo</u>: Observación no participativa (abandono de filas luego de revisar la hora en celular) y consultas a dichos usuarios.</br>
+2.	Asumimos que los usuarios consideran útil e importante conocer de antemano el menú y los precios del buffet antes de dirigirse al lugar.<br><u>Evidencia para comprobarlo</u>: Encuesta a los usuarios seleccionados. </br>
+3.	**Asumimos que la mayoría de los usuarios del buffet dispone de un teléfono inteligente con acceso a Internet y una cuenta de Mercado Pago.**<br><u>Evidencia para comprobarlo</u>: Encuesta a los usuarios seleccionados. </br>
+4.	Asumimos que los usuarios consideran beneficioso ser notificados cuando el pedido está listo para retirar.<br><u>Evidencia para comprobarlo</u>: Encuesta a los usuarios seleccionados. </br>
+5.	Asumimos que los usuarios no recuerdan que compraron recientemente en el buffet.<br><u>Evidencia para comprobarlo</u>: Encuesta a los usuarios seleccionados. </br>
+6.	Asumimos que los usuarios priorizan buscar directamente productos filtrados según sus necesidades alimenticias (celíacos, vegetarianos, veganos) en lugar de recorrer todo el menú.<br><u>Evidencia para comprobarlo</u>: Encuesta a los usuarios seleccionados. </br>
 
 ## Perfil del usuario real
 
