@@ -1,0 +1,783 @@
+/* ============================================================================
+   BuffetYa! — components
+   The category standard at full craft. Craft bar: order-ahead + Mercado Pago.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------- shell --- */
+
+.phone {
+  position: relative;
+  width: 100%;
+  max-width: var(--phone);
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--ground);
+  display: flex;
+  flex-direction: column;
+}
+
+/* The desktop frame is anchored to the bottom edge of the viewport, not floated
+   above it. A floating frame only reads as a device while the page fits on one
+   screen: once it scrolls, the frame runs past the fold and any gap under a
+   fixed bar exposes the content scrolling behind it. Bottom-anchored, the bars
+   sit on the floor in every scroll position. */
+@media (min-width: 480px) {
+  body.is-phone { background: var(--ground-outer); padding: var(--s6) 0 0; }
+  body.is-phone .phone {
+    min-height: calc(100vh - var(--s6));
+    border-radius: var(--r-xl) var(--r-xl) 0 0;
+    box-shadow: var(--lift-3);
+    overflow: hidden;
+  }
+}
+
+.screen {
+  flex: 1;
+  padding-bottom: calc(var(--tabbar) + var(--s6));
+}
+.screen--flush { padding-bottom: 0; }
+
+/* --------------------------------------------------------------- appbar --- */
+
+.appbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-height: 56px;
+  padding: 0 var(--s4);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+/* Not a coloured band. unlam.edu.ar, cine.unlam.edu.ar and MIEL all sit their
+   chrome on white or on the photograph; a saturated bar across the top is the
+   delivery-app habit, not the institutional one. Colour lives in the action. */
+.appbar--brand { background: var(--surface); border-bottom-color: var(--line); }
+.appbar--brand .appbar__title { color: var(--ink); }
+.appbar--brand .appbar__sub { color: var(--muted); }
+.appbar--brand .iconbtn { color: var(--ink-2); }
+.appbar--brand .iconbtn:hover { background: var(--surface-2); }
+
+.appbar__title {
+  font-size: var(--t-lead);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin: 0;
+}
+.appbar__sub {
+  font-size: var(--t-cap);
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.appbar__grow { flex: 1; min-width: 0; }
+
+.iconbtn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 -6px;
+  border-radius: var(--r-pill);
+  color: var(--ink-2);
+  transition: background var(--fast) var(--ease);
+}
+.iconbtn:hover { background: var(--surface-2); }
+.iconbtn svg { width: 22px; height: 22px; }
+
+.iconbtn__badge {
+  position: absolute;
+  transform: translate(11px, -11px);
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--r-pill);
+  background: var(--brand);
+  color: #fff;
+  font-size: var(--t-micro);
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  box-shadow: 0 0 0 2px var(--surface);
+}
+/* The notification dot is the alert bordo in its real role: rare and small. */
+.iconbtn__badge { background: var(--alert); }
+.appbar--brand .iconbtn__badge { background: var(--alert); color: #fff; box-shadow: 0 0 0 2px var(--surface); }
+
+/* --------------------------------------------------------------- tabbar --- */
+
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  width: 100%;
+  max-width: var(--phone);
+  height: var(--tabbar);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  box-shadow: var(--lift-up);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: var(--muted);
+  font-size: var(--t-micro);
+  font-weight: 600;
+  letter-spacing: .01em;
+  text-decoration: none;
+  transition: color var(--fast) var(--ease);
+}
+.tab svg { width: 22px; height: 22px; }
+.tab:hover { color: var(--ink-2); }
+.tab[aria-current="page"] { color: var(--brand); }
+.tab[aria-current="page"] svg { stroke-width: 2.1; }
+
+/* -------------------------------------------------------------- surface --- */
+
+.card {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  box-shadow: var(--lift-1);
+}
+.card--flat { box-shadow: none; border: 1px solid var(--line); }
+
+.section { padding: var(--s5) var(--s4) 0; }
+.section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+  margin-bottom: var(--s3);
+}
+.section__title { font-size: var(--t-h3); }
+.section__link {
+  font-size: var(--t-sm);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.muted { color: var(--muted); }
+.sm { font-size: var(--t-sm); }
+.cap { font-size: var(--t-cap); }
+
+
+/* --------------------------------------------------------------- chips --- */
+
+.chiprow {
+  display: flex;
+  gap: var(--s2);
+  overflow-x: auto;
+  padding: var(--s3) var(--s4);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.chiprow::-webkit-scrollbar { display: none; }
+
+/* A chip sliced flat at the viewport edge reads as a layout bug. Fading it
+   says "there is more this way", which is what is actually true. */
+.chiprow {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+}
+
+.chiprow--sticky {
+  position: sticky;
+  top: 56px;
+  z-index: 20;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.chip {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 var(--s4);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background var(--fast) var(--ease), border-color var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+.chip svg { width: 15px; height: 15px; flex: 0 0 auto; }
+.chip:hover { background: var(--surface-2); border-color: var(--faint); }
+.chip[aria-pressed="true"] {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--on-brand);
+}
+.chip[aria-pressed="true"]:hover { background: var(--brand-deep); border-color: var(--brand-deep); }
+
+/* Dietary tags. Text carries the meaning, so they survive grayscale by
+   construction — a celiac must never depend on hue to read a plate. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: var(--r-sm);
+  font-size: var(--t-micro);
+  font-weight: 700;
+  letter-spacing: .04em;
+  border: 1px solid;
+}
+.tag svg { width: 12px; height: 12px; flex: 0 0 auto; }
+.tag--tacc { color: var(--amber); background: var(--amber-wash); border-color: var(--amber-line); }
+.tag--veg { color: var(--cyan); background: var(--cyan-wash); border-color: var(--cyan-line); }
+.tag--vgn { color: #fff; background: var(--cyan); border-color: var(--cyan); }
+
+/* --------------------------------------------------------------- photo --- */
+
+/* Demonstration material. Visibly labeled so nothing can be mistaken for a
+   real photograph of the buffet. Replace list lives in README.md. */
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background:
+    repeating-linear-gradient(135deg, var(--hatch-a) 0 8px, var(--hatch-b) 8px 16px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+/* This label is the whole honesty mechanism of the photo strategy, so it is
+   the last thing that should be faint. At 5.8:1 it is legible, not decorative. */
+.photo::after {
+  content: "DEMO";
+  font-size: var(--t-micro);
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: var(--muted);
+  border: 1.5px solid var(--faint);
+  border-radius: var(--r-sm);
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, .9);
+}
+.photo--sq { aspect-ratio: 1 / 1; }
+.photo--wide { aspect-ratio: 16 / 9; }
+.photo--thumb { width: 68px; aspect-ratio: 1/1; border-radius: var(--r-md); flex: 0 0 auto; }
+.photo--thumb::after { font-size: var(--t-nano); padding: 2px 5px; letter-spacing: .1em; }
+
+/* ------------------------------------------------------------ products --- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s3);
+  padding: var(--s4);
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  /* The whole card is the link, so it must not wear link clothing: the name is
+     a heading and the price is data, neither is underlined running text. */
+  color: inherit;
+  text-decoration: none;
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  box-shadow: var(--lift-1);
+  overflow: hidden;
+  transition: box-shadow var(--mid) var(--ease), transform var(--mid) var(--ease);
+}
+.product:hover { color: inherit; }
+.product:hover { box-shadow: var(--lift-2); transform: translateY(-2px); }
+.product__body { padding: var(--s3); display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.product__name { font-size: var(--t-sm); font-weight: 700; line-height: 1.3; }
+.product__tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.product__foot { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); margin-top: auto; padding-top: 2px; }
+.product__price { font-size: var(--t-body); font-weight: 800; letter-spacing: -.01em; }
+
+.product--out { opacity: .58; }
+.product--out .product__foot { opacity: 1; }
+
+.addbtn {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-pill);
+  background: var(--brand);
+  color: #fff;
+  box-shadow: var(--lift-1);
+  transition: background var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.addbtn svg { width: 18px; height: 18px; }
+.addbtn:hover { background: var(--brand-deep); }
+.addbtn:active { transform: scale(.92); }
+.addbtn:disabled { background: var(--line-2); color: var(--faint); box-shadow: none; }
+
+/* ---------------------------------------------------------------- rows --- */
+
+.rows { background: var(--surface); }
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  width: 100%;
+  min-height: 64px;
+  padding: var(--s3) var(--s4);
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--line);
+  transition: background var(--fast) var(--ease);
+}
+.row:last-child { border-bottom: 0; }
+a.row:hover, button.row:hover { background: var(--surface-2); }
+.row__grow { flex: 1; min-width: 0; }
+.row__name { font-weight: 600; font-size: var(--t-body); }
+.row__meta { font-size: var(--t-sm); color: var(--muted); }
+.row__end { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.row__price { font-weight: 700; }
+.row__chevron { color: var(--faint); }
+.row__chevron svg { width: 18px; height: 18px; }
+.row__icon {
+  display: grid; place-items: center;
+  width: 40px; height: 40px; flex: 0 0 auto;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  color: var(--ink-2);
+}
+.row__icon svg { width: 20px; height: 20px; }
+
+/* -------------------------------------------------------------- stepper --- */
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+  padding: 2px;
+}
+.stepper button {
+  display: grid; place-items: center;
+  width: 30px; height: 30px;
+  border-radius: var(--r-pill);
+  color: var(--brand);
+  transition: background var(--fast) var(--ease);
+}
+.stepper button:hover { background: var(--brand-wash); }
+.stepper button:disabled { color: var(--faint); background: none; }
+.stepper button svg { width: 16px; height: 16px; }
+.stepper output { min-width: 22px; text-align: center; font-weight: 700; font-size: var(--t-sm); }
+
+/* ------------------------------------------------------------- buttons --- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  min-height: 48px;
+  padding: 0 var(--s5);
+  border-radius: var(--r-md);
+  font-size: var(--t-body);
+  font-weight: 700;
+  letter-spacing: -.005em;
+  text-decoration: none;
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease),
+              border-color var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+/* An icon inside a control is never the thing that gives way: left shrinkable,
+   a tight row squeezes the glyph to a sliver and the button silently loses it.
+   The label holds one line for the same reason — a wrapped label inside a
+   button reads as squeezed, not as tightened. */
+.btn svg { width: 19px; height: 19px; flex: 0 0 auto; }
+.btn { white-space: nowrap; }
+.btn:active { transform: scale(.985); }
+.btn--block { width: 100%; }
+.btn--sm { min-height: 38px; padding: 0 var(--s4); font-size: var(--t-sm); border-radius: var(--r-sm); }
+
+.btn--primary { background: var(--brand); color: var(--on-brand); box-shadow: var(--lift-1); }
+.btn--primary:hover { background: var(--brand-deep); color: #fff; }
+
+/* On the operator panel a button's colour predicts the column the ticket
+   lands in: amber moves it to "en preparacion", green to "listo". Two greens
+   side by side is a misfire waiting to happen for someone working fast. */
+.btn--go { background: var(--ready); color: var(--on-ready); box-shadow: var(--lift-1); }
+.btn--go:hover { background: var(--brand-deep); color: #fff; }
+
+.btn--warn { background: var(--amber); color: #fff; box-shadow: var(--lift-1); }
+.btn--warn:hover { background: var(--amber-ink); color: #fff; }
+
+.btn--ghost { background: var(--surface); color: var(--ink-2); border: 1px solid var(--line-2); }
+.btn--ghost:hover { background: var(--surface-2); border-color: var(--faint); }
+
+.btn--quiet { background: transparent; color: var(--brand); min-height: 40px; padding: 0 var(--s3); }
+.btn--quiet:hover { background: var(--brand-wash); }
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  background: var(--line);
+  color: var(--disabled-ink);
+  box-shadow: none;
+  border-color: transparent;
+  pointer-events: none;
+}
+
+.btn[data-loading="true"] { color: transparent; position: relative; pointer-events: none; }
+.btn[data-loading="true"]::after {
+  content: "";
+  position: absolute;
+  width: 18px; height: 18px;
+  border: 2px solid rgba(255, 255, 255, .35);
+  border-top-color: #fff;
+  border-radius: var(--r-pill);
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --------------------------------------------------------------- forms --- */
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field__label { font-size: var(--t-sm); font-weight: 600; color: var(--ink-2); }
+.field__hint { font-size: var(--t-cap); color: var(--muted); }
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--s4);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  transition: border-color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+.input:hover { border-color: var(--faint); }
+.input:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px var(--brand-wash);
+}
+.input[aria-invalid="true"] { border-color: var(--alert); background: var(--alert-wash); }
+
+.field__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-cap);
+  font-weight: 600;
+  /* An error announces itself in the alert colour, not in the brand green.
+     Its border already used --alert; the text had been left behind. */
+  color: var(--alert-ink);
+}
+.field__error svg { width: 14px; height: 14px; flex: 0 0 auto; }
+
+.inputwrap { position: relative; display: flex; align-items: center; }
+.inputwrap .input { padding-right: 46px; }
+.inputwrap__act {
+  position: absolute;
+  right: 6px;
+  display: grid; place-items: center;
+  width: 36px; height: 36px;
+  border-radius: var(--r-sm);
+  color: var(--muted);
+}
+.inputwrap__act:hover { background: var(--surface-2); color: var(--ink-2); }
+.inputwrap__act svg { width: 19px; height: 19px; }
+
+/* --------------------------------------------------------------- radio --- */
+
+.optlist { display: flex; flex-direction: column; }
+.opt {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s4);
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  transition: background var(--fast) var(--ease);
+}
+.opt:last-child { border-bottom: 0; }
+.opt:hover { background: var(--surface-2); }
+.opt input { position: absolute; opacity: 0; pointer-events: none; }
+.opt__dot {
+  position: relative;
+  width: 22px; height: 22px; flex: 0 0 auto;
+  border: 2px solid var(--line-2);
+  border-radius: var(--r-pill);
+  transition: border-color var(--fast) var(--ease);
+}
+.opt input:checked ~ .opt__dot { border-color: var(--brand); }
+.opt input:checked ~ .opt__dot::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: var(--r-pill);
+  background: var(--brand);
+}
+.opt input:focus-visible ~ .opt__dot { outline: 2px solid var(--brand); outline-offset: 2px; }
+/* These are spans inside a label, so they need an explicit box: left inline
+   they run the name and its description together on one line. */
+.opt__grow { flex: 1; min-width: 0; display: block; }
+.opt__name { display: block; font-weight: 600; }
+.opt__meta { display: block; font-size: var(--t-sm); color: var(--muted); }
+.opt__mark {
+  display: grid; place-items: center;
+  width: 40px; height: 28px; flex: 0 0 auto;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--ink-2);
+}
+.opt__mark svg { width: 20px; height: 20px; }
+
+/* ------------------------------------------------------------ summary --- */
+
+.sum { padding: var(--s4); display: flex; flex-direction: column; gap: var(--s2); }
+.sum__line { display: flex; justify-content: space-between; gap: var(--s4); font-size: var(--t-sm); color: var(--muted); }
+.sum__line b { color: var(--ink); font-weight: 600; }
+.sum__rule { height: 1px; background: var(--line); margin: var(--s2) 0; }
+.sum__total { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s4); }
+.sum__total span { font-weight: 700; }
+.sum__total b { font-size: var(--t-h2); font-weight: 800; letter-spacing: -.02em; }
+
+/* ------------------------------------------------------------- dockbar --- */
+
+.dock {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 45;
+  width: 100%;
+  max-width: var(--phone);
+  padding: var(--s3) var(--s4) var(--s4);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  box-shadow: var(--lift-up);
+}
+.dock__meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--s3); }
+.dock__meta b { font-size: var(--t-h3); font-weight: 800; letter-spacing: -.02em; }
+
+/* Persistent cart bar, sitting above the tab bar. */
+.cartbar {
+  position: fixed;
+  bottom: calc(var(--tabbar) + var(--s3));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 44;
+  width: calc(100% - var(--s4) * 2);
+  max-width: calc(var(--phone) - var(--s4) * 2);
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-height: 52px;
+  padding: 0 var(--s3) 0 var(--s4);
+  border-radius: var(--r-md);
+  background: var(--brand);
+  color: var(--on-brand);
+  text-decoration: none;
+  box-shadow: var(--lift-3);
+  transition: background var(--fast) var(--ease);
+}
+.cartbar:hover { background: var(--brand-deep); color: #fff; }
+.cartbar__n {
+  display: grid; place-items: center;
+  min-width: 24px; height: 24px; padding: 0 6px;
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, .2);
+  font-size: var(--t-cap); font-weight: 800;
+}
+.cartbar__grow { flex: 1; font-weight: 700; font-size: var(--t-sm); }
+.cartbar__total { font-weight: 800; }
+.cartbar svg { width: 18px; height: 18px; }
+
+/* -------------------------------------------------------------- status --- */
+
+/* The order status screen. This is the screen the user opens most, so it
+   carries the most design. Ground, not a badge, expresses the state. */
+.status {
+  padding: var(--s7) var(--s4) var(--s6);
+  text-align: center;
+  transition: background var(--slow) var(--ease), color var(--slow) var(--ease);
+}
+.status--wait { background: var(--surface); }
+.status--cook { background: var(--surface); }
+.status--ready { background: var(--ready); color: var(--on-ready); }
+.status--done { background: var(--surface-2); }
+
+/* The contract promises the whole ground turns, not a coloured panel with a
+   bordo bar still sitting on top of it. At READY the app bar joins the status
+   field, so the first viewport is one continuous signal and the seam falls
+   deliberately where the order's content begins. */
+.phone[data-order="ready"] .appbar--brand .appbar__title { color: var(--on-ready); }
+.phone[data-order="ready"] .appbar--brand .appbar__sub { color: var(--on-ready-2); }
+.phone[data-order="ready"] .appbar--brand .iconbtn { color: var(--on-ready); }
+.phone[data-order="ready"] .appbar--brand {
+  background: var(--ready);
+  border-bottom-color: var(--ready);
+  color: var(--on-ready);
+  transition: background var(--slow) var(--ease), border-color var(--slow) var(--ease);
+}
+.appbar--brand { transition: background var(--slow) var(--ease), border-color var(--slow) var(--ease); }
+
+.status__icon {
+  display: grid; place-items: center;
+  width: 76px; height: 76px;
+  margin: 0 auto var(--s4);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--ink-2);
+}
+.status__icon svg { width: 36px; height: 36px; }
+.status--cook .status__icon { background: var(--amber-wash); color: var(--amber); }
+.status--ready .status__icon { background: rgba(255, 255, 255, .22); color: #fff; }
+.status--done .status__icon { background: var(--surface); color: var(--muted); }
+
+.status__title { font-size: var(--t-h1); letter-spacing: -.028em; }
+.status__sub { margin-top: var(--s2); color: var(--muted); font-size: var(--t-body); }
+.status--ready .status__sub { color: var(--on-ready-2); }
+
+.status__eta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--s4);
+  padding: 7px var(--s4);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  font-size: var(--t-sm);
+  font-weight: 700;
+}
+/* A white veil over verde lands at 3.6:1 for this 13px bold text. Darkening
+   the pill instead of tinting the type gets it to 7.5:1. */
+.status--ready .status__eta { background: var(--scrim); color: #fff; }
+.status__eta svg { width: 15px; height: 15px; }
+
+/* The pickup code. Order-ahead apps make this the largest element on the
+   screen, because it is what the user shows at the counter. */
+.code {
+  margin: var(--s6) auto 0;
+  max-width: 300px;
+  padding: var(--s4);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.status--ready .code { border-color: transparent; box-shadow: var(--lift-2); }
+.code__label {
+  font-size: var(--t-micro);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.code__value {
+  margin-top: 6px;
+  font-size: var(--t-code);
+  font-weight: 800;
+  letter-spacing: .12em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------- steps --- */
+
+.steps { padding: var(--s5) var(--s4); background: var(--surface); }
+.step {
+  position: relative;
+  display: flex;
+  gap: var(--s4);
+  padding-bottom: var(--s5);
+}
+.step:last-child { padding-bottom: 0; }
+.step::before {
+  content: "";
+  position: absolute;
+  left: 13px;
+  top: 28px;
+  bottom: 0;
+  width: 2px;
+  background: var(--line);
+}
+.step:last-child::before { display: none; }
+.step__dot {
+  position: relative;
+  z-index: 1;
+  display: grid; place-items: center;
+  width: 28px; height: 28px; flex: 0 0 auto;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  border: 2px solid var(--line-2);
+  color: var(--faint);
+}
+.step__dot svg { width: 14px; height: 14px; }
+.step__name { font-weight: 600; color: var(--muted); }
+.step__time { font-size: var(--t-cap); color: var(--faint); }
+
+.step--done .step__dot { background: var(--ready); border-color: var(--ready); color: #fff; }
+.step--done::before { background: var(--ready); }
+.step--done .step__name { color: var(--ink); }
+.step--now .step__dot { border-color: var(--brand); color: var(--brand); }
+.step--now .step__name { color: var(--ink); font-weight: 700; }
+
+/* -------------------------------------------------------------- notice --- */
+
+.notice {
+  display: flex;
+  gap: var(--s3);
+  padding: var(--s4);
+  border-radius: var(--r-md);
+  background: var(--amber-wash);
+  border: 1px solid var(--amber-line);
+  color: var(--amber-ink);
+  font-size: var(--t-sm);
+  line-height: 1.45;
+}
+.notice svg { width: 18px; height: 18px; flex: 0 0 auto; margin-top: 1px; }
+.notice--info { background: var(--brand-wash); border-color: var(--brand-line); color: var(--brand-ink); }
+.notice b { font-weight: 700; }
+
+/* --------------------------------------------------------------- empty --- */
+
+.empty {
+  padding: var(--s10) var(--s6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s3);
+}
+.empty__icon {
+  display: grid; place-items: center;
+  width: 64px; height: 64px;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--faint);
+}
+.empty__icon svg { width: 30px; height: 30px; }
+.empty__title { font-size: var(--t-h3); }
+.empty__text { color: var(--muted); font-size: var(--t-sm); max-width: 34ch; }
+
+/* --------------------------------------------------------------- misc --- */
+
+.stack { display: flex; flex-direction: column; }
+.gap2 { gap: var(--s2); } .gap3 { gap: var(--s3); } .gap4 { gap: var(--s4); }
+.pad4 { padding: var(--s4); }
+.hr { height: 1px; background: var(--line); border: 0; margin: 0; }
+.spacer { height: var(--s4); }
+.center { text-align: center; }
+.vh {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

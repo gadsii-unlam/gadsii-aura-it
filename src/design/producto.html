@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Milanesa napolitana · BuffetYa!</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<style>
+  .pdp__back {
+    position: absolute; top: var(--s4); left: var(--s4); z-index: 5;
+    display: grid; place-items: center;
+    width: 40px; height: 40px; border-radius: var(--r-pill);
+    background: rgba(255,255,255,.92); color: var(--ink);
+    box-shadow: var(--lift-2);
+  }
+  .pdp__back svg { width: 20px; height: 20px; }
+  .pdp__head { padding: var(--s5) var(--s4) var(--s4); background: var(--surface); }
+  .pdp__title { font-size: var(--t-h2); letter-spacing: -.025em; }
+  .pdp__price { font-size: var(--t-h2); font-weight: 800; letter-spacing: -.025em; margin-top: var(--s2); }
+  .pdp__desc { color: var(--muted); margin-top: var(--s3); line-height: 1.55; max-width: 68ch; }
+</style>
+</head>
+<body class="is-phone">
+<!-- DIRECTION CONTRACT · seed key d8c4aa79 · the category canon at full craft. -->
+<div class="phone">
+
+  <div style="position: relative;">
+    <a class="pdp__back" href="menu.html" aria-label="Volver al menú">
+      <svg><use href="#i-arrowLeft"/></svg>
+    </a>
+    <div class="photo photo--wide"></div>
+  </div>
+
+  <div class="screen screen--flush" style="padding-bottom: 132px;">
+
+    <div class="pdp__head">
+      <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom: var(--s3)">
+        <span class="tag tag--tacc"><svg><use href="#i-wheat"/></svg>SIN TACC</span>
+      </div>
+      <h1 class="pdp__title">Milanesa napolitana con papas</h1>
+      <div class="pdp__price">$4.800</div>
+      <p class="pdp__desc">
+        Milanesa de ternera con salsa de tomate, jamón y muzzarella gratinada.
+        Acompañada con papas fritas. Porción individual.
+      </p>
+    </div>
+
+    <hr class="hr">
+
+    <div class="rows">
+      <div class="row">
+        <span class="row__icon"><svg><use href="#i-clock"/></svg></span>
+        <div class="row__grow">
+          <div class="row__name">Tiempo de preparación</div>
+          <div class="row__meta">Entre 10 y 15 minutos</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="row__icon"><svg><use href="#i-wheat"/></svg></span>
+        <div class="row__grow">
+          <div class="row__name">Apto sin TACC</div>
+          <div class="row__meta">Se prepara con rebozador sin gluten, en sector separado</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section__head"><h2 class="section__title">Aclaraciones</h2></div>
+    </div>
+    <div style="padding: 0 var(--s4)">
+      <div class="field">
+        <label class="vh" for="nota">Aclaraciones para la cocina</label>
+        <input class="input" id="nota" type="text" placeholder="Ej: sin sal, papas aparte">
+        <p class="field__hint">Opcional. El buffet lo ve junto al pedido.</p>
+      </div>
+    </div>
+
+    <div style="padding: var(--s5) var(--s4) 0">
+      <div class="notice">
+        <svg><use href="#i-info"/></svg>
+        <div>
+          La foto es material de demostración. No es una fotografía real de este plato.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="dock">
+    <div class="dock__meta">
+      <div class="stepper" data-stepper data-min="1" data-max="10">
+        <button data-dec aria-label="Quitar uno"><svg><use href="#i-minus"/></svg></button>
+        <output>1</output>
+        <button data-inc aria-label="Agregar uno"><svg><use href="#i-plus"/></svg></button>
+      </div>
+      <b>$4.800</b>
+    </div>
+    <a class="btn btn--primary btn--block" href="carrito.html">
+      <svg><use href="#i-cart"/></svg> Agregar al pedido
+    </a>
+  </div>
+
+</div>
+</body>
+</html>

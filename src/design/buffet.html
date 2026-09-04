@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#022410">
+<title>Panel del buffet · BuffetYa!</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<style>
+  /* The operator surface. Opposite context to the student app: a fixed screen
+     read from a metre away, hands busy, glanced at between plates. Larger type,
+     denser information, bigger targets, no scrolling for the active column. */
+  body { background: var(--ground); }
+
+  .op {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .opbar {
+    display: flex; align-items: center; gap: var(--s5);
+    padding: var(--s4) var(--s6);
+    background: var(--forest); color: var(--on-brand);
+  }
+  .opbar h1 { font-size: var(--t-h3); letter-spacing: -.02em; }
+  .opbar__sub { font-size: var(--t-sm); color: var(--on-forest-2); }
+  .opbar__grow { flex: 1; }
+  .opbar__clock { font-size: var(--t-h2); font-weight: 800; letter-spacing: -.02em; }
+
+  .stats {
+    display: flex; gap: var(--s6);
+    padding: var(--s4) var(--s6);
+    background: var(--surface); border-bottom: 1px solid var(--line);
+  }
+  .stat__n { font-size: var(--t-h2); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+  .stat__l { font-size: var(--t-cap); color: var(--muted); font-weight: 600; }
+  .stat--warn .stat__n { color: var(--alert); }
+
+  .board {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+  }
+  /* The three-stage progression IS the panel. Tablet portrait (768-834) is a
+     named target surface, so the columns hold down to 760px on tighter
+     tickets rather than collapsing and losing the whole reading. */
+  @media (max-width: 1100px) {
+    .col__body { padding: var(--s3); gap: var(--s2); }
+    .ticket__top, .ticket__items, .ticket__foot { padding-inline: var(--s3); }
+    .ticket__code { font-size: var(--t-h3); }
+    .opbar, .stats { padding-inline: var(--s4); }
+    .stats { gap: var(--s5); }
+  }
+  @media (max-width: 760px) { .board { grid-template-columns: 1fr; } }
+
+  .col { background: var(--ground); display: flex; flex-direction: column; min-width: 0; }
+  .col__head {
+    display: flex; align-items: center; gap: var(--s3);
+    padding: var(--s4) var(--s5);
+    background: var(--surface);
+    border-bottom: 2px solid var(--line);
+    position: sticky; top: 0; z-index: 5;
+  }
+  .col__title { font-size: var(--t-body); font-weight: 800; letter-spacing: .02em; text-transform: uppercase; }
+  .col__n {
+    display: grid; place-items: center;
+    min-width: 26px; height: 26px; padding: 0 8px;
+    border-radius: var(--r-sm);
+    background: var(--ink); color: #fff;
+    font-size: var(--t-cap); font-weight: 800;
+  }
+  /* The three column rules read as a progression, not as one unfinished
+     column beside two finished ones: neutral, then amber, then green. */
+  .col--wait .col__head { border-bottom-color: var(--ink); }
+  .col--cook .col__head { border-bottom-color: var(--amber); }
+  .col--ready .col__head { border-bottom-color: var(--ready); }
+  .col--ready .col__n { background: var(--ready); }
+  .col--cook .col__n { background: var(--amber); }
+  .col__body { padding: var(--s4); display: flex; flex-direction: column; gap: var(--s3); }
+
+  .ticket {
+    background: var(--surface);
+    border-radius: var(--r-md);
+    box-shadow: var(--lift-1);
+    overflow: hidden;
+  }
+  .ticket__top {
+    display: flex; align-items: baseline; gap: var(--s3);
+    padding: var(--s3) var(--s4);
+    border-bottom: 1px solid var(--line);
+  }
+  .ticket__code { font-size: var(--t-h2); font-weight: 800; letter-spacing: -.02em; }
+  .ticket__who { font-size: var(--t-sm); color: var(--muted); flex: 1; min-width: 0; }
+  .ticket__age {
+    font-size: var(--t-cap); font-weight: 800;
+    padding: 3px 8px; border-radius: var(--r-sm);
+    background: var(--surface-2); color: var(--muted);
+  }
+  /* A ticket ages visibly before it is actually late. */
+  .ticket--warn .ticket__age { background: var(--amber-wash); color: var(--amber); }
+  .ticket--late { box-shadow: var(--lift-2); }
+  .ticket--late .ticket__age { background: var(--alert); color: #fff; }
+  .ticket--late .ticket__top { border-bottom-color: var(--alert); }
+
+  .ticket__items { padding: var(--s3) var(--s4); display: flex; flex-direction: column; gap: 6px; }
+  .titem { display: flex; gap: var(--s3); align-items: baseline; font-size: var(--t-body); }
+  .titem__q { font-weight: 800; min-width: 22px; }
+  .titem__n { flex: 1; }
+  .titem__note {
+    display: block; font-size: var(--t-cap); color: var(--amber);
+    font-weight: 600; margin-top: 2px;
+  }
+  .ticket__foot {
+    display: flex; align-items: center; gap: var(--s2);
+    padding: var(--s3) var(--s4) var(--s4);
+    /* When the row runs out of width the two controls stack instead of
+       crushing each other. Nothing inside a control gives way. */
+    flex-wrap: wrap; row-gap: var(--s2);
+  }
+  .paytag {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: var(--t-micro); font-weight: 700;
+    padding: 4px 8px; border-radius: var(--r-sm);
+    border: 1px solid var(--line-2); color: var(--muted);
+  }
+  .paytag svg { width: 13px; height: 13px; flex: 0 0 auto; }
+  .paytag { white-space: nowrap; }
+  .paytag--cash { color: var(--amber); background: var(--amber-wash); border-color: var(--amber-line); }
+  .paytag--paid { color: var(--ready); background: var(--ready-wash); border-color: var(--ready-line); }
+  .ticket__act { margin-left: auto; }
+
+  .col__empty {
+    padding: var(--s8) var(--s4); text-align: center;
+    color: var(--faint); font-size: var(--t-sm);
+  }
+</style>
+</head>
+<body>
+<!-- DIRECTION CONTRACT · seed key d8c4aa79 · the category canon at full craft.
+     Operator surface: desktop/tablet-first, opposite density to the student app. -->
+<div class="op">
+
+  <header class="opbar">
+    <div class="opbar__grow">
+      <h1>BuffetYa! &middot; Panel de cocina</h1>
+      <p class="opbar__sub">Buffet Central &middot; Edificio A</p>
+    </div>
+    <div class="opbar__clock">18:31</div>
+  </header>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat__n">7</div>
+      <div class="stat__l">En cola</div>
+    </div>
+    <div class="stat">
+      <div class="stat__n">9 min</div>
+      <div class="stat__l">Espera promedio</div>
+    </div>
+    <div class="stat stat--warn">
+      <div class="stat__n">1</div>
+      <div class="stat__l">Demorado</div>
+    </div>
+    <div class="stat">
+      <div class="stat__n">42</div>
+      <div class="stat__l">Entregados hoy</div>
+    </div>
+  </div>
+
+  <div class="board">
+
+    <section class="col col--wait">
+      <div class="col__head">
+        <span class="col__title">Recibidos</span>
+        <span class="col__n">3</span>
+      </div>
+      <div class="col__body">
+
+        <article class="ticket ticket--late">
+          <div class="ticket__top">
+            <span class="ticket__code">B-044</span>
+            <span class="ticket__who">Lucía P.</span>
+            <span class="ticket__age">14 min</span>
+          </div>
+          <div class="ticket__items">
+            <div class="titem"><span class="titem__q">2</span><span class="titem__n">Empanada de carne</span></div>
+            <div class="titem"><span class="titem__q">1</span><span class="titem__n">Gaseosa 500ml</span></div>
+          </div>
+          <div class="ticket__foot">
+            <span class="paytag paytag--paid"><svg><use href="#i-card"/></svg>Pagado</span>
+            <button class="btn btn--warn btn--sm ticket__act">
+              <svg><use href="#i-flame"/></svg> Preparar
+            </button>
+          </div>
+        </article>
+
+        <article class="ticket ticket--warn">
+          <div class="ticket__top">
+            <span class="ticket__code">B-048</span>
+            <span class="ticket__who">Nicolás R.</span>
+            <span class="ticket__age">7 min</span>
+          </div>
+          <div class="ticket__items">
+            <div class="titem">
+              <span class="titem__q">1</span>
+              <span class="titem__n">
+                Bowl de garbanzos y quinoa
+                <span class="titem__note">VEGANO &middot; SIN TACC</span>
+              </span>
+            </div>
+          </div>
+          <div class="ticket__foot">
+            <span class="paytag paytag--cash"><svg><use href="#i-cash"/></svg>Efectivo</span>
+            <button class="btn btn--warn btn--sm ticket__act">
+              <svg><use href="#i-flame"/></svg> Preparar
+            </button>
+          </div>
+        </article>
+
+        <article class="ticket">
+          <div class="ticket__top">
+            <span class="ticket__code">B-049</span>
+            <span class="ticket__who">Sofía M.</span>
+            <span class="ticket__age">2 min</span>
+          </div>
+          <div class="ticket__items">
+            <div class="titem"><span class="titem__q">1</span><span class="titem__n">Café con leche</span></div>
+            <div class="titem"><span class="titem__q">3</span><span class="titem__n">Medialunas de manteca</span></div>
+          </div>
+          <div class="ticket__foot">
+            <span class="paytag paytag--paid"><svg><use href="#i-card"/></svg>Pagado</span>
+            <button class="btn btn--warn btn--sm ticket__act">
+              <svg><use href="#i-flame"/></svg> Preparar
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="col col--cook">
+      <div class="col__head">
+        <span class="col__title">En preparación</span>
+        <span class="col__n">2</span>
+      </div>
+      <div class="col__body">
+
+        <article class="ticket">
+          <div class="ticket__top">
+            <span class="ticket__code">B-047</span>
+            <span class="ticket__who">Martín D.</span>
+            <span class="ticket__age">5 min</span>
+          </div>
+          <div class="ticket__items">
+            <div class="titem">
+              <span class="titem__q">1</span>
+              <span class="titem__n">
+                Milanesa napolitana con papas
+                <span class="titem__note">SIN TACC &middot; sin sal</span>
+              </span>
+            </div>
+            <div class="titem"><span class="titem__q">1</span><span class="titem__n">Tarta de verdura porción</span></div>
+          </div>
+          <div class="ticket__foot">
+            <span class="paytag paytag--paid"><svg><use href="#i-card"/></svg>Pagado</span>
+            <button class="btn btn--go btn--sm ticket__act">
+              <svg><use href="#i-bell"/></svg> Marcar listo
+            </button>
+          </div>
+        </article>
+
+        <article class="ticket">
+          <div class="ticket__top">
+            <span class="ticket__code">B-046</span>
+            <span class="ticket__who">Ezequiel A.</span>
+            <span class="ticket__age">8 min</span>
+          </div>
+          <div class="ticket__items">
+            <div class="titem"><span class="titem__q">1</span><span class="titem__n">Sándwich de milanesa completo</span></div>
+          </div>
+          <div class="ticket__foot">
+            <span class="paytag paytag--cash"><svg><use href="#i-cash"/></svg>Efectivo</span>
+            <button class="btn btn--go btn--sm ticket__act">
+              <svg><use href="#i-bell"/></svg> Marcar listo
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="col col--ready">
+      <div class="col__head">
+        <span class="col__title">Listos para retirar</span>
+        <span class="col__n">2</span>
+      </div>
+      <div class="col__body">
+
+        <article class="ticket">
+          <div class="ticket__top">
+            <span class="ticket__code">B-045</span>
+            <span class="ticket__who">Camila S.</span>
+            <span class="ticket__age">3 min</span>
+          </div>
+          <div class="ticket__items">
+            <div class="titem"><span class="titem__q">1</span><span class="titem__n">Tarta de verdura porción</span></div>
+          </div>
+          <div class="ticket__foot">
+            <span class="paytag paytag--paid"><svg><use href="#i-card"/></svg>Pagado</span>
+            <button class="btn btn--ghost btn--sm ticket__act">
+              <svg><use href="#i-check"/></svg> Entregar
+            </button>
+          </div>
+        </article>
+
+        <article class="ticket ticket--warn">
+          <div class="ticket__top">
+            <span class="ticket__code">B-043</span>
+            <span class="ticket__who">Julián T.</span>
+            <span class="ticket__age">11 min</span>
+          </div>
+          <div class="ticket__items">
+            <div class="titem"><span class="titem__q">2</span><span class="titem__n">Café con leche</span></div>
+          </div>
+          <div class="ticket__foot">
+            <span class="paytag paytag--cash"><svg><use href="#i-cash"/></svg>Cobrar $3.800</span>
+            <button class="btn btn--ghost btn--sm ticket__act">
+              <svg><use href="#i-check"/></svg> Entregar
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Pagar · BuffetYa!</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body class="is-phone">
+<!-- DIRECTION CONTRACT · seed key d8c4aa79 · the category canon at full craft.
+     Craft bar for this screen: Mercado Pago. The payment step must feel
+     continuous with MP, not a jarring hand-off to something else. -->
+<div class="phone">
+
+  <header class="appbar">
+    <a class="iconbtn" href="carrito.html" aria-label="Volver al pedido">
+      <svg><use href="#i-arrowLeft"/></svg>
+    </a>
+    <div class="appbar__grow">
+      <h1 class="appbar__title">Pagar</h1>
+      <p class="appbar__sub">Paso 2 de 2</p>
+    </div>
+  </header>
+
+  <div class="screen screen--flush" style="padding-bottom: 150px;">
+
+    <div class="section">
+      <div class="section__head"><h2 class="section__title">Método de pago</h2></div>
+    </div>
+
+    <div class="card optlist" style="margin: 0 var(--s4); overflow: hidden;">
+
+      <label class="opt">
+        <input type="radio" name="pago" checked>
+        <span class="opt__dot"></span>
+        <span class="opt__grow">
+          <span class="opt__name">Mercado Pago</span>
+          <span class="opt__meta">Dinero en cuenta, débito o crédito</span>
+        </span>
+        <span class="opt__mark"><svg><use href="#i-card"/></svg></span>
+      </label>
+
+      <label class="opt">
+        <input type="radio" name="pago">
+        <span class="opt__dot"></span>
+        <span class="opt__grow">
+          <span class="opt__name">Efectivo al retirar</span>
+          <span class="opt__meta">Pagás en el mostrador cuando lo buscás</span>
+        </span>
+        <span class="opt__mark"><svg><use href="#i-cash"/></svg></span>
+      </label>
+
+    </div>
+
+    <div style="padding: var(--s4)">
+      <div class="notice">
+        <svg><use href="#i-info"/></svg>
+        <div>
+          Con <b>efectivo</b> el pedido igual se empieza a preparar, pero solo se
+          entrega contra pago en el mostrador.
+        </div>
+      </div>
+    </div>
+
+    <hr class="hr">
+
+    <div class="section">
+      <div class="section__head">
+        <h2 class="section__title">Resumen</h2>
+        <a class="section__link" href="carrito.html">Editar</a>
+      </div>
+    </div>
+
+    <div class="card" style="margin: 0 var(--s4)">
+      <div class="rows" style="border-radius: var(--r-lg); overflow: hidden;">
+        <div class="row" style="min-height: 52px">
+          <div class="row__grow"><div class="row__name sm">1 &times; Milanesa napolitana con papas</div></div>
+          <div class="row__end"><span class="row__price sm">$4.800</span></div>
+        </div>
+        <div class="row" style="min-height: 52px">
+          <div class="row__grow"><div class="row__name sm">1 &times; Tarta de verdura porción</div></div>
+          <div class="row__end"><span class="row__price sm">$3.200</span></div>
+        </div>
+      </div>
+      <div class="sum" style="border-top: 1px solid var(--line)">
+        <div class="sum__line"><span>Subtotal</span><b>$8.000</b></div>
+        <div class="sum__line"><span>Servicio</span><b>Sin cargo</b></div>
+        <div class="sum__rule"></div>
+        <div class="sum__total"><span>Total a pagar</span><b>$8.000</b></div>
+      </div>
+    </div>
+
+    <div style="padding: var(--s4)">
+      <div class="rows card" style="overflow: hidden">
+        <div class="row">
+          <span class="row__icon"><svg><use href="#i-mapPin"/></svg></span>
+          <div class="row__grow">
+            <div class="row__name">Retirás en Buffet Central</div>
+            <div class="row__meta">Edificio A, planta baja</div>
+          </div>
+        </div>
+        <div class="row">
+          <span class="row__icon"><svg><use href="#i-bell"/></svg></span>
+          <div class="row__grow">
+            <div class="row__name">Te avisamos cuando esté listo</div>
+            <div class="row__meta">Notificación al celular</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="dock">
+    <div class="dock__meta">
+      <span class="sm muted">Total</span>
+      <b>$8.000</b>
+    </div>
+    <a class="btn btn--primary btn--block" href="pedido.html" id="pay">
+      <svg><use href="#i-lock"/></svg> Pagar con Mercado Pago
+    </a>
+    <p class="cap muted center" style="margin-top: var(--s2)">
+      Te vamos a llevar a Mercado Pago para completar el pago.
+    </p>
+  </div>
+
+</div>
+
+<script>
+/* Loading state on submit: the canon shows the button working, never a dead tap. */
+document.getElementById('pay').addEventListener('click', function (e) {
+  var btn = e.currentTarget;
+  if (btn.dataset.loading === 'true') return;
+  e.preventDefault();
+  btn.dataset.loading = 'true';
+  setTimeout(function () { window.location.href = 'pedido.html'; }, 900);
+});
+
+/* The label follows the chosen method. Controls name their real action. */
+document.querySelectorAll('input[name="pago"]').forEach(function (r, i) {
+  r.addEventListener('change', function () {
+    var btn = document.getElementById('pay');
+    btn.innerHTML = i === 0
+      ? '<svg><use href="#i-lock"/></svg> Pagar con Mercado Pago'
+      : '<svg><use href="#i-check"/></svg> Confirmar pedido';
+    btn.nextElementSibling.textContent = i === 0
+      ? 'Te vamos a llevar a Mercado Pago para completar el pago.'
+      : 'Pagás $8.000 en efectivo al retirar el pedido.';
+  });
+});
+</script>
+</body>
+</html>

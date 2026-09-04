@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Mi pedido · BuffetYa!</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<style>
+  /* The single authored moment of the build: the arrival at READY.
+     The ground carries the state, not a badge, so the phone becomes a signal
+     readable from across a corridor. Everything else in the app is quiet. */
+  .status__icon, .status__title { transition: transform var(--slow) var(--ease); }
+  /* The card's border and shadow change at READY too, so they ride the same
+     560ms as the lift. Left out, they snap while everything else eases. */
+  .code {
+    transition: transform var(--slow) var(--ease),
+                border-color var(--slow) var(--ease),
+                box-shadow var(--slow) var(--ease);
+  }
+  .status--ready .status__icon { animation: land var(--slow) var(--ease) both; }
+  .status--ready .code { animation: rise var(--slow) var(--ease) 90ms both; }
+  @keyframes land {
+    from { transform: scale(.86); opacity: .4; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+  @keyframes rise {
+    from { transform: translateY(10px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  .demobar {
+    display: flex; gap: var(--s2); align-items: center;
+    padding: var(--s3) var(--s4);
+    background: var(--ink); color: #fff;
+    font-size: var(--t-micro); font-weight: 700; letter-spacing: .06em;
+  }
+  .demobar__btns { display: flex; gap: 6px; margin-left: auto; }
+  .demobar button {
+    padding: 5px 9px; border-radius: var(--r-sm);
+    background: rgba(255,255,255,.14); color: #fff;
+    font-size: var(--t-micro); font-weight: 700;
+  }
+  .demobar button:hover { background: rgba(255,255,255,.28); }
+  .demobar button[aria-pressed="true"] { background: #fff; color: var(--ink); }
+</style>
+</head>
+<body class="is-phone">
+<!-- DIRECTION CONTRACT · seed key d8c4aa79 · the category canon at full craft.
+     Craft bar for this screen: order-ahead status + pickup code. -->
+<div class="phone">
+
+  <header class="appbar appbar--brand">
+    <a class="iconbtn" href="menu.html" aria-label="Volver al menú">
+      <svg><use href="#i-arrowLeft"/></svg>
+    </a>
+    <div class="appbar__grow">
+      <h1 class="appbar__title">Pedido #047</h1>
+      <p class="appbar__sub">Hoy 18:24 &middot; Buffet Central</p>
+    </div>
+  </header>
+
+  <div class="screen" id="screen">
+
+    <section class="status status--cook" id="status">
+      <div class="status__icon">
+        <svg><use href="#i-flame" id="statusIcon"/></svg>
+      </div>
+      <h2 class="status__title" id="statusTitle">Lo están preparando</h2>
+      <p class="status__sub" id="statusSub">Te avisamos apenas esté listo. No hace falta que esperes acá.</p>
+
+      <div class="status__eta" id="statusEta">
+        <svg><use href="#i-clock"/></svg>
+        <span>Listo en 6 min aprox.</span>
+      </div>
+
+      <div class="code">
+        <div class="code__label">Código de retiro</div>
+        <div class="code__value">B-047</div>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <section class="steps" aria-label="Seguimiento del pedido">
+      <div class="step step--done">
+        <div class="step__dot"><svg><use href="#i-check"/></svg></div>
+        <div>
+          <div class="step__name">Pedido recibido</div>
+          <div class="step__time">18:24</div>
+        </div>
+      </div>
+      <div class="step step--done">
+        <div class="step__dot"><svg><use href="#i-check"/></svg></div>
+        <div>
+          <div class="step__name">Pago acreditado</div>
+          <div class="step__time">18:24 &middot; Mercado Pago</div>
+        </div>
+      </div>
+      <div class="step step--now" id="stepCook">
+        <div class="step__dot"><svg><use href="#i-flame"/></svg></div>
+        <div>
+          <div class="step__name">En preparación</div>
+          <div class="step__time">18:26</div>
+        </div>
+      </div>
+      <div class="step" id="stepReady">
+        <div class="step__dot"><svg><use href="#i-bell"/></svg></div>
+        <div>
+          <div class="step__name">Listo para retirar</div>
+          <div class="step__time">—</div>
+        </div>
+      </div>
+      <div class="step" id="stepDone">
+        <div class="step__dot"><svg><use href="#i-package"/></svg></div>
+        <div>
+          <div class="step__name">Entregado</div>
+          <div class="step__time">—</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section">
+      <div class="section__head"><h2 class="section__title">Tu pedido</h2></div>
+    </div>
+
+    <div class="rows card" style="margin: 0 var(--s4); overflow: hidden;">
+      <div class="row">
+        <div class="photo photo--thumb"></div>
+        <div class="row__grow">
+          <div class="row__name">Milanesa napolitana con papas</div>
+          <div class="row__meta">1 unidad</div>
+        </div>
+        <div class="row__end"><span class="row__price">$4.800</span></div>
+      </div>
+      <div class="row">
+        <div class="photo photo--thumb"></div>
+        <div class="row__grow">
+          <div class="row__name">Tarta de verdura porción</div>
+          <div class="row__meta">1 unidad</div>
+        </div>
+        <div class="row__end"><span class="row__price">$3.200</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin: var(--s3) var(--s4) 0;">
+      <div class="sum">
+        <div class="sum__line"><span>Subtotal</span><b>$8.000</b></div>
+        <div class="sum__line"><span>Método de pago</span><b>Mercado Pago</b></div>
+        <div class="sum__rule"></div>
+        <div class="sum__total"><span>Total pagado</span><b>$8.000</b></div>
+      </div>
+    </div>
+
+    <div style="padding: var(--s4);">
+      <div class="notice notice--info">
+        <svg><use href="#i-mapPin"/></svg>
+        <div>
+          <b>Retiro en Buffet Central, Edificio A.</b>
+          Mostrá el código B-047 en el mostrador de retiro de pedidos.
+        </div>
+      </div>
+    </div>
+
+    <div style="padding: 0 var(--s4) var(--s6);">
+      <a class="btn btn--ghost btn--block" href="menu.html">
+        <svg><use href="#i-list"/></svg> Volver al menú
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Prototype control. Not part of the product: it exists so the four order
+       states can be reviewed without a running backend. -->
+  <div class="demobar">
+    <span>PROTOTIPO · ESTADO</span>
+    <div class="demobar__btns">
+      <button data-state="wait">Recibido</button>
+      <button data-state="cook" aria-pressed="true">Preparando</button>
+      <button data-state="ready">Listo</button>
+      <button data-state="done">Entregado</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var STATES = {
+    wait: {
+      cls: 'status--wait', icon: '#i-check',
+      title: 'Pedido recibido',
+      sub: 'El buffet ya lo vio. En breve lo empiezan a preparar.',
+      eta: 'Listo en 12 min aprox.', theme: '#ffffff'
+    },
+    cook: {
+      cls: 'status--cook', icon: '#i-flame',
+      title: 'Lo están preparando',
+      sub: 'Te avisamos apenas esté listo. No hace falta que esperes acá.',
+      eta: 'Listo en 6 min aprox.', theme: '#ffffff'
+    },
+    ready: {
+      cls: 'status--ready', icon: '#i-checkBig',
+      title: '¡Listo para retirar!',
+      sub: 'Pasá por el mostrador y mostrá tu código.',
+      eta: 'Te esperamos hasta las 19:10', theme: '#0b7a5e'
+    },
+    done: {
+      cls: 'status--done', icon: '#i-package',
+      title: 'Pedido entregado',
+      sub: 'Gracias por usar BuffetYa!. Que lo disfrutes.',
+      eta: 'Retirado 18:33', theme: '#ffffff'
+    }
+  };
+
+  var status = document.getElementById('status');
+  var title = document.getElementById('statusTitle');
+  var sub = document.getElementById('statusSub');
+  var eta = document.getElementById('statusEta').querySelector('span');
+  var icon = document.querySelector('#status .status__icon use');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+
+  var stepCook = document.getElementById('stepCook');
+  var stepReady = document.getElementById('stepReady');
+  var stepDone = document.getElementById('stepDone');
+
+  function setStep(el, cls, time) {
+    el.className = 'step' + (cls ? ' ' + cls : '');
+    el.querySelector('.step__time').textContent = time;
+  }
+
+  var phone = document.querySelector('.phone');
+
+  function apply(key) {
+    var s = STATES[key];
+    status.className = 'status ' + s.cls;
+    /* Drives the app bar so the ready ground runs the full first viewport. */
+    phone.setAttribute('data-order', key);
+    title.textContent = s.title;
+    sub.textContent = s.sub;
+    eta.textContent = s.eta;
+    icon.setAttribute('href', s.icon);
+    themeMeta.setAttribute('content', s.theme);
+
+    if (key === 'wait') {
+      setStep(stepCook, '', '—');
+      setStep(stepReady, '', '—');
+      setStep(stepDone, '', '—');
+    } else if (key === 'cook') {
+      setStep(stepCook, 'step--now', '18:26');
+      setStep(stepReady, '', '—');
+      setStep(stepDone, '', '—');
+    } else if (key === 'ready') {
+      setStep(stepCook, 'step--done', '18:26');
+      setStep(stepReady, 'step--now', '18:31');
+      setStep(stepDone, '', '—');
+    } else {
+      setStep(stepCook, 'step--done', '18:26');
+      setStep(stepReady, 'step--done', '18:31');
+      setStep(stepDone, 'step--done', '18:33');
+    }
+  }
+
+  function select(key) {
+    document.querySelectorAll('.demobar [data-state]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.state === key));
+    });
+    apply(key);
+  }
+
+  document.querySelectorAll('.demobar [data-state]').forEach(function (btn) {
+    btn.addEventListener('click', function () { select(btn.dataset.state); });
+  });
+
+  /* ?estado=ready opens the screen straight into one state, so each state can
+     be linked and reviewed on its own. */
+  var wanted = new URLSearchParams(location.search).get('estado');
+  if (wanted && STATES[wanted]) select(wanted);
+})();
+</script>
+</body>
+</html>

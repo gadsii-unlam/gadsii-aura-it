@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Mi pedido · BuffetYa!</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body class="is-phone">
+<!-- DIRECTION CONTRACT · seed key d8c4aa79 · the category canon at full craft. -->
+<div class="phone">
+
+  <header class="appbar">
+    <a class="iconbtn" href="menu.html" aria-label="Volver al menú">
+      <svg><use href="#i-arrowLeft"/></svg>
+    </a>
+    <div class="appbar__grow">
+      <h1 class="appbar__title">Mi pedido</h1>
+      <p class="appbar__sub">Buffet Central &middot; Edificio A</p>
+    </div>
+  </header>
+
+  <div class="screen screen--flush" style="padding-bottom: 150px;">
+
+    <div class="rows" style="border-bottom: 1px solid var(--line)">
+
+      <div class="row">
+        <div class="photo photo--thumb"></div>
+        <div class="row__grow">
+          <div class="row__name">Milanesa napolitana con papas</div>
+          <div class="row__meta">$4.800 c/u</div>
+          <div style="margin-top: var(--s2)">
+            <div class="stepper" data-stepper data-min="1" data-max="10">
+              <button data-dec aria-label="Quitar uno"><svg><use href="#i-minus"/></svg></button>
+              <output>1</output>
+              <button data-inc aria-label="Agregar uno"><svg><use href="#i-plus"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="row__end">
+          <span class="row__price">$4.800</span>
+          <button class="iconbtn" aria-label="Quitar del pedido" style="width:32px;height:32px;color:var(--muted)">
+            <svg style="width:18px;height:18px"><use href="#i-trash"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="photo photo--thumb"></div>
+        <div class="row__grow">
+          <div class="row__name">Tarta de verdura porción</div>
+          <div class="row__meta">$3.200 c/u</div>
+          <div style="margin-top: var(--s2)">
+            <div class="stepper" data-stepper data-min="1" data-max="10">
+              <button data-dec aria-label="Quitar uno"><svg><use href="#i-minus"/></svg></button>
+              <output>1</output>
+              <button data-inc aria-label="Agregar uno"><svg><use href="#i-plus"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="row__end">
+          <span class="row__price">$3.200</span>
+          <button class="iconbtn" aria-label="Quitar del pedido" style="width:32px;height:32px;color:var(--muted)">
+            <svg style="width:18px;height:18px"><use href="#i-trash"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="padding: var(--s4)">
+      <a class="btn btn--ghost btn--block" href="menu.html">
+        <svg><use href="#i-plus"/></svg> Agregar algo más
+      </a>
+    </div>
+
+    <div class="card" style="margin: 0 var(--s4)">
+      <div class="sum">
+        <div class="sum__line"><span>Subtotal</span><b>$8.000</b></div>
+        <div class="sum__line"><span>Servicio</span><b>Sin cargo</b></div>
+        <div class="sum__rule"></div>
+        <div class="sum__total"><span>Total</span><b>$8.000</b></div>
+      </div>
+    </div>
+
+    <div style="padding: var(--s4)">
+      <div class="notice">
+        <svg><use href="#i-clock"/></svg>
+        <div>
+          <b>El buffet cierra a las 21:30.</b>
+          Los pedidos se preparan al confirmarse, no se agendan para más tarde.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="dock">
+    <div class="dock__meta">
+      <span class="sm muted">2 productos</span>
+      <b>$8.000</b>
+    </div>
+    <a class="btn btn--primary btn--block" href="checkout.html">
+      Continuar al pago
+      <svg><use href="#i-arrowRight"/></svg>
+    </a>
+  </div>
+
+</div>
+</body>
+</html>

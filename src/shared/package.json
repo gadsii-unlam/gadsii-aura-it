@@ -1,0 +1,15 @@
+{
+  "name": "@buffetya/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Types and contracts shared between the Angular frontend and the NestJS backend.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}

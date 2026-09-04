@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Historial · BuffetYa!</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<style>
+  .daylabel {
+    padding: var(--s5) var(--s4) var(--s2);
+    font-size: var(--t-micro); font-weight: 700;
+    letter-spacing: .09em; text-transform: uppercase; color: var(--muted);
+  }
+  .state {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: var(--t-micro); font-weight: 700;
+    padding: 3px 8px; border-radius: var(--r-sm); border: 1px solid;
+  }
+  .state svg { width: 12px; height: 12px; }
+  .state--done { color: var(--ready); background: var(--ready-wash); border-color: var(--ready-line); }
+  .state--cancel { color: var(--alert-ink); background: var(--alert-wash); border-color: var(--alert-line); }
+  .demobar {
+    display: flex; gap: var(--s2); align-items: center;
+    padding: var(--s3) var(--s4); background: var(--ink); color: #fff;
+    font-size: var(--t-micro); font-weight: 700; letter-spacing: .06em;
+  }
+  .demobar__btns { display: flex; gap: 6px; margin-left: auto; }
+  .demobar button {
+    padding: 5px 9px; border-radius: var(--r-sm);
+    background: rgba(255,255,255,.14); color: #fff;
+    font-size: var(--t-micro); font-weight: 700;
+  }
+  .demobar button[aria-pressed="true"] { background: #fff; color: var(--ink); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body class="is-phone">
+<!-- DIRECTION CONTRACT · seed key d8c4aa79 · the category canon at full craft. -->
+<div class="phone">
+
+  <header class="appbar">
+    <div class="appbar__grow">
+      <h1 class="appbar__title">Historial</h1>
+      <p class="appbar__sub">Tus pedidos anteriores</p>
+    </div>
+  </header>
+
+  <div class="screen" id="full">
+
+    <div class="daylabel">Hoy · Martes 31 de agosto</div>
+    <div class="rows card" style="margin: 0 var(--s4); overflow: hidden;">
+      <a class="row" href="pedido.html">
+        <div class="photo photo--thumb"></div>
+        <div class="row__grow">
+          <div class="row__name">Pedido #047</div>
+          <div class="row__meta">Milanesa napolitana, Tarta de verdura</div>
+          <div style="margin-top: 6px">
+            <span class="state state--done"><svg><use href="#i-check"/></svg>Entregado</span>
+          </div>
+        </div>
+        <div class="row__end">
+          <span class="row__price">$8.000</span>
+          <span class="row__meta">18:33</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="daylabel">Jueves 26 de agosto</div>
+    <div class="rows card" style="margin: 0 var(--s4); overflow: hidden;">
+      <a class="row" href="pedido.html">
+        <div class="photo photo--thumb"></div>
+        <div class="row__grow">
+          <div class="row__name">Pedido #039</div>
+          <div class="row__meta">Sándwich de milanesa completo, Gaseosa 500ml</div>
+          <div style="margin-top: 6px">
+            <span class="state state--done"><svg><use href="#i-check"/></svg>Entregado</span>
+          </div>
+        </div>
+        <div class="row__end">
+          <span class="row__price">$5.700</span>
+          <span class="row__meta">13:05</span>
+        </div>
+      </a>
+      <a class="row" href="pedido.html">
+        <div class="photo photo--thumb"></div>
+        <div class="row__grow">
+          <div class="row__name">Pedido #036</div>
+          <div class="row__meta">Café con leche, Medialunas x3</div>
+          <div style="margin-top: 6px">
+            <span class="state state--cancel"><svg><use href="#i-x"/></svg>Cancelado por el buffet</span>
+          </div>
+        </div>
+        <div class="row__end">
+          <span class="row__price">$4.300</span>
+          <span class="row__meta">09:41</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="daylabel">Martes 24 de agosto</div>
+    <div class="rows card" style="margin: 0 var(--s4) var(--s6); overflow: hidden;">
+      <a class="row" href="pedido.html">
+        <div class="photo photo--thumb"></div>
+        <div class="row__grow">
+          <div class="row__name">Pedido #028</div>
+          <div class="row__meta">Empanada de carne x3</div>
+          <div style="margin-top: 6px">
+            <span class="state state--done"><svg><use href="#i-check"/></svg>Entregado</span>
+          </div>
+        </div>
+        <div class="row__end">
+          <span class="row__price">$4.200</span>
+          <span class="row__meta">19:12</span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="screen" id="empty" hidden>
+    <div class="empty">
+      <div class="empty__icon"><svg><use href="#i-clock"/></svg></div>
+      <h2 class="empty__title">Todavía no pediste nada</h2>
+      <p class="empty__text">
+        Cuando hagas tu primer pedido en el buffet, te va a quedar guardado acá.
+      </p>
+      <a class="btn btn--primary" href="menu.html" style="margin-top: var(--s2)">
+        <svg><use href="#i-list"/></svg> Ver el menú de hoy
+      </a>
+    </div>
+  </div>
+
+  <div class="demobar">
+    <span>PROTOTIPO · VISTA</span>
+    <div class="demobar__btns">
+      <button data-view="full" aria-pressed="true">Con pedidos</button>
+      <button data-view="empty">Vacío</button>
+    </div>
+  </div>
+
+  <nav class="tabbar" aria-label="Navegación principal">
+    <a class="tab" href="menu.html"><svg><use href="#i-list"/></svg> Menú</a>
+    <a class="tab" href="pedido.html"><svg><use href="#i-package"/></svg> Mi pedido</a>
+    <a class="tab" href="historial.html" aria-current="page"><svg><use href="#i-clock"/></svg> Historial</a>
+    <a class="tab" href="perfil.html"><svg><use href="#i-user"/></svg> Perfil</a>
+  </nav>
+
+</div>
+
+<script>
+document.querySelectorAll('.demobar [data-view]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('.demobar [data-view]').forEach(function (b) {
+      b.setAttribute('aria-pressed', 'false');
+    });
+    btn.setAttribute('aria-pressed', 'true');
+    document.getElementById('full').hidden = btn.dataset.view !== 'full';
+    document.getElementById('empty').hidden = btn.dataset.view !== 'empty';
+  });
+});
+</script>
+</body>
+</html>

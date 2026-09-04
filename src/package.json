@@ -1,0 +1,17 @@
+{
+  "name": "buffetya",
+  "version": "0.1.0",
+  "private": true,
+  "description": "BuffetYa! — pre-ordering for the UNLaM university buffet.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./frontend\" --filter \"./backend\" run dev",
+    "dev:web": "pnpm --filter ./frontend run start",
+    "dev:api": "pnpm --filter ./backend run start:dev",
+    "build": "pnpm --filter ./shared run build && pnpm --parallel --filter \"./frontend\" --filter \"./backend\" run build",
+    "test": "pnpm --recursive run test",
+    "lint": "pnpm --recursive run lint"
+  }
+}

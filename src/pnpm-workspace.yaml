@@ -1,0 +1,13 @@
+packages:
+  - 'frontend'
+  - 'backend'
+  - 'shared'
+
+# Native/toolchain packages allowed to run install scripts.
+# All four are part of the Angular + esbuild build chain: without them the
+# frontend cannot compile and the dev watcher cannot start.
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  lmdb: true
+  msgpackr-extract: true
