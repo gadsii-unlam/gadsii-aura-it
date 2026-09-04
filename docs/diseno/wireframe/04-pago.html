@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>04 · Pago · Wireframe BuffetYa!</title>
+<link rel="stylesheet" href="wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">04 · Pago</span>
+    <span class="topbar__s">Wireframe del MVP · pantalla 4 de 6</span>
+    <nav class="topbar__nav">
+      <a href="index.html">Índice</a>
+      <a href="03-pedido.html">&larr; Anterior</a>
+      <a href="05-estado.html">Siguiente &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+  <div class="pair">
+
+    <div>
+      <p class="screen__label">Pantalla · celular</p>
+      <div class="screen">
+
+        <div class="appbar">
+          <span class="appbar__act">&larr;</span>
+          <div class="appbar__grow">
+            <div class="appbar__title">Pago</div>
+            <div class="appbar__sub">Paso 2 de 2</div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start">
+            <span class="n">1</span>
+            <div class="stack" style="flex:1">
+              <span class="h">¿A nombre de quién?</span>
+              <div class="field">Nombre y apellido</div>
+              <div class="field">Email</div>
+              <span class="micro">Lo usamos para avisarte cuando esté listo.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start; margin-bottom:10px">
+            <span class="n">2</span>
+            <span class="h" style="flex:1">Medio de pago</span>
+          </div>
+
+          <div class="stack">
+            <div class="card" style="border-width:2px; border-color:var(--w-ink)">
+              <div class="rowx">
+                <span class="tag">●</span>
+                <div class="stack" style="flex:1; gap:2px">
+                  <span class="h">Mercado Pago</span>
+                  <span class="micro">Dinero en cuenta, débito o crédito</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="rowx">
+                <span class="tag">○</span>
+                <div class="stack" style="flex:1; gap:2px">
+                  <span class="rowx" style="gap:6px">
+                    <span class="n">3</span>
+                    <span class="h">Efectivo al retirar</span>
+                  </span>
+                  <span class="micro">Pagás en el mostrador cuando lo buscás</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="between">
+            <span class="sub">Total a pagar</span>
+            <b style="font-size:20px">$8.000</b>
+          </div>
+        </div>
+
+        <div class="band band--fill">
+          <div class="rowx" style="align-items:flex-start; margin-bottom:8px">
+            <span class="n">4</span>
+            <div style="flex:1">
+              <a class="btn btn--primary" href="05-estado.html">Ir a Mercado Pago</a>
+            </div>
+          </div>
+          <p class="micro" style="text-align:center">
+            Salís de BuffetYa! y volvés cuando termine el pago.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="notes">
+      <h1 class="notes__h">Decisiones de esta pantalla</h1>
+
+      <div class="note">
+        <span class="n">1</span>
+        <div class="note__b">
+          <div class="note__t">Los datos personales se piden acá, no al abrir la aplicación</div>
+          <p class="note__d">
+            Dos campos, en el último paso, cuando ya existe una razón visible para
+            darlos. No hay registro previo ni contraseña en el MVP.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            El <b>100% quiere ver el menú y los precios de antemano</b>. Un registro
+            al inicio bloquea eso para todos, incluso para quien todavía no decidió
+            comprar. Y el email tiene una función concreta acá: es por donde llega
+            el aviso que <b>el 86% valoró positivamente</b>.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">2</span>
+        <div class="note__b">
+          <div class="note__t">Mercado Pago viene preseleccionado</div>
+          <p class="note__d">
+            La opción por defecto es la que la mayoría va a elegir. Cambiarla es un
+            toque; dejarla, ninguno.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            <b>El 71% eligió Mercado Pago y el 29% tarjeta de débito.</b> El débito
+            entra por el mismo checkout de Mercado Pago, así que una sola integración
+            cubre al 100% de los medios que los encuestados dijeron usar.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">3</span>
+        <div class="note__b">
+          <div class="note__t">El efectivo existe, pero como segunda opción</div>
+          <p class="note__d">
+            Está disponible y no preseleccionado. Con efectivo el pedido se prepara
+            igual, pero sólo se entrega contra pago en el mostrador.
+          </p>
+          <div class="anchor anchor--none">
+            <span class="anchor__k">Sin anclaje · supuesto declarado</span>
+            <b>Ningún encuestado prefiere pagar con efectivo</b> (71% Mercado Pago,
+            29% débito, 0% efectivo). El relevamiento no sostiene esta opción: está
+            por decisión del equipo, para cubrir a quien no tenga saldo o cuenta.
+            <b>Se declara como suposición, no como hallazgo.</b> Si el equipo prefiere
+            ceñirse a la evidencia, esta opción sale y el flujo se simplifica.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">4</span>
+        <div class="note__b">
+          <div class="note__t">El botón dice adónde lleva, no "Confirmar"</div>
+          <p class="note__d">
+            La etiqueta nombra la acción real y avisa que se sale de la aplicación.
+            Cambia según el medio de pago elegido.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2 · tasa de errores</span>
+            El salto a Mercado Pago es el único momento en que el usuario deja la
+            aplicación. Un botón que dijera "Confirmar" y abriera otra aplicación es
+            exactamente el tipo de sorpresa que hace abandonar un pago. El atributo
+            priorizado acá manda sobre la brevedad de la etiqueta.
+          </div>
+        </div>
+      </div>
+
+      <div class="links">
+        <div class="links__h">Navegación desde esta pantalla</div>
+        <ul>
+          <li><code>&larr;</code> <span>&rarr; <a href="03-pedido.html">03 · Revisar el pedido</a></span></li>
+          <li><code>Ir a Mercado Pago</code> <span>&rarr; checkout externo &rarr; <a href="05-estado.html">05 · En preparación</a></span></li>
+          <li><code>Confirmar pedido</code> <span>(si eligió efectivo) &rarr; <a href="05-estado.html">05 · En preparación</a></span></li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <div class="callout__h">Qué se construye y qué se simula acá</div>
+        <p>
+          El checkout de Mercado Pago es una <b>integración externa</b>, y la consigna
+          permite simularla en el MVP. Se puede probar el flujo completo con un pago
+          simulado y aprender igual si el usuario encuentra valor. Lo que sí tiene que
+          estar construido de verdad es el componente propio: el pedido, su estado y
+          el aviso de listo.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flownav">
+    <a href="03-pedido.html">&larr; Anterior: 03 · Revisar el pedido</a>
+    <span class="flownav__sp"></span>
+    <a href="05-estado.html">Siguiente: 05 · En preparación &rarr;</a>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03 · Revisar el pedido · Wireframe BuffetYa!</title>
+<link rel="stylesheet" href="wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">03 · Revisar el pedido</span>
+    <span class="topbar__s">Wireframe del MVP · pantalla 3 de 6</span>
+    <nav class="topbar__nav">
+      <a href="index.html">Índice</a>
+      <a href="02-detalle.html">&larr; Anterior</a>
+      <a href="04-pago.html">Siguiente &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+  <div class="pair">
+
+    <div>
+      <p class="screen__label">Pantalla · celular</p>
+      <div class="screen">
+
+        <div class="appbar">
+          <span class="appbar__act">&larr;</span>
+          <div class="appbar__grow">
+            <div class="appbar__title">Mi pedido</div>
+            <div class="appbar__sub">Paso 1 de 2</div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start; margin-bottom:8px">
+            <span class="n">1</span>
+            <span class="h" style="flex:1">Revisá antes de pagar</span>
+          </div>
+
+          <div class="listrow">
+            <div class="ph ph--thumb"></div>
+            <div class="stack stack--tight" style="flex:1">
+              <span class="t-item">Milanesa napolitana con papas</span>
+              <span class="micro">sin sal</span>
+              <div class="rowx" style="gap:4px; margin-top:10px">
+                <span class="chip">&minus;</span>
+                <b style="min-width:20px; text-align:center; font-size:12px">1</b>
+                <span class="chip">+</span>
+                <span class="chip" style="margin-left:auto">Quitar</span>
+              </div>
+            </div>
+            <b class="t-amount">$4.800</b>
+          </div>
+
+          <div class="listrow">
+            <div class="ph ph--thumb"></div>
+            <div class="stack stack--tight" style="flex:1">
+              <span class="t-item">Tarta de verdura porción</span>
+              <div class="rowx" style="gap:4px; margin-top:10px">
+                <span class="chip">&minus;</span>
+                <b style="min-width:20px; text-align:center; font-size:12px">1</b>
+                <span class="chip">+</span>
+                <span class="chip" style="margin-left:auto">Quitar</span>
+              </div>
+            </div>
+            <b class="t-amount">$3.200</b>
+          </div>
+        </div>
+
+        <div class="band band--tight">
+          <a class="btn btn--inline" href="01-menu.html" style="display:block; text-align:center">+ Agregar algo más</a>
+        </div>
+
+        <div class="band">
+          <div class="stack stack--loose">
+            <div class="between"><span class="sub">Subtotal</span><span class="sub">$8.000</span></div>
+            <div class="between"><span class="sub">Servicio</span><span class="sub">Sin cargo</span></div>
+            <div class="between" style="border-top:1px solid var(--w-line); padding-top:8px">
+              <span class="rowx" style="gap:6px"><span class="n">2</span><b>Total</b></span>
+              <b style="font-size:20px">$8.000</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start">
+            <span class="n">3</span>
+            <div class="card" style="flex:1">
+              <div class="stack" style="gap:4px">
+                <span class="h">Retirás en Buffet Central</span>
+                <span class="micro">Edificio A, planta baja. El buffet cierra 21:30.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="band band--fill">
+          <a class="btn btn--primary" href="04-pago.html">Continuar al pago</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="notes">
+      <h1 class="notes__h">Decisiones de esta pantalla</h1>
+
+      <div class="note">
+        <span class="n">1</span>
+        <div class="note__b">
+          <div class="note__t">Un único punto de corrección, antes de pagar</div>
+          <p class="note__d">
+            Todo lo que se puede cambiar &mdash;cantidades, quitar productos, agregar
+            más&mdash; está en esta pantalla. Después del pago no hay edición.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2 · tasa de errores</span>
+            Es el segundo atributo priorizado, y se concentra acá porque es el último
+            momento antes de comprometer dinero real. Ponerlo en un solo lugar evita
+            el patrón de confirmar en cada paso, que multiplica toques y contradice
+            el atributo principal: <b>el 86% calificó la espera como "muy molesta"</b>.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">2</span>
+        <div class="note__b">
+          <div class="note__t">El total es el elemento más grande de la pantalla</div>
+          <p class="note__d">
+            Domina visualmente sobre subtotal y servicio, que quedan como líneas de
+            apoyo.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            El precio es la mitad de lo que el <b>100% de los encuestados</b> dijo
+            querer saber antes de ir al buffet. Si el precio importa lo suficiente
+            como para consultarlo de antemano, el monto final no puede ser una línea
+            más de una lista.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">3</span>
+        <div class="note__b">
+          <div class="note__t">Dónde se retira y hasta qué hora, antes de pagar</div>
+          <p class="note__d">
+            El punto de retiro y el horario de cierre aparecen antes del pago, no
+            después.
+          </p>
+          <div class="anchor anchor--none">
+            <span class="anchor__k">Sin anclaje · supuesto</span>
+            <b>El relevamiento no preguntó por el horario ni por el punto de retiro.</b>
+            Se incluye porque un pedido pagado que no se puede retirar es el peor
+            error posible del sistema, y porque el TP1 dejó sin definir si hay uno o
+            varios puntos de retiro en el campus. Es una precaución del equipo.
+          </div>
+        </div>
+      </div>
+
+      <div class="links">
+        <div class="links__h">Navegación desde esta pantalla</div>
+        <ul>
+          <li><code>&larr;</code> <span>&rarr; <a href="01-menu.html">01 · Menú y precios</a></span></li>
+          <li><code>Agregar algo más</code> <span>&rarr; <a href="01-menu.html">01 · Menú y precios</a></span></li>
+          <li><code>Continuar al pago</code> <span>&rarr; <a href="04-pago.html">04 · Pago</a></span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flownav">
+    <a href="02-detalle.html">&larr; Anterior: 02 · Detalle del plato</a>
+    <span class="flownav__sp"></span>
+    <a href="04-pago.html">Siguiente: 04 · Pago &rarr;</a>
+  </div>
+</main>
+</body>
+</html>
