@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframe del MVP · BuffetYa! · TP3</title>
+<link rel="stylesheet" href="wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">BuffetYa! · Wireframe del MVP</span>
+    <span class="topbar__s">TP3 · Equipo Aura IT · GADS II (3665)</span>
+    <nav class="topbar__nav">
+      <a href="01-menu.html">Empezar el recorrido &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+
+  <h1 style="font-size:28px">BuffetYa!</h1>
+  <hr class="rule">
+
+  <h2>Flujo principal</h2>
+  <p class="lead" style="margin-top:8px">
+    Desde que el estudiante abre la aplicación hasta que retira el pedido sin
+    haber hecho la fila. Un solo recorrido, sin ramas paralelas.
+  </p>
+
+  <div class="map" style="margin-top:20px">
+    <a class="map__node" href="01-menu.html">
+      <span class="map__k">01</span>
+      <span class="map__t">Menú y precios</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="02-detalle.html">
+      <span class="map__k">02</span>
+      <span class="map__t">Detalle del plato</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="03-pedido.html">
+      <span class="map__k">03</span>
+      <span class="map__t">Revisar el pedido</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="04-pago.html">
+      <span class="map__k">04</span>
+      <span class="map__t">Pago</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="05-estado.html">
+      <span class="map__k">05</span>
+      <span class="map__t">En preparación</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="06-listo.html">
+      <span class="map__k">06</span>
+      <span class="map__t">Listo para retirar</span>
+    </a>
+  </div>
+
+  <hr class="rule">
+
+  <h2>Pantallas</h2>
+  <div class="cards" style="margin-top:16px">
+    <a class="cardlink" href="01-menu.html">
+      <span class="cardlink__k">01</span>
+      <span class="cardlink__t">Menú y precios</span>
+      <span class="cardlink__d">Lista completa con precios y filtros alimenticios opcionales.</span>
+    </a>
+    <a class="cardlink" href="02-detalle.html">
+      <span class="cardlink__k">02</span>
+      <span class="cardlink__t">Detalle del plato</span>
+      <span class="cardlink__d">Cantidad, aclaraciones y tiempo estimado de preparación.</span>
+    </a>
+    <a class="cardlink" href="03-pedido.html">
+      <span class="cardlink__k">03</span>
+      <span class="cardlink__t">Revisar el pedido</span>
+      <span class="cardlink__d">Único punto de corrección antes de pagar.</span>
+    </a>
+    <a class="cardlink" href="04-pago.html">
+      <span class="cardlink__k">04</span>
+      <span class="cardlink__t">Pago</span>
+      <span class="cardlink__d">Identificación y medio de pago.</span>
+    </a>
+    <a class="cardlink" href="05-estado.html">
+      <span class="cardlink__k">05</span>
+      <span class="cardlink__t">En preparación</span>
+      <span class="cardlink__d">Código de retiro y permiso explícito para irse.</span>
+    </a>
+    <a class="cardlink" href="06-listo.html">
+      <span class="cardlink__k">06</span>
+      <span class="cardlink__t">Listo para retirar</span>
+    </a>
+  </div>
+  <div class="flownav">
+    <span class="flownav__sp"></span>
+    <a href="01-menu.html">Siguiente: 01 · Menú y precios &rarr;</a>
+  </div>
+
+</main>
+</body>
+</html>

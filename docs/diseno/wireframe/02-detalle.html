@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02 · Detalle del plato · Wireframe BuffetYa!</title>
+<link rel="stylesheet" href="wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">02 · Detalle del plato</span>
+    <span class="topbar__s">Wireframe del MVP · pantalla 2 de 6</span>
+    <nav class="topbar__nav">
+      <a href="index.html">Índice</a>
+      <a href="01-menu.html">&larr; Anterior</a>
+      <a href="03-pedido.html">Siguiente &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+  <div class="pair">
+
+    <div>
+      <p class="screen__label">Pantalla · celular</p>
+      <div class="screen">
+
+        <div class="appbar">
+          <span class="appbar__act">&larr;</span>
+          <div class="appbar__grow">
+            <div class="appbar__title">Detalle</div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="ph ph--wide"></div>
+        </div>
+
+        <div class="band">
+          <div class="stack stack--tight">
+            <span style="margin-bottom:4px"><span class="tag">SIN TACC</span></span>
+            <h2 class="t-name">Milanesa napolitana con papas</h2>
+            <b class="t-price">$4.800</b>
+            <p class="sub" style="margin-top:8px">
+              Milanesa de ternera con salsa de tomate, jamón y muzzarella.
+              Acompañada con papas fritas. Porción individual.
+            </p>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start">
+            <span class="n">1</span>
+            <div class="stack" style="flex:1">
+              <div class="between">
+                <span class="h">Tiempo de preparación</span>
+                <b style="font-size:13px">10 a 15 min</b>
+              </div>
+              <span class="micro">Se empieza a preparar cuando confirmás el pedido.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start">
+            <span class="n">2</span>
+            <div class="stack" style="flex:1">
+              <span class="h">Aclaraciones para la cocina</span>
+              <div class="field">Ej: sin sal, papas aparte</div>
+              <span class="micro">Opcional.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="band band--fill">
+          <div class="rowx" style="align-items:flex-start; margin-bottom:12px">
+            <span class="n">3</span>
+            <div class="between" style="flex:1">
+              <span class="h">Cantidad</span>
+              <span class="rowx" style="gap:4px">
+                <span class="chip">&minus;</span>
+                <b style="min-width:24px; text-align:center">1</b>
+                <span class="chip">+</span>
+              </span>
+            </div>
+          </div>
+          <a class="btn btn--primary" href="03-pedido.html">Agregar al pedido · $4.800</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="notes">
+      <h1 class="notes__h">Decisiones de esta pantalla</h1>
+
+      <div class="note">
+        <span class="n">1</span>
+        <div class="note__b">
+          <div class="note__t">El tiempo de preparación se muestra antes de pedir</div>
+          <p class="note__d">
+            El dato aparece en el detalle, no después de confirmar. Le permite al
+            estudiante decidir si le da el tiempo antes de comprometerse.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            El contexto de uso relevado es "durante la cursada, <b>en los intervalos
+            de tiempo libre o en el recreo</b>" y "un uso apurado". La pregunta real
+            del usuario no es sólo "¿qué como?" sino <b>"¿me da el tiempo?"</b>. Sin
+            este dato no puede responderla.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">2</span>
+        <div class="note__b">
+          <div class="note__t">Campo libre de aclaraciones para la cocina</div>
+          <p class="note__d">
+            Un texto corto que viaja junto al pedido y que el personal del buffet lee
+            al prepararlo.
+          </p>
+          <div class="anchor anchor--none">
+            <span class="anchor__k">Sin anclaje · supuesto</span>
+            <b>Ningún encuestado pidió esto.</b> Se incluye porque hoy el estudiante
+            lo dice de palabra en el mostrador y, al sacar el mostrador del flujo, ese
+            canal desaparece. Es una inferencia del equipo sobre lo que se pierde al
+            digitalizar, no un hallazgo del relevamiento.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">3</span>
+        <div class="note__b">
+          <div class="note__t">La cantidad se elige acá, no en la lista</div>
+          <p class="note__d">
+            En el menú, el botón agrega una unidad. La cantidad exacta se define en el
+            detalle, junto al botón de confirmar, y el total se recalcula ahí mismo.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2 · tasa de errores</span>
+            Es el atributo priorizado en este punto. Un selector de cantidad dentro de
+            una grilla apretada, operada con una mano y apurado &mdash;el contexto que
+            describe el relevamiento&mdash; es una fuente previsible de toques
+            equivocados. Acá el objetivo es grande y el precio total está a la vista
+            antes de confirmar.
+          </div>
+        </div>
+      </div>
+
+      <div class="links">
+        <div class="links__h">Navegación desde esta pantalla</div>
+        <ul>
+          <li><code>&larr;</code> <span>&rarr; <a href="01-menu.html">01 · Menú y precios</a></span></li>
+          <li><code>Agregar al pedido</code> <span>&rarr; <a href="03-pedido.html">03 · Revisar el pedido</a></span></li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <div class="callout__h">Pantalla candidata a salir del MVP</div>
+        <p>
+          Este detalle podría fusionarse con el menú: agregar directo desde la lista
+          y ajustar la cantidad en la revisión. Ganaría un paso menos, que es lo que
+          el atributo priorizado pide. Queda como pantalla propia porque las
+          aclaraciones para la cocina y el tiempo de preparación no entran en una
+          tarjeta de grilla sin volverla ilegible. <b>Es una decisión de compromiso,
+          y conviene que el equipo la revise.</b>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flownav">
+    <a href="01-menu.html">&larr; Anterior: 01 · Menú y precios</a>
+    <span class="flownav__sp"></span>
+    <a href="03-pedido.html">Siguiente: 03 · Revisar el pedido &rarr;</a>
+  </div>
+</main>
+</body>
+</html>

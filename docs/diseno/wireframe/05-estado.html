@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>05 · En preparación · Wireframe BuffetYa!</title>
+<link rel="stylesheet" href="wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">05 · En preparación</span>
+    <span class="topbar__s">Wireframe del MVP · pantalla 5 de 6</span>
+    <nav class="topbar__nav">
+      <a href="index.html">Índice</a>
+      <a href="04-pago.html">&larr; Anterior</a>
+      <a href="06-listo.html">Siguiente &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+  <div class="pair">
+
+    <div>
+      <p class="screen__label">Pantalla · celular</p>
+      <div class="screen">
+
+        <div class="appbar">
+          <div class="appbar__grow">
+            <div class="appbar__title">Pedido B-047</div>
+            <div class="appbar__sub">Hoy 18:24 · Buffet Central</div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start; margin-bottom:12px">
+            <span class="n">1</span>
+            <div class="state" style="flex:1">
+              <span class="state__k">ESTADO ACTUAL</span>
+              <div class="state__v">Lo están preparando</div>
+              <p class="micro" style="margin-top:6px">Listo en 6 minutos aprox.</p>
+            </div>
+          </div>
+
+          <div class="rowx" style="align-items:flex-start">
+            <span class="n">2</span>
+            <div class="card" style="flex:1; text-align:center; border-width:2px; border-color:var(--w-ink)">
+              <span class="state__k">CÓDIGO DE RETIRO</span>
+              <div style="font-size:32px; font-weight:700; letter-spacing:.1em; margin-top:4px">B-047</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start">
+            <span class="n">3</span>
+            <div class="card" style="flex:1">
+              <p class="sub">
+                <b>Podés cerrar la aplicación.</b> Te avisamos al celular cuando esté
+                listo para retirar. No hace falta que esperes acá.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start">
+            <span class="n">4</span>
+            <div class="steps" style="flex:1">
+              <div class="step step--done">
+                <span class="step__m">✓</span>
+                <div><div class="step__t">Pedido recibido</div><div class="step__d">18:24</div></div>
+              </div>
+              <div class="step step--done">
+                <span class="step__m">✓</span>
+                <div><div class="step__t">Pago acreditado</div><div class="step__d">18:24 · Mercado Pago</div></div>
+              </div>
+              <div class="step step--now">
+                <span class="step__m">3</span>
+                <div><div class="step__t">En preparación</div><div class="step__d">18:26</div></div>
+              </div>
+              <div class="step">
+                <span class="step__m">4</span>
+                <div><div class="step__t">Listo para retirar</div><div class="step__d">&mdash;</div></div>
+              </div>
+              <div class="step">
+                <span class="step__m">5</span>
+                <div><div class="step__t">Entregado</div><div class="step__d">&mdash;</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="band band--fill">
+          <div class="stack" style="gap:6px">
+            <div class="between"><span class="sub">Milanesa napolitana</span><span class="sub">$4.800</span></div>
+            <div class="between"><span class="sub">Tarta de verdura</span><span class="sub">$3.200</span></div>
+            <div class="between" style="border-top:1px solid var(--w-line); padding-top:6px">
+              <b style="font-size:13px">Total pagado</b><b style="font-size:13px">$8.000</b>
+            </div>
+          </div>
+        </div>
+
+        <nav class="tabbar">
+          <a href="01-menu.html">Menú</a>
+          <a href="05-estado.html" aria-current="page">Mi pedido</a>
+          <a href="04-pago.html">Cuenta</a>
+        </nav>
+
+      </div>
+    </div>
+
+    <div class="notes">
+      <h1 class="notes__h">Decisiones de esta pantalla</h1>
+
+      <div class="note">
+        <span class="n">1</span>
+        <div class="note__b">
+          <div class="note__t">El estado se dice con palabras, no con un color</div>
+          <p class="note__d">
+            Cada estado se nombra en texto dentro de un recuadro. En el TP5 podrá
+            sumarse color, pero el texto tiene que seguir siendo suficiente por sí solo.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2 · contexto de uso</span>
+            El uso es "en los intervalos de tiempo libre o en el recreo", de paso y
+            mirando el celular de reojo. Un estado que dependa de distinguir un tono
+            se lee mal en esa situación, y peor con el teléfono al sol. Además, esto
+            es un wireframe: <b>no hay colores que usar</b>.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">2</span>
+        <div class="note__b">
+          <div class="note__t">El código de retiro es el elemento más grande de la pantalla</div>
+          <p class="note__d">
+            Domina sobre el estado, sobre la lista de productos y sobre el total.
+            Es lo que el estudiante muestra en el mostrador.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            La hipótesis promete evitar "la espera en el mostrador". El código es lo
+            que reemplaza a decir el nombre y esperar que lo busquen: es el único
+            elemento de la pantalla que se usa <b>fuera</b> de la aplicación, frente a
+            otra persona, y por eso tiene que leerse de un vistazo y a un brazo de
+            distancia.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">3</span>
+        <div class="note__b">
+          <div class="note__t">Permiso explícito para irse</div>
+          <p class="note__d">
+            Una frase que dice, en palabras, que se puede cerrar la aplicación y que
+            el aviso va a llegar igual.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            <b>El 86% valora recibir una notificación cuando el pedido está listo</b>
+            (71% "muy beneficioso", 14% "beneficioso"). Pero si el usuario no sabe que
+            va a llegar, se queda mirando la pantalla &mdash;y eso es la misma espera
+            que el producto vino a eliminar, sólo que sentado. La promesa hay que
+            escribirla, no dejarla implícita.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">4</span>
+        <div class="note__b">
+          <div class="note__t">Los cinco estados se muestran completos desde el principio</div>
+          <p class="note__d">
+            La lista muestra los pasos ya cumplidos, el actual y los que faltan, con
+            la hora de cada uno.
+          </p>
+          <div class="anchor anchor--none">
+            <span class="anchor__k">Sin anclaje · supuesto</span>
+            <b>El relevamiento no preguntó por el seguimiento del pedido</b>, sólo por
+            la notificación final. Asumimos que ver el recorrido completo reduce la
+            ansiedad de esperar algo que no se ve. Es una inferencia, y una candidata
+            razonable a recortar si el equipo quiere un MVP más chico.
+          </div>
+        </div>
+      </div>
+
+      <div class="links">
+        <div class="links__h">Navegación desde esta pantalla</div>
+        <ul>
+          <li><code>notificación al celular</code> <span>&rarr; <a href="06-listo.html">06 · Listo para retirar</a></span></li>
+          <li><code>Menú</code> <span>&rarr; <a href="01-menu.html">01 · Menú y precios</a></span></li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <div class="callout__h">Lo que pasa por detrás y el usuario no ve</div>
+        <p>
+          El cambio de estado lo dispara una persona del buffet. En el MVP <b>no hay
+          panel propio</b>: se resuelve a mano desde una planilla o desde la base de
+          datos. Lo que se testea es si el aviso le sirve al estudiante, no si la
+          cocina está automatizada.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flownav">
+    <a href="04-pago.html">&larr; Anterior: 04 · Pago</a>
+    <span class="flownav__sp"></span>
+    <a href="06-listo.html">Siguiente: 06 · Listo para retirar &rarr;</a>
+  </div>
+</main>
+</body>
+</html>

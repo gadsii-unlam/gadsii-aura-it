@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>06 · Listo para retirar · Wireframe BuffetYa!</title>
+<link rel="stylesheet" href="wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">06 · Listo para retirar</span>
+    <span class="topbar__s">Wireframe del MVP · pantalla 6 de 6</span>
+    <nav class="topbar__nav">
+      <a href="index.html">Índice</a>
+      <a href="05-estado.html">&larr; Anterior</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+  <div class="pair">
+
+    <div>
+      <p class="screen__label">Notificación · pantalla bloqueada</p>
+      <div class="screen" style="margin-bottom:24px">
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start">
+            <span class="n">1</span>
+            <div class="card" style="flex:1; border-width:2px; border-color:var(--w-ink)">
+              <div class="stack" style="gap:4px">
+                <span class="micro">BuffetYa! · ahora</span>
+                <span class="h">Tu pedido B-047 está listo</span>
+                <span class="sub">Pasá a retirarlo por el mostrador.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="screen__label">Pantalla · celular</p>
+      <div class="screen">
+
+        <div class="appbar">
+          <div class="appbar__grow">
+            <div class="appbar__title">Pedido B-047</div>
+            <div class="appbar__sub">Hoy 18:24 · Buffet Central</div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start; margin-bottom:12px">
+            <span class="n">2</span>
+            <div class="state" style="flex:1">
+              <span class="state__k">ESTADO ACTUAL</span>
+              <div class="state__v">Listo para retirar</div>
+              <p class="micro" style="margin-top:6px">Te esperamos hasta las 19:10.</p>
+            </div>
+          </div>
+
+          <div class="card" style="text-align:center; border-width:2px; border-color:var(--w-ink)">
+            <span class="state__k">MOSTRÁ ESTE CÓDIGO</span>
+            <div style="font-size:32px; font-weight:700; letter-spacing:.1em; margin-top:4px">B-047</div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start">
+            <span class="n">3</span>
+            <div class="card" style="flex:1">
+              <div class="stack" style="gap:4px">
+                <span class="h">Buffet Central · Edificio A</span>
+                <span class="micro">Planta baja, mostrador de retiro de pedidos.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="steps">
+            <div class="step step--done">
+              <span class="step__m">✓</span>
+              <div><div class="step__t">Pedido recibido</div><div class="step__d">18:24</div></div>
+            </div>
+            <div class="step step--done">
+              <span class="step__m">✓</span>
+              <div><div class="step__t">Pago acreditado</div><div class="step__d">18:24</div></div>
+            </div>
+            <div class="step step--done">
+              <span class="step__m">✓</span>
+              <div><div class="step__t">En preparación</div><div class="step__d">18:26</div></div>
+            </div>
+            <div class="step step--now">
+              <span class="step__m">4</span>
+              <div><div class="step__t">Listo para retirar</div><div class="step__d">18:31</div></div>
+            </div>
+            <div class="step">
+              <span class="step__m">5</span>
+              <div><div class="step__t">Entregado</div><div class="step__d">&mdash;</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="band band--fill">
+          <div class="rowx" style="align-items:flex-start">
+            <span class="n">4</span>
+            <div style="flex:1">
+              <a class="btn" href="01-menu.html">Volver al menú</a>
+            </div>
+          </div>
+        </div>
+
+        <nav class="tabbar">
+          <a href="01-menu.html">Menú</a>
+          <a href="06-listo.html" aria-current="page">Mi pedido</a>
+          <a href="04-pago.html">Cuenta</a>
+        </nav>
+
+      </div>
+    </div>
+
+    <div class="notes">
+      <h1 class="notes__h">Decisiones de esta pantalla</h1>
+
+      <div class="callout" style="margin-top:0; margin-bottom:24px">
+        <div class="callout__h">Éste es el elemento crítico del MVP</div>
+        <p>
+          Si esta pantalla y la notificación que la dispara no existieran, el
+          estudiante tendría que quedarse esperando junto al mostrador. El producto
+          seguiría mostrando el menú y cobrando, pero <b>el MVP perdería la capacidad
+          de confirmar o refutar la hipótesis</b>, porque la hipótesis es sobre el
+          tiempo de espera. Todo lo demás del wireframe se puede recortar; esto no.
+        </p>
+      </div>
+
+      <div class="note">
+        <span class="n">1</span>
+        <div class="note__b">
+          <div class="note__t">La notificación trae el código, no sólo el aviso</div>
+          <p class="note__d">
+            El texto de la notificación incluye el número de pedido. Se puede leer sin
+            desbloquear el teléfono ni abrir la aplicación.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            <b>El 86% valora recibir una notificación cuando el pedido está listo</b>
+            (71% "muy beneficioso", 14% "beneficioso"). Es el porcentaje más alto de
+            acuerdo del relevamiento después de la molestia por la fila, y es el
+            mecanismo exacto que la hipótesis promete.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">2</span>
+        <div class="note__b">
+          <div class="note__t">La pantalla entera cambia, no una etiqueta</div>
+          <p class="note__d">
+            Al pasar a "listo", cambia el bloque de estado completo y el código se
+            reencuadra con la instrucción de mostrarlo. No es un cartelito que aparece
+            en una esquina.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            El uso es de paso y apurado: "el usuario busca resolver la compra en el
+            menor tiempo posible para volver o ir a la clase". La pantalla se mira
+            caminando, un segundo, con una mano. Un cambio pequeño en esa situación
+            pasa desapercibido; el cambio tiene que ser del tamaño de la pantalla.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">3</span>
+        <div class="note__b">
+          <div class="note__t">Dónde retirar, repetido en el momento de ir</div>
+          <p class="note__d">
+            La ubicación ya apareció antes de pagar, y vuelve a aparecer acá, que es
+            cuando el estudiante efectivamente camina hacia el mostrador.
+          </p>
+          <div class="anchor anchor--none">
+            <span class="anchor__k">Sin anclaje · supuesto</span>
+            <b>El relevamiento no preguntó si el usuario sabe dónde retirar.</b> Se
+            repite porque el TP1 dejó sin resolver si hay uno o varios puntos de
+            retiro en el campus. Si al final hay uno solo y todos lo conocen, esta
+            repetición sobra y se saca.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">4</span>
+        <div class="note__b">
+          <div class="note__t">No hay confirmación de "ya lo retiré"</div>
+          <p class="note__d">
+            El paso "Entregado" lo marca el buffet al entregar, no el estudiante. El
+            flujo del usuario termina cuando muestra el código.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2 · eficiencia</span>
+            Pedirle al usuario que confirme la entrega es un paso más que no aporta
+            nada a la hipótesis: agrega trabajo justo cuando ya tiene la comida en la
+            mano. El atributo priorizado es la eficiencia, y este es el caso más
+            claro de un paso que se puede sacar sin perder nada.
+          </div>
+        </div>
+      </div>
+
+      <div class="links">
+        <div class="links__h">Navegación desde esta pantalla</div>
+        <ul>
+          <li><code>Volver al menú</code> <span>&rarr; <a href="01-menu.html">01 · Menú y precios</a></span></li>
+          <li><code>Entregado</code> <span>lo marca el buffet, no el usuario. Fin del flujo.</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flownav">
+    <a href="05-estado.html">&larr; Anterior: 05 · En preparación</a>
+    <span class="flownav__sp"></span>
+    <a href="index.html">Volver al índice</a>
+  </div>
+</main>
+</body>
+</html>
