@@ -1,10 +1,10 @@
 # Brief de Producto
 
 ## Cambios en la versión
-1. Actualización con correcciones del TP1 tales como el grupo primario.
-1.1 Actualización con correcciones del TP1 tales como la estimación del segmento y el detalle de la evidencia de cada uno de los supuestos.
-2.0 Se agrega el perfil del usuario real, sus necesidades, sus problemas, el contexto de uso relevado, la hipótesis de valor y el estado de los supuestos, todos puntos detallados en el TP2.
-2.1 Actualización con correcciones del TP2 tales como el detalle de los cambios realizados, y el reemplazo de la categoría "Parcialmente confirmado" por "Confirmado".
+<br>1. Actualización con correcciones del TP1 tales como la incorporación del grupo primario.</br>
+<br>1.1 Actualización con correcciones del TP1 tales como la incorporación de la estimación del segmento y el detalle de la evidencia de cada uno de los supuestos.</br>
+<br>2.0 Se agrega el perfil del usuario real, sus necesidades, sus problemas, el contexto de uso relevado, la hipótesis de valor y el estado de los supuestos, todos puntos detallados en el TP2.</br>
+<br>2.1 Actualización con correcciones del TP2 tales como la incorporación del detalle de los cambios, y el reemplazo de la categoría "Parcialmente confirmado" por "Confirmado".</br>
 
 
 ## Segmento elegido de la comunidad UNLaM y por qué ese.
