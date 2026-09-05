@@ -1,9 +1,11 @@
 # Brief de Producto
 
 ## Cambios en la versión
-1. Primera entrega, con cambios.
-1.1 Actualización con correcciones vistas en clase y de devolución del docente.
-2.0 Se incorporan los puntos vistos para el Trabajo Práctico 2.
+<br>1. Actualización con correcciones del TP1 tales como la incorporación del grupo primario.</br>
+<br>1.1 Actualización con correcciones del TP1 tales como la incorporación de la estimación del segmento y el detalle de la evidencia de cada uno de los supuestos.</br>
+<br>2.0 Se agrega el perfil del usuario real, sus necesidades, sus problemas, el contexto de uso relevado, la hipótesis de valor y el estado de los supuestos, todos puntos detallados en el TP2.</br>
+<br>2.1 Actualización con correcciones del TP2 tales como la incorporación del detalle de los cambios, y el reemplazo de la categoría "Parcialmente confirmado" por "Confirmado".</br>
+
 
 ## Segmento elegido de la comunidad UNLaM y por qué ese.
 
@@ -78,6 +80,6 @@ El producto se usaría dentro de la universidad, durante la cursada, en los inte
 |**(crítico) Asumimos que la mayoría de los usuarios del buffet dispone de un teléfono inteligente con acceso a Internety una cuenta de Mercado Pago.**|Confirmado|El 71% eligió Mercado Pago mientras que el 29% optó por tarjeta de débito. Ninguno de los encuestados prefiere pagar con efectivo.|
 |Asumimos que los usuarios consideran beneficioso ser notificados cuando el pedido está listo para retirar.|Confirmado|El 86% lo valora positivamente (71% "muy beneficioso", 14% "beneficioso”). Un 15% de los encuestados no lo consideró beneficioso.|
 |Asumimos que los usuarios no recuerdan que compraronrecientementeen el buffet|Sin evidencia|El cuestionario no incluyó una pregunta que permitiera confrontar este supuesto.|
-|Asumimos que los usuarios priorizan buscar directamente productos filtrados según sus necesidades alimenticias (celíacos, vegetarianos, veganos) en lugar de recorrer todo el menú|Parcialmente confirmado|El 57% prefiere filtrar; el 29% prefiere recorrer todo el menú y el 14% se muestra indiferente.|
+|Asumimos que los usuarios priorizan buscar directamente productos filtrados según sus necesidades alimenticias (celíacos, vegetarianos, veganos) en lugar de recorrer todo el menú|Confirmado|El 57% prefiere filtrar; el 29% prefiere recorrer todo el menú y el 14% se muestra indiferente.|
 
 
