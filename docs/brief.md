@@ -78,6 +78,6 @@ El producto se usaría dentro de la universidad, durante la cursada, en los inte
 |**(crítico) Asumimos que la mayoría de los usuarios del buffet dispone de un teléfono inteligente con acceso a Internety una cuenta de Mercado Pago.**|Confirmado|El 71% eligió Mercado Pago mientras que el 29% optó por tarjeta de débito. Ninguno de los encuestados prefiere pagar con efectivo.|
 |Asumimos que los usuarios consideran beneficioso ser notificados cuando el pedido está listo para retirar.|Confirmado|El 86% lo valora positivamente (71% "muy beneficioso", 14% "beneficioso”). Un 15% de los encuestados no lo consideró beneficioso.|
 |Asumimos que los usuarios no recuerdan que compraronrecientementeen el buffet|Sin evidencia|El cuestionario no incluyó una pregunta que permitiera confrontar este supuesto.|
-|Asumimos que los usuarios priorizan buscar directamente productos filtrados según sus necesidades alimenticias (celíacos, vegetarianos, veganos) en lugar de recorrer todo el menú|Parcialmente confirmado|El 57% prefiere filtrar; el 29% prefiere recorrer todo el menú y el 14% se muestra indiferente.|
+|Asumimos que los usuarios priorizan buscar directamente productos filtrados según sus necesidades alimenticias (celíacos, vegetarianos, veganos) en lugar de recorrer todo el menú|Confirmado|El 57% prefiere filtrar; el 29% prefiere recorrer todo el menú y el 14% se muestra indiferente.|
 
 
