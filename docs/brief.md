@@ -3,7 +3,8 @@
 ## Cambios en la versión
 1. Primera entrega, con cambios.
 1.1 Actualización con correcciones vistas en clase y de devolución del docente.
-2.0 Se incorporan los puntos vistos para el Trabajo Práctico 2.
+2.0 Se agrega el perfil del usuario real, sus necesidades ,problemas, el contexto de uso relevado,la hipótesis de valor y el estado de los supuestos, todos estos puntos fueron detallados en el Trabajo Práctico 2.
+
 
 ## Segmento elegido de la comunidad UNLaM y por qué ese.
 
