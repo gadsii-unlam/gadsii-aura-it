@@ -1,9 +1,10 @@
 # Brief de Producto
 
 ## Cambios en la versión
-1. Primera entrega, con cambios.
-1.1 Actualización con correcciones vistas en clase y de devolución del docente.
-2.0 Se agrega el perfil del usuario real, sus necesidades ,problemas, el contexto de uso relevado,la hipótesis de valor y el estado de los supuestos, todos estos puntos fueron detallados en el Trabajo Práctico 2.
+1. Actualización con correcciones del TP1 tales como el grupo primario.
+1.1 Actualización con correcciones del TP1 tales como la estimación del segmento y el detalle de la evidencia de cada uno de los supuestos.
+2.0 Se agrega el perfil del usuario real, sus necesidades, sus problemas, el contexto de uso relevado, la hipótesis de valor y el estado de los supuestos, todos puntos detallados en el TP2.
+2.1 Actualización con correcciones del TP2 tales como el detalle de los cambios realizados, y el reemplazo de la categoría "Parcialmente confirmado" por "Confirmado".
 
 
 ## Segmento elegido de la comunidad UNLaM y por qué ese.
