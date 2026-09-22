@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C · 06 · En preparación · Wireframe BuffetYa!</title>
+<link rel="stylesheet" href="../wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">Alternativa C · 06 · En preparación</span>
+    <span class="topbar__s">Descartada · privilegia tasa de errores · pantalla 6 de 7</span>
+    <nav class="topbar__nav">
+      <a href="../index.html">Alternativas</a>
+      <a href="index.html">Índice C</a>
+      <a href="05-confirmar.html">&larr; Anterior</a>
+      <a href="07-listo.html">Siguiente &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+  <div class="pair">
+
+    <div>
+      <p class="screen__label">Pantalla · celular</p>
+      <div class="screen">
+
+        <div class="appbar">
+          <div class="appbar__grow">
+            <div class="appbar__title">Pedido B-047</div>
+            <div class="appbar__sub">Hoy 18:24 · Buffet Central</div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start; margin-bottom:12px">
+            <div class="state" style="flex:1">
+              <span class="state__k">ESTADO ACTUAL</span>
+              <div class="state__v">Lo están preparando</div>
+              <p class="micro" style="margin-top:6px">Listo en 6 minutos aprox.</p>
+            </div>
+          </div>
+
+          <div class="rowx" style="align-items:flex-start">
+            <div class="card" style="flex:1; text-align:center; border-width:2px; border-color:var(--w-ink)">
+              <span class="state__k">CÓDIGO DE RETIRO</span>
+              <div style="font-size:32px; font-weight:700; letter-spacing:.1em; margin-top:4px">B-047</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start">
+            <div class="card" style="flex:1">
+              <p class="sub">
+                Te avisamos al celular cuando esté
+                listo para retirar. No hace falta que esperes en esta pantalla.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="band">
+          
+        </div>
+
+        <div class="band band--fill">
+          <div class="stack" style="gap:6px">
+            <div class="between"><span class="sub">Milanesa napolitana</span><span class="sub">$4.800</span></div>
+            <div class="between"><span class="sub">Tarta de verdura</span><span class="sub">$3.200</span></div>
+            <div class="between" style="border-top:1px solid var(--w-line); padding-top:6px">
+              <b style="font-size:13px">Total pagado</b><b style="font-size:13px">$8.000</b>
+            </div>
+          </div>
+        </div>
+
+        <nav class="tabbar">
+          <a href="01-menu.html">Menú</a>
+          <a href="06-estado.html" aria-current="page">Mi pedido</a>
+          <a href="04-pago.html">Cuenta</a>
+        </nav>
+
+      </div>
+    </div>
+
+    <div class="notes">
+-->
+
+      <div class="links">
+        <div class="links__h">Navegación desde esta pantalla</div>
+        <ul>
+          <li><code>notificación al celular</code> <span>&rarr; <a href="07-listo.html">07 · Listo para retirar</a></span></li>
+          <li><code>Menú</code> <span>&rarr; <a href="01-menu.html">01 · Menú y precios</a></span></li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <div class="callout__h">Lo que pasa por detrás y el usuario no ve</div>
+        <p>
+          El cambio de estado lo dispara una persona del buffet. En el MVP <b>no hay
+          panel propio</b>: se resuelve a mano desde una planilla o desde la base de
+          datos. Lo que se testea es si el aviso le sirve al estudiante, no si la
+          cocina está automatizada.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flownav">
+    <a href="05-confirmar.html">&larr; Anterior: 05 · Confirmar el pago</a>
+    <span class="flownav__sp"></span>
+    <a href="07-listo.html">Siguiente: 07 · Listo para retirar &rarr;</a>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B · 02 · Revisar el pedido · Wireframe BuffetYa!</title>
+<link rel="stylesheet" href="../wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">Alternativa B · 02 · Revisar el pedido</span>
+    <span class="topbar__s">Elegida · privilegia eficiencia · pantalla 2 de 5</span>
+    <nav class="topbar__nav">
+      <a href="../index.html">Alternativas</a>
+      <a href="index.html">Índice B</a>
+      <a href="01-menu.html">&larr; Anterior</a>
+      <a href="03-pago.html">Siguiente &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+  <div class="pair">
+
+    <div>
+      <p class="screen__label">Pantalla · celular</p>
+      <div class="screen">
+
+        <div class="appbar">
+          <span class="appbar__act">&larr;</span>
+          <div class="appbar__grow">
+            <div class="appbar__title">Mi pedido</div>
+            <div class="appbar__sub">Paso 1 de 2</div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start; margin-bottom:8px">
+            <span class="n">1</span>
+            <span class="h" style="flex:1">Revisá antes de pagar</span>
+          </div>
+
+          <div class="listrow">
+            <div class="ph ph--thumb"></div>
+            <div class="stack stack--tight" style="flex:1">
+              <span class="t-item">Milanesa napolitana con papas</span>
+              <div class="rowx" style="gap:4px; margin-top:10px">
+                <span class="chip">&minus;</span>
+                <b style="min-width:20px; text-align:center; font-size:12px">1</b>
+                <span class="chip">+</span>
+                <span class="chip" style="margin-left:auto">Quitar</span>
+              </div>
+            </div>
+            <b class="t-amount">$4.800</b>
+          </div>
+
+          <div class="listrow">
+            <div class="ph ph--thumb"></div>
+            <div class="stack stack--tight" style="flex:1">
+              <span class="t-item">Tarta de verdura porción</span>
+              <div class="rowx" style="gap:4px; margin-top:10px">
+                <span class="chip">&minus;</span>
+                <b style="min-width:20px; text-align:center; font-size:12px">1</b>
+                <span class="chip">+</span>
+                <span class="chip" style="margin-left:auto">Quitar</span>
+              </div>
+            </div>
+            <b class="t-amount">$3.200</b>
+          </div>
+        </div>
+
+        <div class="band band--tight">
+          <a class="btn btn--inline" href="01-menu.html" style="display:block; text-align:center">+ Agregar algo más</a>
+        </div>
+
+        <div class="band">
+          <div class="stack stack--loose">
+            <div class="between"><span class="sub">Subtotal</span><span class="sub">$8.000</span></div>
+            <div class="between" style="border-top:1px solid var(--w-line); padding-top:8px">
+              <span class="rowx" style="gap:6px"><span class="n">2</span><b>Total</b></span>
+              <b style="font-size:20px">$8.000</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="band band--fill">
+          <a class="btn btn--primary" href="03-pago.html">Continuar al pago</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="notes">
+      <h1 class="notes__h">Decisiones de esta pantalla</h1>
+
+      <div class="note">
+        <span class="n">1</span>
+        <div class="note__b">
+          <div class="note__t">La última corrección, con el pedido entero a la vista</div>
+          <p class="note__d">
+            Las cantidades ya se pueden ajustar desde el men&uacute;, en la tarjeta de
+            cada producto. Esta pantalla no agrega una forma nueva de editar: agrega
+            el pedido completo en una sola lista y con el total, antes de comprometer
+            dinero real. Despu&eacute;s del pago no hay edici&oacute;n.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2 &middot; tasa de errores</span>
+            Es el segundo atributo priorizado. Corregir en la grilla es r&aacute;pido,
+            pero se hace de a un producto y sin ver el total. Los dos lugares se
+            complementan: sacar esta pantalla ahorrar&iacute;a un paso m&aacute;s
+            &mdash;<b>el 86% calific&oacute; la espera como "muy molesta"</b>&mdash;
+            pero dejar&iacute;a al usuario pagando sin haber visto nunca el pedido
+            completo.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">2</span>
+        <div class="note__b">
+          <div class="note__t">El total es el elemento más grande de la pantalla</div>
+          <p class="note__d">
+            Domina visualmente sobre subtotal y servicio, que quedan como líneas de
+            apoyo.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            El precio es la mitad de lo que el <b>100% de los encuestados</b> dijo
+            querer saber antes de ir al buffet. Si el precio importa lo suficiente
+            como para consultarlo de antemano, el monto final no puede ser una línea
+            más de una lista.
+          </div>
+        </div>
+      </div>
+
+      <div class="links">
+        <div class="links__h">Navegación desde esta pantalla</div>
+        <ul>
+          <li><code>&larr;</code> <span>&rarr; <a href="01-menu.html">01 · Menú y precios</a></span></li>
+          <li><code>Agregar algo más</code> <span>&rarr; <a href="01-menu.html">01 · Menú y precios</a></span></li>
+          <li><code>Continuar al pago</code> <span>&rarr; <a href="03-pago.html">03 · Pago</a></span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flownav">
+    <a href="01-menu.html">&larr; Anterior: 01 · Menú y precios</a>
+    <span class="flownav__sp"></span>
+    <a href="03-pago.html">Siguiente: 03 · Pago &rarr;</a>
+  </div>
+</main>
+</body>
+</html>

@@ -173,6 +173,19 @@ a { color: var(--w-ink); }
   background: var(--w-paper);
 }
 .chip--on { border: 2px solid var(--w-ink); font-weight: 700; }
+
+/* Inline quantity control. Occupies the same slot as the "add" affordance on a
+   card whose product is already in the order: the count and the two ways to
+   correct it, without leaving the list. */
+.stepper {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--w-u);
+  border: 2px solid var(--w-ink);
+  background: var(--w-paper);
+  padding: 2px 8px;
+}
+.stepper__b { font-size: 15px; font-weight: 700; line-height: 1.3; }
+.stepper__v { font-size: 12px; font-weight: 700; }
 .chiprow { display: flex; flex-wrap: wrap; gap: 6px; }
 
 .tag {
