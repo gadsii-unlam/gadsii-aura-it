@@ -3,19 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>04 · Pago · Wireframe BuffetYa!</title>
-<link rel="stylesheet" href="wireframe.css">
+<title>C · 04 · Pago · Wireframe BuffetYa!</title>
+<link rel="stylesheet" href="../wireframe.css">
 </head>
 <body>
 
 <header class="topbar">
   <div class="topbar__in">
-    <span class="topbar__t">04 · Pago</span>
-    <span class="topbar__s">Wireframe del MVP · pantalla 4 de 6</span>
+    <span class="topbar__t">Alternativa C · 04 · Pago</span>
+    <span class="topbar__s">Descartada · privilegia tasa de errores · pantalla 4 de 7</span>
     <nav class="topbar__nav">
-      <a href="index.html">Índice</a>
+      <a href="../index.html">Alternativas</a>
+      <a href="index.html">Índice C</a>
       <a href="03-pedido.html">&larr; Anterior</a>
-      <a href="05-estado.html">Siguiente &rarr;</a>
+      <a href="05-confirmar.html">Siguiente &rarr;</a>
     </nav>
   </div>
 </header>
@@ -31,13 +32,12 @@
           <span class="appbar__act">&larr;</span>
           <div class="appbar__grow">
             <div class="appbar__title">Pago</div>
-            <div class="appbar__sub">Paso 2 de 2</div>
+            <div class="appbar__sub">Paso 2 de 3</div>
           </div>
         </div>
 
         <div class="band">
           <div class="rowx" style="align-items:flex-start">
-            <span class="n">1</span>
             <div class="stack" style="flex:1">
               <span class="h">¿A nombre de quién?</span>
               <div class="field">Nombre</div>
@@ -48,7 +48,6 @@
 
         <div class="band">
           <div class="rowx" style="align-items:flex-start; margin-bottom:10px">
-            <span class="n">2</span>
             <span class="h" style="flex:1">Medio de pago</span>
           </div>
 
@@ -68,7 +67,6 @@
                 <span class="tag">○</span>
                 <div class="stack" style="flex:1; gap:2px">
                   <span class="rowx" style="gap:6px">
-                    <span class="n">3</span>
                     <span class="h">Efectivo al retirar</span>
                   </span>
                   <span class="micro">Pagás en el mostrador cuando lo buscás</span>
@@ -87,13 +85,12 @@
 
         <div class="band band--fill">
           <div class="rowx" style="align-items:flex-start; margin-bottom:8px">
-            <span class="n">3</span>
             <div style="flex:1">
-              <a class="btn btn--primary" href="05-estado.html">¡PAGAR con Mercado Pago!</a>
+              <a class="btn btn--primary" href="05-confirmar.html">Continuar a la confirmación</a>
             </div>
           </div>
           <p class="micro" style="text-align:center">
-           ¡Te notificamos cuando esté listo para retirar!
+            Todav&iacute;a no se cobra nada. En la pantalla siguiente confirm&aacute;s.
           </p>
         </div>
 
@@ -101,67 +98,11 @@
     </div>
 
     <div class="notes">
-      <h1 class="notes__h">Decisiones de esta pantalla</h1>
-
-      <div class="note">
-        <span class="n">1</span>
-        <div class="note__b">
-          <div class="note__t">Los datos personales se piden acá, no al abrir la aplicación</div>
-          <p class="note__d">
-            Dos campos, en el último paso, cuando ya existe una razón visible para
-            darlos. No hay registro previo ni contraseña en el MVP.
-          </p>
-          <div class="anchor">
-            <span class="anchor__k">Anclaje TP2</span>
-            El <b>100% quiere ver el menú y los precios de antemano</b>. Un registro
-            al inicio bloquea eso para todos, incluso para quien todavía no decidió
-            comprar. Y el email tiene una función concreta acá: es por donde llega
-            el aviso que <b>el 86% valoró positivamente</b>.
-          </div>
-        </div>
-      </div>
-
-      <div class="note">
-        <span class="n">2</span>
-        <div class="note__b">
-          <div class="note__t">Mercado Pago viene preseleccionado</div>
-          <p class="note__d">
-            La opción por defecto es la que la mayoría va a elegir. Cambiarla es un
-            toque; dejarla, ninguno.
-          </p>
-          <div class="anchor">
-            <span class="anchor__k">Anclaje TP2</span>
-            <b>El 71% eligió Mercado Pago y el 29% tarjeta de débito.</b> El débito
-            entra por el mismo checkout de Mercado Pago, así que una sola integración
-            cubre al 100% de los medios que los encuestados dijeron usar.
-          </div>
-        </div>
-      </div>
-
-      <div class="note">
-        <span class="n">3</span>
-        <div class="note__b">
-          <div class="note__t">El botón dice adónde lleva, no "Confirmar"</div>
-          <p class="note__d">
-            La etiqueta nombra la acción real y avisa que se sale de la aplicación.
-            Cambia según el medio de pago elegido.
-          </p>
-          <div class="anchor">
-            <span class="anchor__k">Anclaje TP2 · tasa de errores</span>
-            El salto a Mercado Pago es el único momento en que el usuario deja la
-            aplicación. Un botón que dijera "Confirmar" y abriera otra aplicación es
-            exactamente el tipo de sorpresa que hace abandonar un pago. El atributo
-            priorizado acá manda sobre la brevedad de la etiqueta.
-          </div>
-        </div>
-      </div>
-
       <div class="links">
         <div class="links__h">Navegación desde esta pantalla</div>
         <ul>
           <li><code>&larr;</code> <span>&rarr; <a href="03-pedido.html">03 · Revisar el pedido</a></span></li>
-          <li><code>¡Pagar con Mercado Pago!</code> <span>&rarr; checkout externo &rarr; <a href="05-estado.html">05 · En preparación</a></span></li>
-          <li><code>Confirmar pedido</code> <span>(si eligió efectivo) &rarr; <a href="05-estado.html">05 · En preparación</a></span></li>
+          <li><code>Continuar a la confirmación</code> <span>&rarr; <a href="05-confirmar.html">05 · Confirmar el pago</a></span></li>
         </ul>
       </div>
 
@@ -182,7 +123,7 @@
   <div class="flownav">
     <a href="03-pedido.html">&larr; Anterior: 03 · Revisar el pedido</a>
     <span class="flownav__sp"></span>
-    <a href="05-estado.html">Siguiente: 05 · En preparación &rarr;</a>
+    <a href="05-confirmar.html">Siguiente: 05 · Confirmar el pago &rarr;</a>
   </div>
 </main>
 </body>

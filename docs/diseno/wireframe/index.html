@@ -13,7 +13,9 @@
     <span class="topbar__t">BuffetYa! · Wireframe del MVP</span>
     <span class="topbar__s">TP3 · Equipo Aura IT · GADS II (3665)</span>
     <nav class="topbar__nav">
-      <a href="01-menu.html">Empezar el recorrido &rarr;</a>
+      <a href="alternativa-a/index.html">A</a>
+      <a href="alternativa-b/index.html">B</a>
+      <a href="alternativa-c/index.html">C</a>
     </nav>
   </div>
 </header>
@@ -21,83 +23,98 @@
 <main class="sheet">
 
   <h1 style="font-size:28px">BuffetYa!</h1>
-  <hr class="rule">
-
-  <h2>Flujo principal</h2>
   <p class="lead" style="margin-top:8px">
     Desde que el estudiante abre la aplicación hasta que retira el pedido sin
-    haber hecho la fila. Un solo recorrido, sin ramas paralelas.
+    haber hecho la fila. Presentamos <b>tres alternativas del mismo recorrido</b>:
+    comparten la hipótesis y el relevamiento del TP2, y cada una prioriza un
+    atributo de usabilidad distinto. Lo que cambia es cómo se arma y se confirma
+    el pedido.
   </p>
 
-  <div class="map" style="margin-top:20px">
-    <a class="map__node" href="01-menu.html">
-      <span class="map__k">01</span>
-      <span class="map__t">Menú y precios</span>
-    </a>
+  <hr class="rule">
+
+  <h2>Alternativa A · Privilegia facilidad de aprendizaje</h2>
+  <p class="lead" style="margin-top:8px; font-size:14px">
+    <b>Descartada.</b> Seis pantallas. Agregar un producto pasa por su ficha:
+    descripción completa y selector de cantidad antes de sumarlo al pedido.
+  </p>
+
+  <div class="map" style="margin-top:16px">
+    <a class="map__node" href="alternativa-a/01-menu.html"><span class="map__k">01</span><span class="map__t">Menú y precios</span></a>
     <span class="map__arrow">&rarr;</span>
-    <a class="map__node" href="02-detalle.html">
-      <span class="map__k">02</span>
-      <span class="map__t">Detalle del plato</span>
-    </a>
+    <a class="map__node" href="alternativa-a/02-detalle.html"><span class="map__k">02</span><span class="map__t">Detalle del plato</span></a>
     <span class="map__arrow">&rarr;</span>
-    <a class="map__node" href="03-pedido.html">
-      <span class="map__k">03</span>
-      <span class="map__t">Revisar el pedido</span>
-    </a>
+    <a class="map__node" href="alternativa-a/03-pedido.html"><span class="map__k">03</span><span class="map__t">Revisar el pedido</span></a>
     <span class="map__arrow">&rarr;</span>
-    <a class="map__node" href="04-pago.html">
-      <span class="map__k">04</span>
-      <span class="map__t">Pago</span>
-    </a>
+    <a class="map__node" href="alternativa-a/04-pago.html"><span class="map__k">04</span><span class="map__t">Pago</span></a>
     <span class="map__arrow">&rarr;</span>
-    <a class="map__node" href="05-estado.html">
-      <span class="map__k">05</span>
-      <span class="map__t">En preparación</span>
-    </a>
+    <a class="map__node" href="alternativa-a/05-estado.html"><span class="map__k">05</span><span class="map__t">En preparación</span></a>
     <span class="map__arrow">&rarr;</span>
-    <a class="map__node" href="06-listo.html">
-      <span class="map__k">06</span>
-      <span class="map__t">Listo para retirar</span>
-    </a>
+    <a class="map__node" href="alternativa-a/06-listo.html"><span class="map__k">06</span><span class="map__t">Listo para retirar</span></a>
+  </div>
+
+  <div class="flownav" style="border-top-width:1px; margin-top:16px">
+    <a href="alternativa-a/index.html">Ver la Alternativa A completa &rarr;</a>
   </div>
 
   <hr class="rule">
 
-  <h2>Pantallas</h2>
-  <div class="cards" style="margin-top:16px">
-    <a class="cardlink" href="01-menu.html">
-      <span class="cardlink__k">01</span>
-      <span class="cardlink__t">Menú y precios</span>
-      <span class="cardlink__d">Lista completa con precios y filtros alimenticios opcionales.</span>
-    </a>
-    <a class="cardlink" href="02-detalle.html">
-      <span class="cardlink__k">02</span>
-      <span class="cardlink__t">Detalle del plato</span>
-      <span class="cardlink__d">Cantidad, aclaraciones y tiempo estimado de preparación.</span>
-    </a>
-    <a class="cardlink" href="03-pedido.html">
-      <span class="cardlink__k">03</span>
-      <span class="cardlink__t">Revisar el pedido</span>
-      <span class="cardlink__d">Único punto de corrección antes de pagar.</span>
-    </a>
-    <a class="cardlink" href="04-pago.html">
-      <span class="cardlink__k">04</span>
-      <span class="cardlink__t">Pago</span>
-      <span class="cardlink__d">Identificación y medio de pago.</span>
-    </a>
-    <a class="cardlink" href="05-estado.html">
-      <span class="cardlink__k">05</span>
-      <span class="cardlink__t">En preparación</span>
-      <span class="cardlink__d">Código de retiro y permiso explícito para irse.</span>
-    </a>
-    <a class="cardlink" href="06-listo.html">
-      <span class="cardlink__k">06</span>
-      <span class="cardlink__t">Listo para retirar</span>
-    </a>
+  <h2>Alternativa B (elegida) · Privilegia eficiencia</h2>
+  <p class="lead" style="margin-top:8px; font-size:14px">
+    <b>Elegida.</b> Cinco pantallas. Se elimina el detalle del plato: el
+    <code>+</code> agrega sin cambiar de pantalla, y el producto ya agregado
+    muestra <code>&minus; 1 +</code> en la misma tarjeta.
+  </p>
+
+  <div class="map" style="margin-top:16px">
+    <a class="map__node" href="alternativa-b/01-menu.html"><span class="map__k">01</span><span class="map__t">Menú y precios</span></a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="alternativa-b/02-pedido.html"><span class="map__k">02</span><span class="map__t">Revisar el pedido</span></a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="alternativa-b/03-pago.html"><span class="map__k">03</span><span class="map__t">Pago</span></a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="alternativa-b/04-estado.html"><span class="map__k">04</span><span class="map__t">En preparación</span></a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="alternativa-b/05-listo.html"><span class="map__k">05</span><span class="map__t">Listo para retirar</span></a>
   </div>
+
+  <div class="flownav" style="border-top-width:1px; margin-top:16px">
+    <a href="alternativa-b/index.html">Ver la Alternativa B completa &rarr;</a>
+  </div>
+
+  <hr class="rule">
+
+  <h2>Alternativa C · Privilegia tasa de errores</h2>
+  <p class="lead" style="margin-top:8px; font-size:14px">
+    <b>Descartada.</b> Siete pantallas con doble validación. Es la Alternativa A
+    más una confirmación del pago antes de que se mueva el dinero.
+  </p>
+
+  <div class="map" style="margin-top:16px">
+    <a class="map__node" href="alternativa-c/01-menu.html"><span class="map__k">01</span><span class="map__t">Menú y precios</span></a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="alternativa-c/02-detalle.html"><span class="map__k">02</span><span class="map__t">Detalle del plato</span></a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="alternativa-c/03-pedido.html"><span class="map__k">03</span><span class="map__t">Revisar el pedido</span></a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="alternativa-c/04-pago.html"><span class="map__k">04</span><span class="map__t">Pago</span></a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="alternativa-c/05-confirmar.html"><span class="map__k">05</span><span class="map__t">Confirmar el pago</span></a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="alternativa-c/06-estado.html"><span class="map__k">06</span><span class="map__t">En preparación</span></a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="alternativa-c/07-listo.html"><span class="map__k">07</span><span class="map__t">Listo para retirar</span></a>
+  </div>
+
+  <div class="flownav" style="border-top-width:1px; margin-top:16px">
+    <a href="alternativa-c/index.html">Ver la Alternativa C completa &rarr;</a>
+  </div>
+
   <div class="flownav">
+    <a href="alternativa-a/index.html">Alternativa A</a>
+    <a href="alternativa-b/index.html">Alternativa B</a>
+    <a href="alternativa-c/index.html">Alternativa C</a>
     <span class="flownav__sp"></span>
-    <a href="01-menu.html">Siguiente: 01 · Menú y precios &rarr;</a>
   </div>
 
 </main>

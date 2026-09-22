@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B · 01 · Menú y precios · Wireframe BuffetYa!</title>
+<link rel="stylesheet" href="../wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">Alternativa B · 01 · Menú y precios</span>
+    <span class="topbar__s">Elegida · privilegia eficiencia · pantalla 1 de 5</span>
+    <nav class="topbar__nav">
+      <a href="../index.html">Alternativas</a>
+      <a href="index.html">Índice B</a>
+      <a href="02-pedido.html">Siguiente &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+  <div class="pair">
+
+    <div>
+      <p class="screen__label">Pantalla · celular</p>
+      <div class="screen">
+
+        <div class="appbar">
+          <div class="appbar__grow">
+            <div class="appbar__title">BuffetYa!</div>
+            <div class="appbar__sub">Comedor de la UNLaM</div>
+          </div>
+          <span class="appbar__act">estado</span>
+        </div>
+
+        <div class="band band--tight">
+          <div class="rowx">
+            <span class="n">1</span>
+            <div class="field" style="flex:1">Buscar en el menú</div>
+          </div>
+        </div>
+
+         <div class="band band--tight">
+          <div class="rowx" style="align-items:flex-start">
+            <span class="n">2</span>
+            <div class="stack" style="flex:1">
+              <div class="chiprow">
+                <span class="chip chip--on">Todo</span>
+                <span class="chip">Minutas</span>
+                <span class="chip">Sándwiches</span>
+                <span class="chip">Bebidas</span>
+              </div>
+              <div class="chiprow">
+                <span class="chip">Sin TACC</span>
+                <span class="chip">Vegetariano</span>
+                <span class="chip">Vegano</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="band">
+          <div class="between" style="margin-bottom:12px">
+            <span class="h">Hoy en el buffet</span>
+            <span class="micro">Martes 08/09</span>
+          </div>
+
+          <div class="grid2">
+
+            <div class="card">
+              <div class="ph"></div>
+              <div class="stack" style="margin-top:8px">
+                <span class="h">Milanesa napolitana con papas</span>
+                <span><span class="tag">SIN TACC</span></span>
+                <div class="rowx" style="gap:4px">
+                  <span class="n">4</span>
+                  <b style="font-size:14px">$4.800</b>
+                </div>
+                <div class="rowx" style="gap:4px">
+                  <span class="n">3</span>
+                  <div class="stepper" style="flex:1">
+                    <span class="stepper__b">&minus;</span>
+                    <span class="stepper__v">1</span>
+                    <span class="stepper__b">+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="ph"></div>
+              <div class="stack" style="margin-top:8px">
+                <span class="h">Tarta de verdura porción</span>
+                <span><span class="tag">VEGETARIANO</span></span>
+                <b style="font-size:14px">$3.200</b>
+                <div class="stepper">
+                  <span class="stepper__b">&minus;</span>
+                  <span class="stepper__v">1</span>
+                  <span class="stepper__b">+</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="ph"></div>
+              <div class="stack" style="margin-top:8px">
+                <span class="h">Empanada de carne</span>
+                <div class="between">
+                  <b style="font-size:14px">$1.400</b>
+                  <span class="chip">+</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="ph"></div>
+              <div class="stack" style="margin-top:8px">
+                <span class="h">Medialunas x3</span>
+                <span class="rowx" style="gap:4px">
+                  <span class="n">5</span>
+                  <span class="tag">SIN STOCK</span>
+                </span>
+                <div class="between">
+                  <b style="font-size:14px">$2.100</b>
+                  <span class="chip" style="color:var(--w-ink-3); border-style:dashed">+</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="band band--fill">
+          <div class="rowx">
+            <span class="n">6</span>
+            <div class="between" style="flex:1">
+              <span class="h">2 productos · $8.000</span>
+              <span class="chip chip--on">Ver mi pedido</span>
+            </div>
+          </div>
+        </div>
+
+        <nav class="tabbar">
+          <a href="01-menu.html" aria-current="page">Menú</a>
+          <a href="04-estado.html">Mi pedido</a>
+          <a href="03-pago.html">Cuenta</a>
+        </nav>
+
+      </div>
+    </div>
+
+    <div class="notes">
+      <h1 class="notes__h">Decisiones de esta pantalla</h1>
+
+      <div class="note">
+        <span class="n">1</span>
+        <div class="note__b">
+          <div class="note__t">El menú se ve sin crear cuenta ni iniciar sesión</div>
+          <p class="note__d">
+            La aplicación abre directo en el menú. La identificación se pide recién
+            en el paso de pago, cuando ya hay una razón para pedirla.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            <b>El 100% considera útil conocer el menú y los precios antes de dirigirse
+            al lugar</b> (57% "muy útil", 43% "útil"). Poner un login delante de eso
+            bloquea justamente lo único que todos los encuestados pidieron.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">2</span>
+        <div class="note__b">
+          <div class="note__t">Los filtros alimenticios son opcionales, sobre la lista completa</div>
+          <p class="note__d">
+            No hay un paso previo que obligue a elegir restricciones. La lista arranca
+            completa y los filtros la reducen si el usuario los toca.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            El grupo está dividido: <b>el 57% prefiere filtrar, el 29% prefiere recorrer
+            todo el menú y el 14% es indiferente.</b> Un filtro obligatorio le agregaría
+            un paso al 43% que no lo pidió; un filtro escondido perjudicaría al 57%
+            que sí. Visible y opcional es lo único que sirve a los dos grupos.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">3</span>
+        <div class="note__b">
+          <div class="note__t">Agregar y corregir se hace en la tarjeta, sin abrir el plato</div>
+          <p class="note__d">
+            El <code>+</code> suma una unidad y no cambia de pantalla. Cuando el
+            producto ya est&aacute; en el pedido, ese mismo lugar pasa a mostrar
+            <code>&minus; 1 +</code>: la cantidad que lleva y las dos acciones para
+            corregirla. En cero, el producto sale del pedido y vuelve el
+            <code>+</code>.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2 &middot; eficiencia</span>
+            El contexto relevado es <b>"un uso apurado, en el que el usuario busca
+            resolver la compra en el menor tiempo posible para volver o ir a la
+            clase"</b>. Armar un pedido de dos productos en la Alternativa A cuesta
+            cuatro cambios de pantalla; ac&aacute; cuesta dos toques sin salir de la
+            lista. El estado del pedido se lee en la misma grilla donde se decide.
+          </div>
+          <div class="anchor anchor--none">
+            <span class="anchor__k">Sin anclaje &middot; supuesto</span>
+            <b>La encuesta no pregunt&oacute; por el control de cantidad.</b>
+            Asumimos que ver <code>&minus; 1 +</code> en la tarjeta comunica por
+            s&iacute; solo que ese producto ya est&aacute; en el pedido, sin
+            necesidad de un cartel aparte. Es una decisi&oacute;n de dise&ntilde;o
+            del equipo y un buen candidato a validar en el test de usabilidad.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">4</span>
+        <div class="note__b">
+          <div class="note__t">El precio va en la tarjeta, a la vista de toda la lista</div>
+          <p class="note__d">
+            Cada tarjeta muestra su precio, as&iacute; que la comparaci&oacute;n se
+            hace recorriendo la grilla. En esta alternativa es obligatorio: no hay
+            otra pantalla donde el precio pueda aparecer.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            El dato que el 100% dijo querer de antemano es <b>"el men&uacute; y los
+            precios"</b>, los dos juntos. Sin pantalla de detalle, la lista es el
+            &uacute;nico lugar donde ese 100% puede quedar satisfecho.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">5</span>
+        <div class="note__b">
+          <div class="note__t">Lo que no hay se muestra igual, marcado como sin stock</div>
+          <p class="note__d">
+            El producto agotado no desaparece de la lista: aparece con su etiqueta y
+            sin la acción de agregar.
+          </p>
+          <div class="anchor anchor--none">
+            <span class="anchor__k">Sin anclaje · supuesto</span>
+            Asumimos que enterarse de que algo se agotó es preferible a no encontrarlo
+            y no saber si existe. <b>La encuesta no preguntó por esto.</b> Es una
+            decisión de diseño del equipo, no un hallazgo del relevamiento.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="n">6</span>
+        <div class="note__b">
+          <div class="note__t">El pedido en curso queda fijo al pie, siempre visible</div>
+          <p class="note__d">
+            La barra con el total acompaña el scroll. No hay que ir a buscar el
+            carrito a otra pantalla para saber cuánto se lleva gastado.
+          </p>
+          <div class="anchor">
+            <span class="anchor__k">Anclaje TP2</span>
+            El contexto relevado es <b>"un uso apurado, en el que el usuario busca
+            resolver la compra en el menor tiempo posible para volver o ir a la
+            clase"</b>. Cada ida y vuelta a otra pantalla es tiempo que el producto
+            prometió ahorrar.
+          </div>
+        </div>
+      </div>
+
+      <div class="links">
+        <div class="links__h">Navegación desde esta pantalla</div>
+        <ul>
+          <li><code>+</code> <span>suma una unidad. La tarjeta pasa a mostrar <code>&minus; 1 +</code> y no se cambia de pantalla.</span></li>
+          <li><code>&minus;</code> <span>resta una unidad. En cero, el producto sale del pedido y vuelve el <code>+</code>.</span></li>
+          <li><code>Ver mi pedido</code> <span>&rarr; <a href="02-pedido.html">02 · Revisar el pedido</a></span></li>
+          <li><code>Mi pedido</code> <span>&rarr; <a href="04-estado.html">04 · En preparación</a> (si ya hay uno en curso)</span></li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <div class="callout__h">Lo que esta alternativa deja afuera</div>
+        <p>
+          Sin pantalla de detalle, la descripci&oacute;n completa del plato y las
+          aclaraciones para la cocina no tienen d&oacute;nde mostrarse. La tarjeta
+          s&oacute;lo entra nombre, etiqueta, precio y cantidad.
+          <b>Ese es el precio de los dos toques.</b> La Alternativa A hace la
+          apuesta contraria: m&aacute;s informaci&oacute;n, un paso m&aacute;s por
+          producto.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flownav">
+    <a href="index.html">&larr; Índice</a>
+    <span class="flownav__sp"></span>
+    <a href="02-pedido.html">Siguiente: 02 · Revisar el pedido &rarr;</a>
+  </div>
+</main>
+</body>
+</html>
