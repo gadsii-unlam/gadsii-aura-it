@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alternativa D · Wireframe BuffetYa! · TP4</title>
+<link rel="stylesheet" href="../wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">Alternativa D · Correcciones del equipo Taiko</span>
+    <span class="topbar__s">TP4 · Equipo Aura IT · GADS II (3665)</span>
+    <nav class="topbar__nav">
+      <a href="../index.html">Alternativas</a>
+      <a href="01-menu.html">Empezar el recorrido &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+
+  <h1 style="font-size:28px">Alternativa D · Correcciones del equipo Taiko</h1>
+  <p class="lead" style="margin-top:8px">
+    Es la <b>Alternativa B</b> &mdash;la elegida en el TP3&mdash; con los siete
+    cambios que salieron de la evaluación heurística que nos hizo el
+    <b>equipo Taiko</b> en el TP4. No es una alternativa nueva que compita con las
+    otras tres: es la misma propuesta, corregida.
+  </p>
+
+  <hr class="rule">
+
+  <h2>Flujo</h2>
+
+  <div class="map" style="margin-top:20px">
+    <a class="map__node" href="01-menu.html">
+      <span class="map__k">01</span>
+      <span class="map__t">Menú y precios</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="02-carrito.html">
+      <span class="map__k">02</span>
+      <span class="map__t">Mi carrito</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="03-pago.html">
+      <span class="map__k">03</span>
+      <span class="map__t">Pago</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="04a-pago-aprobado.html">
+      <span class="map__k">04a</span>
+      <span class="map__t">Pago aprobado</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="05-estado.html">
+      <span class="map__k">05</span>
+      <span class="map__t">En preparación</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="06-listo.html">
+      <span class="map__k">06</span>
+      <span class="map__t">Listo para retirar</span>
+    </a>
+  </div>
+
+  <div class="map" style="margin-top:12px">
+    <a class="map__node map__node--alt" href="04b-pago-rechazado.html">
+      <span class="map__k">04b</span>
+      <span class="map__t">Pago rechazado</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="03-pago.html">
+      <span class="map__k">03</span>
+      <span class="map__t">Volver a intentar el pago</span>
+    </a>
+  </div>
+
+  <p class="micro" style="margin-top:12px">
+    El paso <b>04</b> se abre en dos desenlaces. <b>04a</b> sigue el camino normal
+    hacia <b>05 · En preparación</b>; <b>04b</b> es el camino de error, que
+    devuelve al pago o al carrito sin perder lo que ya estaba armado. Agregar,
+    sumar y restar cantidades sigue ocurriendo dentro de <b>01 · Menú</b>, sin
+    cambiar de pantalla.
+  </p>
+
+  <hr class="rule">
+
+  <h2>Pantallas</h2>
+  <div class="cards" style="margin-top:16px">
+    <a class="cardlink" href="01-menu.html">
+      <span class="cardlink__k">01</span>
+      <span class="cardlink__t">Menú y precios</span>
+      <span class="cardlink__d">Lista completa, filtros opcionales y control de cantidad en la tarjeta. Concentra cuatro de los siete cambios.</span>
+    </a>
+    <a class="cardlink" href="02-carrito.html">
+      <span class="cardlink__k">02</span>
+      <span class="cardlink__t">Mi carrito</span>
+      <span class="cardlink__d">El carrito completo, el tiempo estimado y el total, antes de pagar.</span>
+    </a>
+    <a class="cardlink" href="03-pago.html">
+      <span class="cardlink__k">03</span>
+      <span class="cardlink__t">Pago</span>
+      <span class="cardlink__d">Identificación y medio de pago.</span>
+    </a>
+    <a class="cardlink" href="04a-pago-aprobado.html">
+      <span class="cardlink__k">04a</span>
+      <span class="cardlink__t">Pago aprobado</span>
+      <span class="cardlink__d">Confirma el cobro y devuelve al flujo normal.</span>
+    </a>
+    <a class="cardlink" href="04b-pago-rechazado.html">
+      <span class="cardlink__k">04b</span>
+      <span class="cardlink__t">Pago rechazado</span>
+      <span class="cardlink__d">El camino que la Alternativa B no tenía: qué pasó, qué no se cobró y cómo reintentar.</span>
+    </a>
+    <a class="cardlink" href="05-estado.html">
+      <span class="cardlink__k">05</span>
+      <span class="cardlink__t">En preparación</span>
+      <span class="cardlink__d">Código de retiro y permiso explícito para irse.</span>
+    </a>
+    <a class="cardlink" href="06-listo.html">
+      <span class="cardlink__k">06</span>
+      <span class="cardlink__t">Listo para retirar</span>
+      <span class="cardlink__d">La notificación y la pantalla que la acompaña.</span>
+    </a>
+  </div>
+
+  <div class="flownav">
+    <a href="../index.html">&larr; Las alternativas</a>
+    <span class="flownav__sp"></span>
+    <a href="01-menu.html">Siguiente: 01 · Menú y precios &rarr;</a>
+  </div>
+
+</main>
+</body>
+</html>
