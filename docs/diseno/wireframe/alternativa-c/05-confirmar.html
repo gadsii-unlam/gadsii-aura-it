@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C · 05 · Confirmar el pago · Wireframe BuffetYa!</title>
+<link rel="stylesheet" href="../wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">Alternativa C · 05 · Confirmar el pago</span>
+    <span class="topbar__s">Descartada · privilegia tasa de errores · pantalla 5 de 7</span>
+    <nav class="topbar__nav">
+      <a href="../index.html">Alternativas</a>
+      <a href="index.html">Índice C</a>
+      <a href="04-pago.html">&larr; Anterior</a>
+      <a href="06-estado.html">Siguiente &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+  <div class="pair">
+
+    <div>
+      <p class="screen__label">Pantalla · celular</p>
+      <div class="screen">
+
+        <div class="appbar">
+          <span class="appbar__act">&larr;</span>
+          <div class="appbar__grow">
+            <div class="appbar__title">Confirmar el pago</div>
+            <div class="appbar__sub">Paso 3 de 3</div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start">
+            <div class="state" style="flex:1">
+              <span class="state__k">ÚLTIMO PASO</span>
+              <div class="state__v">Se van a cobrar $8.000</div>
+              <p class="micro" style="margin-top:6px">
+                Después de confirmar, el pedido no se puede modificar.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="rowx" style="align-items:flex-start; margin-bottom:8px">
+            <span class="h" style="flex:1">Lo que estás por pedir</span>
+          </div>
+
+          <div class="stack" style="gap:6px">
+            <div class="between">
+              <span class="sub">1 &times; Milanesa napolitana con papas</span>
+              <span class="sub">$4.800</span>
+            </div>
+            <div class="between">
+              <span class="sub">1 &times; Tarta de verdura porción</span>
+              <span class="sub">$3.200</span>
+            </div>
+            <div class="between" style="border-top:1px solid var(--w-line); padding-top:8px">
+              <b>Total</b>
+              <b style="font-size:20px">$8.000</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="band">
+          <div class="stack" style="gap:6px">
+            <div class="between">
+              <span class="micro">A nombre de</span>
+              <span class="rowx" style="gap:6px">
+                <span class="sub">Martín D.</span>
+                <span class="chip">Cambiar</span>
+              </span>
+            </div>
+            <div class="between">
+              <span class="micro">Medio de pago</span>
+              <span class="rowx" style="gap:6px">
+                <span class="sub">Mercado Pago</span>
+                <span class="chip">Cambiar</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="band band--fill">
+          <div class="rowx" style="align-items:flex-start; margin-bottom:8px">
+            <div style="flex:1">
+              <a class="btn btn--primary" href="06-estado.html">Confirmar y pagar $8.000</a>
+            </div>
+          </div>
+          <a class="btn" href="03-pedido.html">Volver y corregir el pedido</a>
+          <p class="micro" style="text-align:center; margin-top:8px">
+            Al confirmar se abre Mercado Pago.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="notes">
+      <div class="links">
+        <div class="links__h">Navegación desde esta pantalla</div>
+        <ul>
+          <li><code>&larr;</code> <span>&rarr; <a href="04-pago.html">04 · Pago</a></span></li>
+          <li><code>Cambiar</code> <span>&rarr; <a href="04-pago.html">04 · Pago</a></span></li>
+          <li><code>Volver y corregir el pedido</code> <span>&rarr; <a href="03-pedido.html">03 · Revisar el pedido</a></span></li>
+          <li><code>Confirmar y pagar</code> <span>&rarr; checkout externo &rarr; <a href="06-estado.html">06 · En preparación</a></span></li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <div class="callout__h">Ésta es la pantalla que define la alternativa</div>
+        <p>
+          Es lo único que separa a la Alternativa C de la A. Todo lo que gana en
+          prevención de errores lo paga en pasos: son <b>siete pantallas y dos
+          confirmaciones</b> para una compra que el relevamiento describe como
+          apurada. Por eso la alternativa quedó descartada &mdash;
+          <b>la prevención de errores ya se resuelve con un resumen claro en el
+          carrito</b>, sin una pantalla extra.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flownav">
+    <a href="04-pago.html">&larr; Anterior: 04 · Pago</a>
+    <span class="flownav__sp"></span>
+    <a href="06-estado.html">Siguiente: 06 · En preparación &rarr;</a>
+  </div>
+</main>
+</body>
+</html>

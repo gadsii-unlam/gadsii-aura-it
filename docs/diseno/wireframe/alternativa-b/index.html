@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alternativa B · Wireframe BuffetYa! · TP3</title>
+<link rel="stylesheet" href="../wireframe.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <span class="topbar__t">Alternativa B (elegida) · Privilegia eficiencia</span>
+    <span class="topbar__s">TP3 · Equipo Aura IT · GADS II (3665)</span>
+    <nav class="topbar__nav">
+      <a href="../index.html">Alternativas</a>
+      <a href="01-menu.html">Empezar el recorrido &rarr;</a>
+    </nav>
+  </div>
+</header>
+
+<main class="sheet">
+
+  <h1 style="font-size:28px">Alternativa B (elegida) · Privilegia eficiencia</h1>
+  <p class="lead" style="margin-top:8px">
+    El mismo recorrido que la Alternativa A con una pantalla menos: se elimina el
+    detalle del plato y el pedido se arma entero desde la grilla del menú.
+  </p>
+
+
+
+
+  <hr class="rule">
+
+  <h2>Flujo</h2>
+
+  <div class="map" style="margin-top:20px">
+    <a class="map__node" href="01-menu.html">
+      <span class="map__k">01</span>
+      <span class="map__t">Menú y precios</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="02-pedido.html">
+      <span class="map__k">02</span>
+      <span class="map__t">Revisar el pedido</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="03-pago.html">
+      <span class="map__k">03</span>
+      <span class="map__t">Pago</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="04-estado.html">
+      <span class="map__k">04</span>
+      <span class="map__t">En preparación</span>
+    </a>
+    <span class="map__arrow">&rarr;</span>
+    <a class="map__node" href="05-listo.html">
+      <span class="map__k">05</span>
+      <span class="map__t">Listo para retirar</span>
+    </a>
+  </div>
+
+  <p class="micro" style="margin-top:12px">
+    Agregar, sumar y restar cantidades ocurre dentro de <b>01 · Menú</b>, sin
+    cambiar de pantalla. Desde <b>02 · Revisar el pedido</b> se vuelve al menú
+    para agregar algo más.
+  </p>
+
+  <hr class="rule">
+
+  <h2>Pantallas</h2>
+  <div class="cards" style="margin-top:16px">
+    <a class="cardlink" href="01-menu.html">
+      <span class="cardlink__k">01</span>
+      <span class="cardlink__t">Menú y precios</span>
+      <span class="cardlink__d">Lista completa, filtros opcionales y control de cantidad en la tarjeta.</span>
+    </a>
+    <a class="cardlink" href="02-pedido.html">
+      <span class="cardlink__k">02</span>
+      <span class="cardlink__t">Revisar el pedido</span>
+      <span class="cardlink__d">El pedido completo y el total, antes de pagar.</span>
+    </a>
+    <a class="cardlink" href="03-pago.html">
+      <span class="cardlink__k">03</span>
+      <span class="cardlink__t">Pago</span>
+      <span class="cardlink__d">Identificación y medio de pago.</span>
+    </a>
+    <a class="cardlink" href="04-estado.html">
+      <span class="cardlink__k">04</span>
+      <span class="cardlink__t">En preparación</span>
+      <span class="cardlink__d">Código de retiro y permiso explícito para irse.</span>
+    </a>
+    <a class="cardlink" href="05-listo.html">
+      <span class="cardlink__k">05</span>
+      <span class="cardlink__t">Listo para retirar</span>
+      <span class="cardlink__d">La notificación y la pantalla que la acompaña.</span>
+    </a>
+  </div>
+
+  <div class="flownav">
+    <a href="../index.html">&larr; Las tres alternativas</a>
+    <span class="flownav__sp"></span>
+    <a href="01-menu.html">Siguiente: 01 · Menú y precios &rarr;</a>
+  </div>
+
+</main>
+</body>
+</html>
