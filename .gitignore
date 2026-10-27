@@ -14,6 +14,10 @@ serviceAccountKey.json
 
 local-docs/
 
+# Backend runtime data (JSON file store). The demo menu seed is committed.
+src/backend/data/*
+!src/backend/data/seed/
+
 .vscode/*
 !.vscode/extensions.json
 .idea/

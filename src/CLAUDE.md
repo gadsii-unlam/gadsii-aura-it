@@ -144,9 +144,9 @@ de demanda atados a los horarios de cursada.
     transacción y la densidad de información. El pago debe sentirse continuo con MP,
     no un salto brusco a otra cosa.
 - **Fotografía de producto:** el estándar de la categoría vive de la foto. Como no
-  existen fotos reales del buffet, los espacios se diseñan en su tamaño y proporción
-  final con un placeholder rotulado de forma visible como material de demostración.
-  Nada finge ser real. Se mantiene una lista de reemplazo.
+  existen fotos reales del buffet, el MVP usa fotos de banco con licencia libre
+  (`frontend/public/products/`, fuentes y licencias en `CREDITS.md`). Se mantiene
+  como lista de reemplazo para cuando haya fotos propias.
 
 ## Evidence on Hand
 
@@ -158,8 +158,11 @@ de demanda atados a los horarios de cursada.
   son indicativos, no estadísticamente significativos.
 
 **Ausencias que no se deben inventar:** no hay menú real del buffet, ni precios reales,
-ni fotos de los productos, ni datos de la operación del buffet. Todo dato de menú que
-aparezca en prototipos es de demostración y debe estar rotulado como tal.
+ni fotos de los productos, ni datos de la operación del buffet. El menú del MVP es
+cargado a mano. Por decisión del equipo (TP5), la interfaz del usuario **no** muestra
+ningún rótulo de "demo" o "simulado": en las pruebas con usuarios lo simulado se
+resuelve por detrás y el usuario no tiene por qué enterarse. Solo `/backstage`, el
+README y la documentación lo nombran.
 
 ## Product Principles
 

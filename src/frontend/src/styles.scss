@@ -1,1 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+/* Screen-specific styles that do not belong to the shared component set.
+   Tokens: styles/tokens.css. Components: styles/components.css. */
+
+/* ---------------------------------------------- simulated payment checkout --- */
+
+/* A deliberately neutral, generic checkout: it has to read as "I left the app
+   to pay", without imitating Mercado Pago's branding. Named in text only. */
+.checkout__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-height: 56px;
+  padding: var(--s2) var(--s4);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line-2);
+}
+.checkout__brand { font-size: var(--t-lead); font-weight: 800; letter-spacing: -.02em; }
+.checkout__merchant { font-weight: 700; }
+.checkout__amount { font-size: var(--t-xl); font-weight: 800; letter-spacing: -.03em; line-height: 1.1; margin: var(--s2) 0; }
+
+/* -------------------------------------------------------------- backstage --- */
+
+/* Team-only surface: desktop/tablet first, the operator bar from DESIGN.md. */
+.bs { min-height: 100vh; background: var(--ground); }
+.bs__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  flex-wrap: wrap;
+  padding: var(--s4) var(--s6);
+  background: var(--forest);
+  color: var(--on-brand);
+}
+.bs__bar h1 { font-size: var(--t-h3); letter-spacing: -.02em; }
+.bs__sub { font-size: var(--t-sm); color: var(--on-forest-2); }
+.bs__grow { flex: 1; min-width: 200px; }
+.bs__bar .btn--ghost { min-height: 40px; }
+.bs__main {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: var(--s6);
+  padding: var(--s6);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .bs__main { grid-template-columns: 1fr; padding: var(--s4); gap: var(--s4); }
+  .bs__bar { padding: var(--s4); }
+}
+.bs__panel { padding: var(--s4); display: flex; flex-direction: column; gap: var(--s3); }
+.bs__panel h2 { font-size: var(--t-h3); }
+.bs__hint { font-size: var(--t-sm); color: var(--muted); }
+.bs__tickets { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--s3); }
+.bs__ticket { display: flex; flex-direction: column; gap: var(--s2); padding: var(--s4); border-radius: var(--r-md); background: var(--surface); box-shadow: var(--lift-1); }
+.bs__ticket-top { display: flex; align-items: baseline; gap: var(--s3); }
+.bs__code { font-size: var(--t-h2); font-weight: 800; letter-spacing: -.02em; }
+.bs__who { flex: 1; min-width: 0; color: var(--muted); font-size: var(--t-sm); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bs__state {
+  font-size: var(--t-micro); font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: var(--r-sm); border: 1px solid var(--line-2); color: var(--muted);
+}
+.bs__state--preparing { color: var(--amber-ink); background: var(--amber-wash); border-color: var(--amber-line); }
+.bs__state--ready { color: var(--ready); background: var(--ready-wash); border-color: var(--ready-line); }
+.bs__items { font-size: var(--t-sm); display: flex; flex-direction: column; gap: 2px; }
+.bs__actions { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s1); }
+.bs__product { display: flex; align-items: center; gap: var(--s3); padding: var(--s2) 0; border-bottom: 1px solid var(--line); }
+.bs__product:last-child { border-bottom: 0; }
+.bs__product span { flex: 1; min-width: 0; font-size: var(--t-sm); font-weight: 600; }
+.bs__switch { display: inline-flex; align-items: center; gap: var(--s2); font-size: var(--t-sm); font-weight: 600; min-height: 44px; cursor: pointer; }
+.bs__switch input { width: 20px; height: 20px; }
+.bs__login { max-width: 420px; margin: var(--s9) auto; padding: var(--s6); display: flex; flex-direction: column; gap: var(--s4); }

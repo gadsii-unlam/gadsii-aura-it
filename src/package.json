@@ -4,14 +4,15 @@
   "private": true,
   "description": "BuffetYa! — pre-ordering for the UNLaM university buffet.",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
-    "dev": "pnpm --parallel --filter \"./frontend\" --filter \"./backend\" run dev",
-    "dev:web": "pnpm --filter ./frontend run start",
-    "dev:api": "pnpm --filter ./backend run start:dev",
+    "dev": "pnpm --filter ./shared run build && pnpm --parallel --filter \"./shared\" --filter \"./frontend\" --filter \"./backend\" run dev",
+    "dev:web": "pnpm --filter ./frontend run dev",
+    "dev:api": "pnpm --filter ./shared run build && pnpm --filter ./backend run dev",
     "build": "pnpm --filter ./shared run build && pnpm --parallel --filter \"./frontend\" --filter \"./backend\" run build",
-    "test": "pnpm --recursive run test",
+    "start": "pnpm --filter ./backend run start:prod",
+    "test": "pnpm --filter ./shared run build && pnpm --recursive run test",
     "lint": "pnpm --recursive run lint"
   }
 }

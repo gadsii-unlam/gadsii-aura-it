@@ -1,13 +1,19 @@
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
-import tsconfigPaths from 'vite-tsconfig-paths';
+
+// Tests read the shared contract from source, so `pnpm test` does not depend on
+// a stale `shared/dist`. The production build consumes the compiled package.
+const sharedSource = fileURLToPath(new URL('../shared/src/index.ts', import.meta.url));
 
 export default defineConfig({
-  // Resolves the path aliases declared in tsconfig.json, including the ones
-  // added by `nest g library`.
-  plugins: [tsconfigPaths()],
+  resolve: {
+    alias: { '@buffetya/shared': sharedSource },
+  },
   test: {
     globals: true,
     root: './',
-    include: ['**/*.spec.ts'],
+    // Unit specs live next to the code; the HTTP flow specs live in test/.
+    include: ['src/**/*.spec.ts', 'test/**/*.e2e-spec.ts'],
+    exclude: ['dist/**', 'node_modules/**'],
   },
 });

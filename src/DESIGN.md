@@ -244,7 +244,7 @@ El sistema es callado por construcción y esa contención es estructural, no est
 - Radios 8/12/16/24px y píldoras de 999px; elevación de desplazamiento más desenfoque, nunca un halo de offset cero.
 - Íconos SVG autorales a un solo grosor de trazo (1.8), nunca emoji ni glifos del sistema.
 - Dos superficies con densidades opuestas y deliberadas: móvil-primero y escritorio-primero.
-- Ningún raster: cada slot de imagen es un marcador CSS etiquetado como DEMO.
+- Fotos de producto reales (banco con licencia libre) a tamaño y relación finales; si una falla, superficie neutra con ícono, nunca un rótulo DEMO.
 
 ## Colors
 
@@ -462,9 +462,11 @@ Dentro, el ícono de estado es un disco de 76px, el código de retiro es la tarj
 
 Lista vertical con conector de 2px a la izquierda. Un paso completado pinta punto, borde y conector en `--ready`; el paso actual lleva borde y símbolo en `--brand` con el nombre en 700; los pasos futuros quedan en `--line-2` y `--faint`. Cada paso lleva ícono más texto más hora. La división es exacta: verde de estado para lo hecho, verde de acción para lo que está pasando.
 
-### Photo Placeholder (componente de firma)
+### Product Photo
 
-`.photo` es material de demostración visiblemente etiquetado, no una caja gris. Es un diagonal rayado (`repeating-linear-gradient` a 135°, `--hatch-a` / `--hatch-b` en pasos de 8px) a tamaño y relación finales, con la palabra `DEMO` centrada en 11px/800 con tracking .14em, sobre un recuadro blanco al 90% con borde de 1.5px en `--faint`. Es el mecanismo de honestidad de toda la estrategia fotográfica: la etiqueta es lo último que debe atenuarse. En el thumbnail de 68px baja a `--t-nano` (9px), el único uso de ese escalón.
+> Reemplaza al antiguo placeholder rotulado `DEMO` del prototipo de `src/design/`. Desde el TP5 la app no muestra ningún rótulo de demostración (decisión del equipo).
+
+La foto ocupa el slot a tamaño y relación finales (`object-fit: cover`, `loading="lazy"`, `alt` con el nombre del producto, dimensiones fijas para no mover el layout). Si la imagen no carga, el slot queda como superficie neutra con un ícono, sin texto. Un producto sin stock atenúa la foto con el mismo tratamiento que el resto de la tarjeta. Fuentes y licencias en `frontend/public/products/CREDITS.md`.
 
 ### Operator Ticket
 
@@ -485,7 +487,7 @@ Tarjeta de 12px con encabezado (código en 24px/800, nombre, antigüedad), cuerp
 - **Do** dar `flex: 0 0 auto` a cualquier SVG dentro de un control y `white-space: nowrap` a su etiqueta; que ceda el contenedor.
 - **Do** mantener `font-variant-numeric: tabular-nums` en toda cifra: precios, cantidades, códigos y horarios se leen en columna.
 - **Do** dibujar cada ícono nuevo en `viewBox="0 0 24 24"` con `stroke-width: 1.8` y extremos redondeados, y sumarlo al mapa `ICONS`.
-- **Do** etiquetar visiblemente cualquier slot de imagen de demostración a tamaño y relación finales, y publicar su lista de reemplazo.
+- **Do** diseñar todo slot de imagen a tamaño y relación finales, y registrar fuente y licencia de cada foto de banco en `CREDITS.md`.
 - **Do** tematizar las superficies del navegador desde la paleta vigente — `::selection`, `caret-color`, `accent-color`, scrollbars, `::placeholder` y `:focus-visible` — apuntando siempre a un token que exista.
 - **Do** oscurecer el suelo con `--scrim` cuando haya texto blanco pequeño sobre color, en vez de teñir el tipo.
 - **Do** respetar `prefers-reduced-motion: reduce`, que ya neutraliza toda animación y transición del sistema.

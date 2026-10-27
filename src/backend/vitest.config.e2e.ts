@@ -1,11 +1,16 @@
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
-import tsconfigPaths from 'vite-tsconfig-paths';
+
+// HTTP flow specs only (`pnpm test:e2e`). `pnpm test` already runs them too.
+const sharedSource = fileURLToPath(new URL('../shared/src/index.ts', import.meta.url));
 
 export default defineConfig({
-  plugins: [tsconfigPaths()],
+  resolve: {
+    alias: { '@buffetya/shared': sharedSource },
+  },
   test: {
     globals: true,
     root: './',
-    include: ['**/*.e2e-spec.ts'],
+    include: ['test/**/*.e2e-spec.ts'],
   },
 });
