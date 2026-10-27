@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Menú · BuffetYa!</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+</head>
+<body class="is-phone">
+<!--
+  DIRECTION CONTRACT · seed key d8c4aa79
+  THESIS: The category standard, chosen deliberately over more distinctive
+    alternatives and executed at full craft. Convention is the commitment: no
+    irony, no smuggled quirk. Order-ahead played straight, in UNLaM's identity.
+  OWN-WORLD: Green on warm white, sampled from UNLaM's own products, not
+    guessed: action green #347659 and ground #f5f5f4 from cine.unlam.edu.ar,
+    the ready field #0b7a5e from MIEL, the operator bar #022410 from its
+    header. The bordo #ae152d is real but rare there, so it is the alert only.
+    Open Sans with tabular figures, warm stone neutrals, white cards, 12-16px
+    radii, offset-plus-blur elevation. Authored SVG icons at one stroke
+    weight, never emoji.
+  STORY: A student between classes sees the menu and prices, orders, pays, and
+    is told when to walk over. No queue, no guessing.
+  FIRST VIEWPORT: White app bar over search, sticky category chips, a
+    two-column product grid with 4:3 labeled demo photo slots, a green
+    persistent cart bar riding above the four-tab bar. The chrome is white and
+    the colour lives in the action, the way every UNLaM product does it.
+  FORM: The standing exit, the category canon, taken by the user over the
+    dealt hand. Candidate: canon. Seed key d8c4aa79.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the
+    finish review, the verdict, DESIGN.md, and every shipping raster carrying
+    its provenance
+-->
+<div class="phone">
+
+  <header class="appbar appbar--brand">
+    <div class="appbar__grow">
+      <h1 class="appbar__title">BuffetYa!</h1>
+      <p class="appbar__sub">Buffet Central &middot; Edificio A</p>
+    </div>
+    <a class="iconbtn" href="pedido.html" aria-label="Notificaciones">
+      <svg><use href="#i-bell"/></svg>
+      <span class="iconbtn__badge">1</span>
+    </a>
+    <a class="iconbtn" href="perfil.html" aria-label="Mi perfil">
+      <svg><use href="#i-user"/></svg>
+    </a>
+  </header>
+
+  <div class="screen">
+
+    <div style="padding: var(--s4) var(--s4) 0; background: var(--surface);">
+      <div class="inputwrap">
+        <input class="input" type="search" placeholder="Buscar en el menú" aria-label="Buscar en el menú">
+        <span class="inputwrap__act" aria-hidden="true"><svg><use href="#i-search"/></svg></span>
+      </div>
+    </div>
+
+    <nav class="chiprow chiprow--sticky" data-chipgroup="one" aria-label="Categorías">
+      <button class="chip" aria-pressed="true">Todo</button>
+      <button class="chip" aria-pressed="false">Minutas</button>
+      <button class="chip" aria-pressed="false">Sándwiches</button>
+      <button class="chip" aria-pressed="false">Empanadas</button>
+      <button class="chip" aria-pressed="false">Cafetería</button>
+      <button class="chip" aria-pressed="false">Bebidas</button>
+    </nav>
+
+    <div class="chiprow" data-chipgroup="many" aria-label="Filtros alimenticios">
+      <button class="chip" aria-pressed="false">
+        <svg><use href="#i-sliders"/></svg> Filtros
+      </button>
+      <button class="chip" aria-pressed="false">
+        <svg><use href="#i-wheat"/></svg> Sin TACC
+      </button>
+      <button class="chip" aria-pressed="false">
+        <svg><use href="#i-leaf"/></svg> Vegetariano
+      </button>
+      <button class="chip" aria-pressed="false">
+        <svg><use href="#i-sprout"/></svg> Vegano
+      </button>
+    </div>
+
+    <div class="section">
+      <div class="section__head">
+        <h2 class="section__title">Hoy en el buffet</h2>
+        <span class="sm muted">Martes 31/08</span>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <a class="product" href="producto.html">
+        <div class="photo"></div>
+        <div class="product__body">
+          <h3 class="product__name">Milanesa napolitana con papas</h3>
+          <div class="product__tags">
+            <span class="tag tag--tacc"><svg><use href="#i-wheat"/></svg>SIN TACC</span>
+          </div>
+          <div class="product__foot">
+            <span class="product__price">$4.800</span>
+            <span class="addbtn" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="product" href="producto.html">
+        <div class="photo"></div>
+        <div class="product__body">
+          <h3 class="product__name">Tarta de verdura porción</h3>
+          <div class="product__tags">
+            <span class="tag tag--veg"><svg><use href="#i-leaf"/></svg>VEG</span>
+          </div>
+          <div class="product__foot">
+            <span class="product__price">$3.200</span>
+            <span class="addbtn" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="product" href="producto.html">
+        <div class="photo"></div>
+        <div class="product__body">
+          <h3 class="product__name">Sándwich de milanesa completo</h3>
+          <div class="product__tags"></div>
+          <div class="product__foot">
+            <span class="product__price">$4.200</span>
+            <span class="addbtn" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="product" href="producto.html">
+        <div class="photo"></div>
+        <div class="product__body">
+          <h3 class="product__name">Bowl de garbanzos y quinoa</h3>
+          <div class="product__tags">
+            <span class="tag tag--vgn"><svg><use href="#i-sprout"/></svg>VEGANO</span>
+            <span class="tag tag--tacc"><svg><use href="#i-wheat"/></svg>SIN TACC</span>
+          </div>
+          <div class="product__foot">
+            <span class="product__price">$3.900</span>
+            <span class="addbtn" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="product" href="producto.html">
+        <div class="photo"></div>
+        <div class="product__body">
+          <h3 class="product__name">Empanada de carne cortada a cuchillo</h3>
+          <div class="product__tags"></div>
+          <div class="product__foot">
+            <span class="product__price">$1.400</span>
+            <span class="addbtn" aria-hidden="true"><svg><use href="#i-plus"/></svg></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Sold out: a real state the buffet hits by 19:00, not a hypothetical. -->
+      <div class="product product--out">
+        <div class="photo"></div>
+        <div class="product__body">
+          <h3 class="product__name">Medialunas de manteca x3</h3>
+          <div class="product__tags">
+            <span class="tag" style="color:var(--muted);background:var(--surface-2);border-color:var(--line-2)">SIN STOCK</span>
+          </div>
+          <div class="product__foot">
+            <span class="product__price">$2.100</span>
+            <button class="addbtn" disabled aria-label="Sin stock">
+              <svg><use href="#i-plus"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="padding: 0 var(--s4) var(--s6);">
+      <p class="cap muted center">
+        Las fotos de este prototipo son material de demostración.
+        No son fotografías reales del buffet.
+      </p>
+    </div>
+
+  </div>
+
+  <a class="cartbar" href="carrito.html">
+    <span class="cartbar__n">2</span>
+    <span class="cartbar__grow">Ver mi pedido</span>
+    <span class="cartbar__total">$8.000</span>
+    <svg aria-hidden="true"><use href="#i-chevronRight"/></svg>
+  </a>
+
+  <nav class="tabbar" aria-label="Navegación principal">
+    <a class="tab" href="menu.html" aria-current="page">
+      <svg><use href="#i-list"/></svg> Menú
+    </a>
+    <a class="tab" href="pedido.html">
+      <svg><use href="#i-package"/></svg> Mi pedido
+    </a>
+    <a class="tab" href="historial.html">
+      <svg><use href="#i-clock"/></svg> Historial
+    </a>
+    <a class="tab" href="perfil.html">
+      <svg><use href="#i-user"/></svg> Perfil
+    </a>
+  </nav>
+
+</div>
+</body>
+</html>

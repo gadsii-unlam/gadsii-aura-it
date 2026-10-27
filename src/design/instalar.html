@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Instalar la app · BuffetYa!</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<style>
+  .hero {
+    background: var(--brand); color: var(--on-brand);
+    padding: var(--s8) var(--s6) var(--s7);
+    text-align: center;
+  }
+  .hero h1 { font-size: var(--t-h1); letter-spacing: -.03em; }
+  .hero p { margin-top: var(--s3); color: var(--on-brand-2); font-size: var(--t-body); max-width: 30ch; margin-inline: auto; }
+  .heroicon {
+    display: grid; place-items: center;
+    width: 64px; height: 64px; margin: 0 auto var(--s5);
+    border-radius: var(--r-lg);
+    background: rgba(255,255,255,.18);
+  }
+  .heroicon svg { width: 32px; height: 32px; }
+  .switch {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+    background: var(--surface-2); border-radius: var(--r-md); padding: 4px;
+    margin: var(--s5) var(--s4) 0;
+  }
+  .switch button {
+    min-height: 40px; border-radius: var(--r-sm);
+    font-size: var(--t-sm); font-weight: 700; color: var(--muted);
+  }
+  .switch button[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--lift-1); }
+  .stepn {
+    display: flex; gap: var(--s4); padding: var(--s4) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .stepn:last-child { border-bottom: 0; }
+  .stepn__n {
+    display: grid; place-items: center;
+    width: 28px; height: 28px; flex: 0 0 auto;
+    border-radius: var(--r-pill);
+    background: var(--brand); color: #fff;
+    font-size: var(--t-cap); font-weight: 800;
+  }
+  .stepn__t { font-weight: 600; }
+  .stepn__d { font-size: var(--t-sm); color: var(--muted); margin-top: 2px; }
+  .stepn__d svg { width: 15px; height: 15px; display: inline-block; vertical-align: -3px; }
+  .panel[hidden] { display: none; }
+</style>
+</head>
+<body class="is-phone">
+<!-- DIRECTION CONTRACT · seed key d8c4aa79 · the category canon at full craft.
+     This screen is not decoration: on iOS, web push only works once the PWA is
+     installed to the home screen, so this screen is what enables the product's
+     core notification feature. -->
+<div class="phone" style="background: var(--surface);">
+
+  <header class="hero">
+    <div class="heroicon"><svg><use href="#i-phone"/></svg></div>
+    <h1>Instalá BuffetYa!</h1>
+    <p>Para que te avisemos cuando tu pedido esté listo, la app tiene que estar en tu pantalla de inicio.</p>
+  </header>
+
+  <div class="switch" role="tablist" aria-label="Elegí tu teléfono">
+    <button role="tab" aria-selected="true" data-os="android">Android</button>
+    <button role="tab" aria-selected="false" data-os="ios">iPhone</button>
+  </div>
+
+  <div class="screen screen--flush" style="padding-bottom: var(--s9)">
+
+    <section class="panel" id="p-android">
+      <div style="padding: var(--s5) var(--s4) var(--s4)">
+        <a class="btn btn--primary btn--block" href="menu.html">
+          <svg><use href="#i-download"/></svg> Instalar BuffetYa!
+        </a>
+        <p class="cap muted center" style="margin-top: var(--s3)">
+          Tocá el botón y confirmá en el diálogo de Chrome. Un solo toque.
+        </p>
+      </div>
+
+      <div style="padding: 0 var(--s4)">
+        <div class="notice">
+          <svg><use href="#i-info"/></svg>
+          <div>
+            Si el botón no aparece, abrí el menú
+            <svg style="width:15px;height:15px;display:inline-block;vertical-align:-3px"><use href="#i-moreVertical"/></svg>
+            de Chrome y elegí <b>Instalar aplicación</b> o
+            <b>Agregar a la pantalla principal</b>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="p-ios" hidden>
+      <div style="padding: var(--s5) var(--s4) 0">
+        <div class="notice">
+          <svg><use href="#i-alert"/></svg>
+          <div>
+            En iPhone <b>no existe el botón de instalar</b>. Safari obliga a
+            hacerlo a mano, y sin esto no te llegan las notificaciones.
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: var(--s2) var(--s4) var(--s4)">
+        <div class="stepn">
+          <span class="stepn__n">1</span>
+          <div>
+            <div class="stepn__t">Abrí BuffetYa! en Safari</div>
+            <div class="stepn__d">No funciona desde Chrome ni desde el navegador de Instagram.</div>
+          </div>
+        </div>
+        <div class="stepn">
+          <span class="stepn__n">2</span>
+          <div>
+            <div class="stepn__t">Tocá el botón Compartir</div>
+            <div class="stepn__d">
+              Es el <svg><use href="#i-share"/></svg> de la barra inferior de Safari.
+            </div>
+          </div>
+        </div>
+        <div class="stepn">
+          <span class="stepn__n">3</span>
+          <div>
+            <div class="stepn__t">Elegí "Agregar a pantalla de inicio"</div>
+            <div class="stepn__d">
+              Aparece con el ícono <svg><use href="#i-addSquare"/></svg> en la lista.
+            </div>
+          </div>
+        </div>
+        <div class="stepn">
+          <span class="stepn__n">4</span>
+          <div>
+            <div class="stepn__t">Abrí la app desde el ícono nuevo</div>
+            <div class="stepn__d">Ahí sí te va a pedir permiso para enviarte notificaciones.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 0 var(--s4)">
+        <a class="btn btn--ghost btn--block" href="menu.html">Ya la instalé, continuar</a>
+      </div>
+    </section>
+
+    <div style="padding: var(--s6) var(--s4) 0">
+      <a class="btn btn--quiet btn--block" href="menu.html">Seguir en el navegador por ahora</a>
+      <p class="cap muted center" style="margin-top: var(--s2)">
+        Vas a poder pedir igual, pero no vas a recibir el aviso de pedido listo.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.switch button').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('.switch button').forEach(function (b) {
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.setAttribute('aria-selected', 'true');
+    document.getElementById('p-android').hidden = btn.dataset.os !== 'android';
+    document.getElementById('p-ios').hidden = btn.dataset.os !== 'ios';
+  });
+});
+</script>
+</body>
+</html>

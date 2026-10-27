@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>BuffetYa! · Prototipo de diseño</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<style>
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 var(--s5); }
+
+  .top {
+    background: var(--brand); color: var(--on-brand);
+    padding: var(--s9) 0 var(--s8);
+  }
+  /* Both ends of the clamp sit on the documented ramp. A hand-written rem
+     pair here is how a type scale quietly stops being a scale. */
+  .top h1 { font-size: clamp(var(--t-h1), 6vw, var(--t-code)); letter-spacing: -.035em; }
+  .top__lead {
+    margin-top: var(--s4); color: var(--on-brand-2);
+    font-size: var(--t-lead); line-height: 1.55; max-width: 62ch;
+  }
+  .top__meta {
+    display: flex; flex-wrap: wrap; gap: var(--s2);
+    margin-top: var(--s6);
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: var(--r-pill);
+    background: rgba(255,255,255,.16); color: #fff;
+    font-size: var(--t-cap); font-weight: 700;
+  }
+  .pill svg { width: 14px; height: 14px; }
+
+  .band { padding: var(--s9) 0; }
+  .band--alt { background: var(--surface); border-block: 1px solid var(--line); }
+  .band h2 { font-size: var(--t-h2); letter-spacing: -.025em; }
+  .band__lead { color: var(--muted); margin-top: var(--s2); max-width: 68ch; line-height: 1.55; }
+
+  .screens {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--s4);
+    margin-top: var(--s6);
+  }
+  .sc {
+    display: flex; flex-direction: column;
+    background: var(--surface); border-radius: var(--r-lg);
+    box-shadow: var(--lift-1); overflow: hidden;
+    text-decoration: none; color: inherit;
+    transition: box-shadow var(--mid) var(--ease), transform var(--mid) var(--ease);
+  }
+  .sc:hover { box-shadow: var(--lift-2); transform: translateY(-3px); color: inherit; }
+  .sc__frame {
+    height: 168px; overflow: hidden; position: relative;
+    background: var(--ground); border-bottom: 1px solid var(--line);
+  }
+  /* transform-origin is top left, so the frame occupies its SCALED width.
+     Centring by half the unscaled width shifts every preview off by half a
+     frame, which is what cropped the left edge of all eleven screens. */
+  .sc__frame iframe {
+    width: 390px; height: 700px; border: 0;
+    transform: scale(.5); transform-origin: top left;
+    pointer-events: none;
+    position: absolute; top: 0; left: 50%; margin-left: -97.5px;
+  }
+  .sc__frame--wide iframe {
+    width: 1280px; height: 900px;
+    transform: scale(.185); margin-left: -118.4px;
+  }
+  .sc__body { padding: var(--s4); display: flex; align-items: center; gap: var(--s3); }
+  .sc__name { font-weight: 700; font-size: var(--t-sm); }
+  .sc__note { font-size: var(--t-cap); color: var(--muted); margin-top: 2px; line-height: 1.4; }
+  .sc__go { margin-left: auto; color: var(--faint); }
+  .sc__go svg { width: 18px; height: 18px; }
+
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s3); margin-top: var(--s5); }
+  .sw { border-radius: var(--r-md); overflow: hidden; box-shadow: var(--lift-1); background: var(--surface); }
+  .sw__chip { height: 68px; }
+  .sw__meta { padding: var(--s3); }
+  .sw__name { font-size: var(--t-cap); font-weight: 700; }
+  .sw__hex { font-size: var(--t-micro); color: var(--muted); letter-spacing: .04em; }
+
+  .iconwall { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s5); }
+  .iw {
+    display: grid; place-items: center; width: 48px; height: 48px;
+    border-radius: var(--r-md); background: var(--surface);
+    box-shadow: var(--lift-1); color: var(--ink-2);
+  }
+  .iw svg { width: 22px; height: 22px; }
+
+  .replace { margin-top: var(--s5); }
+  .replace li {
+    display: flex; gap: var(--s3); padding: var(--s3) 0;
+    border-bottom: 1px solid var(--line); font-size: var(--t-sm);
+  }
+  .replace li:last-child { border-bottom: 0; }
+  .replace svg { width: 17px; height: 17px; flex: 0 0 auto; color: var(--amber); margin-top: 2px; }
+
+  .foot { padding: var(--s8) 0 var(--s9); color: var(--muted); font-size: var(--t-sm); }
+</style>
+</head>
+<body>
+<!--
+  DIRECTION CONTRACT · seed key d8c4aa79
+  THESIS: The category standard, chosen deliberately over more distinctive
+    alternatives and executed at full craft. Convention is the commitment: no
+    irony, no smuggled quirk. Order-ahead played straight, in UNLaM's identity.
+  OWN-WORLD: Green on warm white, sampled from UNLaM's own products, not
+    guessed: action green #347659 and ground #f5f5f4 from cine.unlam.edu.ar,
+    the ready field #0b7a5e from MIEL, the operator bar #022410 from its
+    header. The bordo #ae152d is real but rare there, so it is the alert only.
+    Open Sans with tabular figures, warm stone neutrals, white cards, 12-16px
+    radii, offset-plus-blur elevation. Authored SVG icons at one stroke
+    weight, never emoji.
+  STORY: A student between classes sees the menu and prices, orders, pays, and
+    is told when to walk over. No queue, no guessing.
+  FIRST VIEWPORT: White app bar over search, sticky category chips, a
+    two-column product grid with 4:3 labeled demo photo slots, a green
+    persistent cart bar riding above the four-tab bar. The chrome is white and
+    the colour lives in the action, the way every UNLaM product does it.
+  FORM: The standing exit, the category canon, taken by the user over the
+    dealt hand. Candidate: canon. Seed key d8c4aa79.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the
+    finish review, the verdict, DESIGN.md, and every shipping raster carrying
+    its provenance
+-->
+
+<header class="top">
+  <div class="wrap">
+    <h1>BuffetYa!</h1>
+    <p class="top__lead">
+      Prototipo de diseño navegable. Pedidos anticipados al buffet de la
+      Universidad Nacional de La Matanza, para que un estudiante no pierda el
+      recreo haciendo la fila.
+    </p>
+    <div class="top__meta">
+      <span class="pill"><svg><use href="#i-phone"/></svg> PWA instalable</span>
+      <span class="pill"><svg><use href="#i-card"/></svg> Mercado Pago y efectivo</span>
+      <span class="pill"><svg><use href="#i-bell"/></svg> Aviso de pedido listo</span>
+      <span class="pill"><svg><use href="#i-grid"/></svg> Equipo Aura IT</span>
+    </div>
+  </div>
+</header>
+
+<section class="band">
+  <div class="wrap">
+    <h2>App del estudiante</h2>
+    <p class="band__lead">
+      Mobile-first. El usuario la abre parado, apurado, entre dos clases, con
+      una sola mano. Objetivos táctiles grandes, pocas decisiones por pantalla.
+    </p>
+
+    <div class="screens">
+
+      <a class="sc" href="instalar.html">
+        <div class="sc__frame"><iframe src="instalar.html" title="Instalación" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="sc__body">
+          <div>
+            <div class="sc__name">Instalación</div>
+            <div class="sc__note">Habilita el push. En iOS es obligatoria.</div>
+          </div>
+          <span class="sc__go"><svg><use href="#i-chevronRight"/></svg></span>
+        </div>
+      </a>
+
+      <a class="sc" href="login.html">
+        <div class="sc__frame"><iframe src="login.html" title="Ingreso" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="sc__body">
+          <div>
+            <div class="sc__name">Ingreso</div>
+            <div class="sc__note">Email y contraseña, con estado de error.</div>
+          </div>
+          <span class="sc__go"><svg><use href="#i-chevronRight"/></svg></span>
+        </div>
+      </a>
+
+      <a class="sc" href="menu.html">
+        <div class="sc__frame"><iframe src="menu.html" title="Menú" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="sc__body">
+          <div>
+            <div class="sc__name">Menú y filtros</div>
+            <div class="sc__note">Categorías, filtros dietarios, sin stock.</div>
+          </div>
+          <span class="sc__go"><svg><use href="#i-chevronRight"/></svg></span>
+        </div>
+      </a>
+
+      <a class="sc" href="producto.html">
+        <div class="sc__frame"><iframe src="producto.html" title="Producto" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="sc__body">
+          <div>
+            <div class="sc__name">Detalle del producto</div>
+            <div class="sc__note">Cantidad, aclaraciones para la cocina.</div>
+          </div>
+          <span class="sc__go"><svg><use href="#i-chevronRight"/></svg></span>
+        </div>
+      </a>
+
+      <a class="sc" href="carrito.html">
+        <div class="sc__frame"><iframe src="carrito.html" title="Carrito" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="sc__body">
+          <div>
+            <div class="sc__name">Mi pedido</div>
+            <div class="sc__note">Cantidades, quitar productos, total.</div>
+          </div>
+          <span class="sc__go"><svg><use href="#i-chevronRight"/></svg></span>
+        </div>
+      </a>
+
+      <a class="sc" href="checkout.html">
+        <div class="sc__frame"><iframe src="checkout.html" title="Pago" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="sc__body">
+          <div>
+            <div class="sc__name">Pago</div>
+            <div class="sc__note">Mercado Pago o efectivo al retirar.</div>
+          </div>
+          <span class="sc__go"><svg><use href="#i-chevronRight"/></svg></span>
+        </div>
+      </a>
+
+      <a class="sc" href="pedido.html">
+        <div class="sc__frame"><iframe src="pedido.html" title="Estado del pedido" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="sc__body">
+          <div>
+            <div class="sc__name">Estado del pedido</div>
+            <div class="sc__note">Los cuatro estados y el código de retiro.</div>
+          </div>
+          <span class="sc__go"><svg><use href="#i-chevronRight"/></svg></span>
+        </div>
+      </a>
+
+      <a class="sc" href="historial.html">
+        <div class="sc__frame"><iframe src="historial.html" title="Historial" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="sc__body">
+          <div>
+            <div class="sc__name">Historial</div>
+            <div class="sc__note">Con pedidos y estado vacío.</div>
+          </div>
+          <span class="sc__go"><svg><use href="#i-chevronRight"/></svg></span>
+        </div>
+      </a>
+
+      <a class="sc" href="perfil.html">
+        <div class="sc__frame"><iframe src="perfil.html" title="Perfil" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="sc__body">
+          <div>
+            <div class="sc__name">Perfil</div>
+            <div class="sc__note">Notificaciones y preferencias alimenticias.</div>
+          </div>
+          <span class="sc__go"><svg><use href="#i-chevronRight"/></svg></span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="band band--alt">
+  <div class="wrap">
+    <h2>Panel del buffet</h2>
+    <p class="band__lead">
+      Desktop y tablet. Contexto opuesto: pantalla fija, lectura a un metro de
+      distancia, manos ocupadas. Mayor densidad, tipografía más grande, y un
+      pedido que envejece a la vista antes de estar realmente demorado.
+    </p>
+
+    <div class="screens" style="grid-template-columns: minmax(0, 1fr)">
+      <a class="sc" href="buffet.html">
+        <div class="sc__frame sc__frame--wide" style="height: 240px">
+          <iframe src="buffet.html" title="Panel del buffet" loading="lazy" tabindex="-1"></iframe>
+        </div>
+        <div class="sc__body">
+          <div>
+            <div class="sc__name">Cola de pedidos</div>
+            <div class="sc__note">
+              Recibidos, en preparación y listos. Marcar preparando, listo y entregado.
+              El botón "Marcar listo" es lo que dispara la notificación del estudiante.
+            </div>
+          </div>
+          <span class="sc__go"><svg><use href="#i-chevronRight"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Sistema de diseño</h2>
+    <p class="band__lead">
+      Paleta muestreada de los productos propios de la UNLaM: cine.unlam.edu.ar,
+      MIEL y unlam.edu.ar. El lenguaje digital de la universidad es verde sobre
+      blanco cálido. El bordó existe, pero es un acento raro, y acá es la alerta.
+    </p>
+
+    <div class="swatches">
+      <div class="sw"><div class="sw__chip" style="background:#347659"></div><div class="sw__meta"><div class="sw__name">Verde de acción</div><div class="sw__hex">#347659 · cine.unlam</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#0b7a5e"></div><div class="sw__meta"><div class="sw__name">Campo · listo</div><div class="sw__hex">#0B7A5E · MIEL</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#022410"></div><div class="sw__meta"><div class="sw__name">Barra del buffet</div><div class="sw__hex">#022410 · MIEL</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#c2410c"></div><div class="sw__meta"><div class="sw__name">Ámbar · atención</div><div class="sw__hex">#C2410C · cine.unlam</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#ae152d"></div><div class="sw__meta"><div class="sw__name">Bordó · alerta</div><div class="sw__hex">#AE152D · raro</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#1c1917"></div><div class="sw__meta"><div class="sw__name">Tinta cálida</div><div class="sw__hex">#1C1917</div></div></div>
+      <div class="sw"><div class="sw__chip" style="background:#f5f5f4;border-bottom:1px solid var(--line)"></div><div class="sw__meta"><div class="sw__name">Fondo</div><div class="sw__hex">#F5F5F4 · cine.unlam</div></div></div>
+    </div></div></div>
+    </div>
+
+    <div style="margin-top: var(--s8)">
+      <h3 style="font-size: var(--t-h3)">Tipografía</h3>
+      <p class="band__lead" style="margin-top: var(--s2)">
+        Open Sans, la tipografía institucional de la UNLaM, con cifras tabulares
+        activadas en todo el sistema para que precios y cantidades alineen en columna.
+      </p>
+      <div style="margin-top: var(--s4); display: flex; flex-direction: column; gap: var(--s2)">
+        <div style="font-size: var(--t-h1); font-weight: 800; letter-spacing: -.03em">Milanesa napolitana</div>
+        <div style="font-size: var(--t-h3); font-weight: 700">Listo para retirar</div>
+        <div style="font-size: var(--t-body)">Te avisamos apenas esté listo. No hace falta que esperes acá.</div>
+        <div style="font-size: var(--t-body); font-weight: 800">$4.800 &middot; $3.200 &middot; $1.400</div>
+      </div>
+    </div>
+
+    <div style="margin-top: var(--s8)">
+      <h3 style="font-size: var(--t-h3)">Íconos</h3>
+      <p class="band__lead" style="margin-top: var(--s2)">
+        SVG dibujados, un solo peso de trazo de 1.8 en toda la app. Sin emojis y
+        sin glifos Unicode, por decisión explícita del equipo.
+      </p>
+      <div class="iconwall" id="iconwall"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--alt">
+  <div class="wrap">
+    <h2>Qué falta reemplazar</h2>
+    <p class="band__lead">
+      Todo lo que en el prototipo es material de demostración y tiene que pasar
+      a ser real antes de que esto sea un producto.
+    </p>
+    <ul class="replace">
+      <li><svg><use href="#i-alert"/></svg><div><b>Fotos de los productos.</b> Todos los espacios están rotulados DEMO y diseñados en 4:3. Hacen falta fotos reales del buffet en esa proporción.</div></li>
+      <li><svg><use href="#i-alert"/></svg><div><b>El escudo de la UNLaM.</b> En la pantalla de ingreso hay un placeholder circular. Va el sello institucional monocromo en blanco.</div></li>
+      <li><svg><use href="#i-alert"/></svg><div><b>El menú y los precios.</b> Los platos y valores son plausibles pero inventados. Salen de la carta real del buffet.</div></li>
+      <li><svg><use href="#i-alert"/></svg><div><b>Los tiempos de preparación.</b> Los minutos que se muestran son estimados de diseño, no medidos.</div></li>
+      <li><svg><use href="#i-alert"/></svg><div><b>La ubicación del punto de retiro.</b> Figura "Buffet Central, Edificio A" a modo de ejemplo. Falta confirmar dónde se retira realmente.</div></li>
+      <li><svg><use href="#i-alert"/></svg><div><b>Los nombres en el panel del buffet.</b> Son de demostración. En producción salen de las cuentas reales.</div></li>
+    </ul>
+  </div>
+</section>
+
+<footer class="band foot">
+  <div class="wrap">
+    <p>
+      BuffetYa! &middot; Equipo Aura IT &middot; Gestión Aplicada al Desarrollo de
+      Software II (3665) &middot; Universidad Nacional de La Matanza.
+    </p>
+    <p style="margin-top: var(--s2)">
+      Prototipo de diseño. No es la aplicación funcional.
+    </p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var wall = document.getElementById('iconwall');
+  Object.keys(window.BuffetYa.icons).forEach(function (name) {
+    var d = document.createElement('div');
+    d.className = 'iw';
+    d.title = name;
+    d.innerHTML = '<svg><use href="#i-' + name + '"/></svg>';
+    wall.appendChild(d);
+  });
+});
+</script>
+</body>
+</html>

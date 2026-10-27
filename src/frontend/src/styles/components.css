@@ -1,0 +1,781 @@
+/* ============================================================================
+   BuffetYa! — components
+   Ported from src/design/assets/app.css (the approved visual language) and
+   adapted to wireframe D: two tabs, 44px touch targets, the payment result box.
+   Tokens live in tokens.css. No colour here is a literal outside the tokens.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------- shell --- */
+
+.phone {
+  position: relative;
+  width: 100%;
+  max-width: var(--phone);
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: var(--ground);
+  display: flex;
+  flex-direction: column;
+}
+
+/* On desktop the phone column is framed on the outer ground and anchored to
+   the bottom edge, so fixed bars sit on the floor in every scroll position. */
+@media (min-width: 480px) {
+  body { background: var(--ground-outer); }
+  .phone {
+    margin-top: var(--s6);
+    min-height: calc(100vh - var(--s6));
+    min-height: calc(100dvh - var(--s6));
+    border-radius: var(--r-xl) var(--r-xl) 0 0;
+    box-shadow: var(--lift-3);
+    overflow: clip;
+  }
+}
+
+.screen {
+  flex: 1;
+  padding-bottom: calc(var(--tabbar) + var(--s6));
+}
+/* Room for the cart bar riding above the tab bar. */
+.screen--cartbar { padding-bottom: calc(var(--tabbar) + 52px + var(--s3) + var(--s6)); }
+/* Room for a bottom dock with one or two buttons. */
+.screen--dock { padding-bottom: 168px; }
+.screen--dock-2 { padding-bottom: 200px; }
+
+/* --------------------------------------------------------------- appbar --- */
+
+.appbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-height: 56px;
+  padding: var(--s2) var(--s4);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  transition: background var(--slow) var(--ease), border-color var(--slow) var(--ease);
+}
+.appbar__title {
+  font-size: var(--t-lead);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin: 0;
+}
+.appbar__sub {
+  font-size: var(--t-cap);
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.appbar__grow { flex: 1; min-width: 0; }
+
+/* READY floods the app bar too: the first viewport is one continuous signal. */
+.appbar--ready { background: var(--ready); border-bottom-color: var(--ready); color: var(--on-ready); }
+.appbar--ready .appbar__sub { color: var(--on-ready-2); }
+.appbar--ready .iconbtn { color: var(--on-ready); }
+
+.iconbtn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 -8px;
+  border-radius: var(--r-pill);
+  color: var(--ink-2);
+  transition: background var(--fast) var(--ease);
+}
+.iconbtn:hover { background: var(--surface-2); color: var(--ink-2); }
+.iconbtn svg { width: 22px; height: 22px; }
+
+/* The notification dot is the alert bordo in its real role: rare and small. */
+.iconbtn__dot {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  width: 9px;
+  height: 9px;
+  border-radius: var(--r-pill);
+  background: var(--alert);
+  box-shadow: 0 0 0 2px var(--surface);
+}
+
+/* --------------------------------------------------------------- tabbar --- */
+
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  width: 100%;
+  max-width: var(--phone);
+  height: var(--tabbar);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  box-shadow: var(--lift-up);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: var(--muted);
+  font-size: var(--t-micro);
+  font-weight: 600;
+  letter-spacing: .01em;
+  text-decoration: none;
+  transition: color var(--fast) var(--ease);
+}
+.tab svg { width: 22px; height: 22px; }
+.tab__icon { position: relative; display: inline-grid; }
+/* Count of orders in progress, only when there are two or more. */
+.tab__badge {
+  position: absolute;
+  top: -6px;
+  left: 14px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--r-pill);
+  background: var(--brand);
+  color: var(--on-brand);
+  font-size: var(--t-micro);
+  font-weight: 800;
+  line-height: 18px;
+  text-align: center;
+  box-shadow: 0 0 0 2px var(--surface);
+}
+.tab:hover { color: var(--ink-2); }
+.tab[aria-current="page"] { color: var(--brand); }
+.tab[aria-current="page"] svg { stroke-width: 2.1; }
+
+/* -------------------------------------------------------------- surface --- */
+
+.card {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  box-shadow: var(--lift-1);
+}
+.card--flat { box-shadow: none; border: 1px solid var(--line); }
+.card--inset { margin: 0 var(--s4); }
+.card--inset + .card--inset { margin-top: var(--s3); }
+
+.section { padding: var(--s5) var(--s4) 0; }
+.section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s3);
+  margin-bottom: var(--s3);
+}
+.section__title { font-size: var(--t-h3); }
+
+.muted { color: var(--muted); }
+.sm { font-size: var(--t-sm); }
+.cap { font-size: var(--t-cap); }
+
+.pad4 { padding: var(--s4); }
+.padx4 { padding: 0 var(--s4); }
+.stack { display: flex; flex-direction: column; }
+.gap2 { gap: var(--s2); }
+.gap3 { gap: var(--s3); }
+.center { text-align: center; }
+.hr { height: 1px; background: var(--line); border: 0; margin: 0; }
+.vh {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* --------------------------------------------------------------- chips --- */
+
+/* The band carries the white ground; the inner scroller carries the fade, so
+   the mask never eats the band itself. */
+.chiprow { background: var(--surface); }
+.chiprow__scroll {
+  display: flex;
+  gap: var(--s2);
+  overflow-x: auto;
+  padding: var(--s3) var(--s4);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  /* A chip sliced flat at the edge reads as a bug; the fade says "there is more". */
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+}
+.chiprow__scroll::-webkit-scrollbar { display: none; }
+.chiprow--sticky {
+  position: sticky;
+  top: 56px;
+  z-index: 20;
+}
+.chiprow--diet { border-bottom: 1px solid var(--line); }
+.chiprow--diet .chiprow__scroll { padding-top: 0; }
+
+.chip {
+  position: relative;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 var(--s4);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background var(--fast) var(--ease), border-color var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+/* 36px to the eye, 44px to the thumb. */
+.chip::after { content: ""; position: absolute; inset: -4px 0; }
+.chip svg { width: 15px; height: 15px; flex: 0 0 auto; }
+.chip:hover { background: var(--surface-2); border-color: var(--faint); }
+.chip[aria-pressed="true"] {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--on-brand);
+}
+.chip[aria-pressed="true"]:hover { background: var(--brand-deep); border-color: var(--brand-deep); }
+
+/* Dietary tags. Text carries the meaning, so they survive grayscale by
+   construction — a celiac must never depend on hue to read a plate. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: var(--r-sm);
+  font-size: var(--t-micro);
+  font-weight: 700;
+  letter-spacing: .04em;
+  border: 1px solid;
+  white-space: nowrap;
+}
+.tag svg { width: 12px; height: 12px; flex: 0 0 auto; }
+.tag--tacc { color: var(--amber-ink); background: var(--amber-wash); border-color: var(--amber-line); }
+.tag--veg { color: var(--cyan); background: var(--cyan-wash); border-color: var(--cyan-line); }
+.tag--vgn { color: #fff; background: var(--cyan); border-color: var(--cyan); }
+.tag--out { color: var(--muted); background: var(--surface-2); border-color: var(--line-2); }
+
+/* --------------------------------------------------------------- photo --- */
+
+/* Product photo in its final 4:3 box, sized before it loads so nothing shifts.
+   Without a photo (or if it fails) the box stays a quiet surface. */
+.photo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photo__fallback { width: 32px; height: 32px; color: var(--line-2); }
+.photo--thumb { width: 68px; aspect-ratio: 1 / 1; border-radius: var(--r-md); flex: 0 0 auto; }
+.photo--thumb .photo__fallback { width: 24px; height: 24px; }
+
+/* ------------------------------------------------------------ products --- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s3);
+  padding: 0 var(--s4) var(--s4);
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  box-shadow: var(--lift-1);
+  overflow: hidden;
+}
+.product__body { padding: var(--s3); display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.product__name { font-size: var(--t-sm); font-weight: 700; line-height: 1.3; letter-spacing: 0; }
+.product__tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.product__foot { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); margin-top: auto; padding-top: 2px; min-height: 44px; }
+.product__price { font-size: var(--t-body); font-weight: 800; letter-spacing: -.01em; }
+.product__stepper { margin-top: 2px; }
+
+/* Out of stock: still listed, without the add action. The photo recedes; the
+   text keeps its contrast so the name and price stay readable. */
+.product--out .photo { opacity: .5; }
+.product--out .product__name,
+.product--out .product__price { color: var(--muted); }
+
+.addbtn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border-radius: var(--r-pill);
+  background: var(--brand);
+  color: var(--on-brand);
+  box-shadow: var(--lift-1);
+  transition: background var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.addbtn svg { width: 20px; height: 20px; }
+.addbtn:hover { background: var(--brand-deep); }
+.addbtn:active { transform: scale(.92); }
+
+/* -------------------------------------------------------------- stepper --- */
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s1);
+  border: 1px solid var(--brand-line);
+  background: var(--brand-wash);
+  border-radius: var(--r-pill);
+  padding: 0;
+  min-height: 44px;
+}
+.stepper--inline { display: inline-flex; }
+.stepper button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 42px;
+  border-radius: var(--r-pill);
+  color: var(--brand-ink);
+  transition: background var(--fast) var(--ease);
+}
+.stepper button:hover { background: var(--brand-line); }
+.stepper button:disabled { color: var(--disabled-ink); background: none; }
+.stepper button svg { width: 18px; height: 18px; }
+.stepper output { min-width: 24px; text-align: center; font-weight: 800; font-size: var(--t-body); color: var(--brand-ink); }
+
+/* ---------------------------------------------------------------- rows --- */
+
+.rows { background: var(--surface); }
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  width: 100%;
+  min-height: 64px;
+  padding: var(--s3) var(--s4);
+  text-align: left;
+  color: inherit;
+  border-bottom: 1px solid var(--line);
+}
+.row:last-child { border-bottom: 0; }
+.row__grow { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.row__name { font-weight: 600; font-size: var(--t-body); line-height: 1.35; }
+.row__meta { font-size: var(--t-sm); color: var(--muted); }
+.row__end { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.row__price { font-weight: 700; white-space: nowrap; }
+.row__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s3); }
+.row__controls { display: flex; align-items: center; gap: var(--s2); margin-top: var(--s2); }
+.row__remove { margin-left: auto; margin-right: calc(var(--s3) * -1); }
+
+/* ------------------------------------------------------------- buttons --- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  min-height: 48px;
+  padding: 0 var(--s5);
+  border-radius: var(--r-md);
+  font-size: var(--t-body);
+  font-weight: 700;
+  letter-spacing: -.005em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease),
+              border-color var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.btn svg { width: 19px; height: 19px; flex: 0 0 auto; }
+.btn:active { transform: scale(.985); }
+.btn--block { width: 100%; }
+.btn--sm { min-height: 44px; padding: 0 var(--s4); font-size: var(--t-sm); border-radius: var(--r-sm); }
+
+.btn--primary { background: var(--brand); color: var(--on-brand); box-shadow: var(--lift-1); }
+.btn--primary:hover { background: var(--brand-deep); color: #fff; }
+
+/* On the backstage a button's colour predicts the column the order lands in:
+   amber moves it to "en preparación", green to "listo". */
+.btn--go { background: var(--ready); color: var(--on-ready); box-shadow: var(--lift-1); }
+.btn--go:hover { background: var(--brand-deep); color: #fff; }
+.btn--warn { background: var(--amber); color: #fff; box-shadow: var(--lift-1); }
+.btn--warn:hover { background: var(--amber-ink); color: #fff; }
+
+.btn--ghost { background: var(--surface); color: var(--ink-2); border: 1px solid var(--line-2); }
+.btn--ghost:hover { background: var(--surface-2); border-color: var(--faint); color: var(--ink-2); }
+
+.btn--quiet { background: transparent; color: var(--brand); min-height: 44px; padding: 0 var(--s3); }
+.btn--quiet:hover { background: var(--brand-wash); color: var(--brand-deep); }
+
+.btn--danger { background: var(--surface); color: var(--alert-ink); border: 1px solid var(--alert-line); }
+.btn--danger:hover { background: var(--alert-wash); color: var(--alert-ink); }
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  background: var(--line);
+  color: var(--disabled-ink);
+  box-shadow: none;
+  border-color: transparent;
+  pointer-events: none;
+}
+
+.btn[data-loading="true"] { color: transparent; position: relative; pointer-events: none; }
+.btn[data-loading="true"]::after {
+  content: "";
+  position: absolute;
+  width: 18px; height: 18px;
+  border: 2px solid rgba(255, 255, 255, .35);
+  border-top-color: #fff;
+  border-radius: var(--r-pill);
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --------------------------------------------------------------- forms --- */
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field__label { font-size: var(--t-h3); font-weight: 700; letter-spacing: -.015em; color: var(--ink); }
+.field__hint { font-size: var(--t-cap); color: var(--muted); }
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--s4);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  transition: border-color var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+.input:hover { border-color: var(--faint); }
+.input:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px var(--brand-wash);
+}
+.input[aria-invalid="true"] { border-color: var(--alert); background: var(--alert-wash); }
+.input[type="search"]::-webkit-search-cancel-button { cursor: pointer; }
+
+.field__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-cap);
+  font-weight: 600;
+  color: var(--alert-ink);
+}
+.field__error svg { width: 14px; height: 14px; flex: 0 0 auto; }
+
+.inputwrap { position: relative; display: flex; align-items: center; }
+.inputwrap .input { padding-right: 46px; }
+.inputwrap__act {
+  position: absolute;
+  right: 6px;
+  display: grid; place-items: center;
+  width: 36px; height: 36px;
+  color: var(--muted);
+  pointer-events: none;
+}
+.inputwrap__act svg { width: 19px; height: 19px; }
+
+.searchband { padding: var(--s4) var(--s4) 0; background: var(--surface); }
+
+/* --------------------------------------------------------------- radio --- */
+
+.optlist { display: flex; flex-direction: column; overflow: hidden; }
+.opt {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s4);
+  cursor: pointer;
+}
+.opt input { position: absolute; opacity: 0; pointer-events: none; }
+.opt__dot {
+  position: relative;
+  width: 22px; height: 22px; flex: 0 0 auto;
+  border: 2px solid var(--line-2);
+  border-radius: var(--r-pill);
+}
+.opt input:checked ~ .opt__dot { border-color: var(--brand); }
+.opt input:checked ~ .opt__dot::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: var(--r-pill);
+  background: var(--brand);
+}
+.opt input:focus-visible ~ .opt__dot { outline: 2px solid var(--brand); outline-offset: 2px; }
+.opt__grow { flex: 1; min-width: 0; display: block; }
+.opt__name { display: block; font-weight: 700; }
+.opt__meta { display: block; font-size: var(--t-sm); color: var(--muted); }
+.opt__mark {
+  display: grid; place-items: center;
+  width: 40px; height: 28px; flex: 0 0 auto;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  color: var(--ink-2);
+}
+.opt__mark svg { width: 20px; height: 20px; }
+
+/* ------------------------------------------------------------ summary --- */
+
+.sum { padding: var(--s4); display: flex; flex-direction: column; gap: var(--s2); }
+.sum__line { display: flex; justify-content: space-between; gap: var(--s4); font-size: var(--t-sm); color: var(--muted); }
+.sum__line b { color: var(--ink); font-weight: 600; text-align: right; }
+.sum__rule { height: 1px; background: var(--line); margin: var(--s1) 0; }
+.sum__total { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s4); }
+.sum__total span { font-weight: 700; }
+.sum__total b { font-size: var(--t-h2); font-weight: 800; letter-spacing: -.02em; }
+.sum__total--sm b { font-size: var(--t-h3); }
+
+/* ------------------------------------------------------------- docking --- */
+
+.dock {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 45;
+  width: 100%;
+  max-width: var(--phone);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: var(--s3) var(--s4) calc(var(--s4) + env(safe-area-inset-bottom, 0px));
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  box-shadow: var(--lift-up);
+}
+.dock__note { font-size: var(--t-cap); color: var(--muted); text-align: center; }
+
+/* Persistent cart bar, riding above the tab bar. */
+.cartbar {
+  position: fixed;
+  bottom: calc(var(--tabbar) + var(--s3));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 44;
+  width: calc(100% - var(--s4) * 2);
+  max-width: calc(var(--phone) - var(--s4) * 2);
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-height: 52px;
+  padding: 0 var(--s3) 0 var(--s4);
+  border-radius: var(--r-md);
+  background: var(--brand);
+  color: var(--on-brand);
+  text-decoration: none;
+  box-shadow: var(--lift-3);
+  transition: background var(--fast) var(--ease);
+}
+.cartbar:hover { background: var(--brand-deep); color: #fff; }
+.cartbar__sum { flex: 1; font-weight: 700; font-size: var(--t-sm); }
+.cartbar__cta { display: inline-flex; align-items: center; gap: 4px; font-weight: 800; font-size: var(--t-sm); }
+.cartbar svg { width: 18px; height: 18px; }
+
+/* -------------------------------------------------------- status boxes --- */
+
+/* One box, one place, for the payment result (04a/04b) and the order state
+   (05/06): whoever saw one knows where to read the other. The word carries the
+   meaning; colour only follows it. */
+.status {
+  padding: var(--s7) var(--s4) var(--s6);
+  text-align: center;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  transition: background var(--slow) var(--ease), color var(--slow) var(--ease);
+}
+.status__icon {
+  display: grid; place-items: center;
+  width: 76px; height: 76px;
+  margin: 0 auto var(--s4);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  color: var(--ink-2);
+}
+.status__icon svg { width: 36px; height: 36px; }
+.status__label {
+  font-size: var(--t-micro);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--s1);
+}
+.status__title { font-size: var(--t-h1); letter-spacing: -.028em; }
+.status__meta { margin-top: var(--s2); color: var(--muted); font-size: var(--t-sm); }
+.status__eta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--s4);
+  padding: 7px var(--s4);
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  font-size: var(--t-sm);
+  font-weight: 700;
+}
+.status__eta svg { width: 15px; height: 15px; flex: 0 0 auto; }
+
+.status--approved .status__icon { background: var(--brand-wash); color: var(--brand); }
+.status--rejected .status__icon { background: var(--alert-wash); color: var(--alert); }
+.status--received .status__icon { background: var(--brand-wash); color: var(--brand); }
+.status--preparing .status__icon { background: var(--amber-wash); color: var(--amber); }
+.status--delivered { background: var(--surface-2); }
+.status--delivered .status__icon { background: var(--surface); color: var(--muted); }
+.status--cancelled .status__icon { background: var(--alert-wash); color: var(--alert); }
+
+/* READY is the ground, not a badge: the only full-bleed colour in the app. */
+.status--ready { background: var(--ready); color: var(--on-ready); border-bottom-color: var(--ready); }
+.status--ready .status__icon { background: rgba(255, 255, 255, .22); color: #fff; }
+.status--ready .status__label { color: var(--on-ready-2); }
+/* A white veil over green lands at 3.6:1 for 13px bold; darkening reaches 7.5:1. */
+.status--ready .status__eta { background: var(--scrim); color: #fff; }
+
+/* The pickup code: the largest element of the screen, shown at the counter. */
+.code {
+  margin: var(--s6) auto 0;
+  max-width: 300px;
+  padding: var(--s4);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+}
+.status--ready .code { border-color: transparent; box-shadow: var(--lift-2); }
+.code__label {
+  font-size: var(--t-micro);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.code__value {
+  margin-top: 6px;
+  font-size: var(--t-code);
+  font-weight: 800;
+  letter-spacing: .12em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+/* The single authored moment of the build: the arrival at READY. */
+.status--ready .status__icon { animation: land var(--slow) var(--ease) both; }
+.status--ready .code { animation: rise var(--slow) var(--ease) 90ms both; }
+@keyframes land {
+  from { transform: scale(.86); opacity: .4; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes rise {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* -------------------------------------------------------------- notice --- */
+
+.notice {
+  display: flex;
+  gap: var(--s3);
+  padding: var(--s4);
+  border-radius: var(--r-md);
+  background: var(--amber-wash);
+  border: 1px solid var(--amber-line);
+  color: var(--amber-ink);
+  font-size: var(--t-sm);
+  line-height: 1.45;
+}
+.notice svg { width: 18px; height: 18px; flex: 0 0 auto; margin-top: 1px; }
+.notice--info { background: var(--brand-wash); border-color: var(--brand-line); color: var(--brand-ink); }
+.notice--alert { background: var(--alert-wash); border-color: var(--alert-line); color: var(--alert-ink); }
+.notice b { font-weight: 700; }
+.notice__body { display: flex; flex-direction: column; gap: var(--s3); align-items: flex-start; }
+.notice a { color: inherit; font-weight: 700; }
+
+/* --------------------------------------------------------------- empty --- */
+
+.empty {
+  padding: var(--s10) var(--s6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s3);
+}
+.empty__icon {
+  display: grid; place-items: center;
+  width: 64px; height: 64px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  color: var(--faint);
+}
+.empty__icon svg { width: 30px; height: 30px; }
+.empty__title { font-size: var(--t-h3); }
+.empty__text { color: var(--muted); font-size: var(--t-sm); max-width: 34ch; }
+
+/* ---------------------------------------------------------- my orders --- */
+
+.orderlist { display: flex; flex-direction: column; gap: var(--s3); padding: 0 var(--s4) var(--s4); }
+.ordercard {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  min-height: 88px;
+  padding: var(--s4);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--lift-1);
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow var(--mid) var(--ease), transform var(--mid) var(--ease);
+}
+.ordercard:hover { color: inherit; box-shadow: var(--lift-2); transform: translateY(-2px); }
+.ordercard__code { font-size: var(--t-h2); font-weight: 800; letter-spacing: .06em; min-width: 5.2ch; }
+.ordercard__body { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.ordercard__meta { font-size: var(--t-sm); color: var(--ink-2); }
+.ordercard__time { font-size: var(--t-cap); color: var(--muted); }
+.ordercard__chev { width: 18px; height: 18px; color: var(--faint); flex: 0 0 auto; }
+
+/* Order state as a pill: same words and colours as the 05/06 status box. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 24px;
+  padding: 2px 9px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-2);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: var(--t-cap);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pill svg { width: 14px; height: 14px; flex: 0 0 auto; }
+.pill--received { background: var(--brand-wash); border-color: var(--brand-line); color: var(--brand-ink); }
+.pill--preparing { background: var(--amber-wash); border-color: var(--amber-line); color: var(--amber-ink); }
+.pill--ready { background: var(--ready); border-color: var(--ready); color: var(--on-ready); }
+.pill--cancelled { background: var(--alert-wash); border-color: var(--alert-line); color: var(--alert-ink); }

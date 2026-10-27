@@ -1,0 +1,152 @@
+[
+  {
+    "id": "milanesa-napolitana",
+    "name": "Milanesa napolitana con papas",
+    "priceCents": 480000,
+    "category": "mains",
+    "dietaryTags": ["gluten_free"],
+    "imageUrl": "/products/milanesa-napolitana.jpg",
+    "available": true,
+    "prepMinutes": 12
+  },
+  {
+    "id": "tarta-verdura",
+    "name": "Tarta de verdura porción",
+    "priceCents": 320000,
+    "category": "mains",
+    "dietaryTags": ["vegetarian"],
+    "imageUrl": "/products/tarta-verdura.jpg",
+    "available": true,
+    "prepMinutes": 8
+  },
+  {
+    "id": "empanada-carne",
+    "name": "Empanada de carne",
+    "priceCents": 140000,
+    "category": "mains",
+    "dietaryTags": [],
+    "imageUrl": "/products/empanada-carne.jpg",
+    "available": true,
+    "prepMinutes": 5
+  },
+  {
+    "id": "medialunas-x3",
+    "name": "Medialunas x3",
+    "priceCents": 210000,
+    "category": "bakery",
+    "dietaryTags": [],
+    "imageUrl": "/products/medialunas-x3.jpg",
+    "available": false,
+    "prepMinutes": 2
+  },
+  {
+    "id": "empanada-verdura",
+    "name": "Empanada de verdura",
+    "priceCents": 140000,
+    "category": "mains",
+    "dietaryTags": ["vegetarian"],
+    "imageUrl": "/products/empanada-verdura.jpg",
+    "available": true,
+    "prepMinutes": 5
+  },
+  {
+    "id": "bowl-garbanzos",
+    "name": "Bowl de garbanzos y quinoa",
+    "priceCents": 390000,
+    "category": "mains",
+    "dietaryTags": ["vegan", "gluten_free"],
+    "imageUrl": "/products/bowl-garbanzos.jpg",
+    "available": true,
+    "prepMinutes": 6
+  },
+  {
+    "id": "sandwich-milanesa",
+    "name": "Sándwich de milanesa completo",
+    "priceCents": 420000,
+    "category": "sandwiches",
+    "dietaryTags": [],
+    "imageUrl": "/products/sandwich-milanesa.jpg",
+    "available": true,
+    "prepMinutes": 10
+  },
+  {
+    "id": "tostado-jyq",
+    "name": "Tostado de jamón y queso",
+    "priceCents": 260000,
+    "category": "sandwiches",
+    "dietaryTags": [],
+    "imageUrl": "/products/tostado-jyq.jpg",
+    "available": true,
+    "prepMinutes": 6
+  },
+  {
+    "id": "miga-jyq-x3",
+    "name": "Sándwiches de miga x3 jamón y queso",
+    "priceCents": 240000,
+    "category": "sandwiches",
+    "dietaryTags": [],
+    "imageUrl": "/products/miga-jyq-x3.jpg",
+    "available": true,
+    "prepMinutes": 2
+  },
+  {
+    "id": "wrap-vegetales",
+    "name": "Wrap de vegetales grillados",
+    "priceCents": 330000,
+    "category": "sandwiches",
+    "dietaryTags": ["vegan"],
+    "imageUrl": "/products/wrap-vegetales.jpg",
+    "available": true,
+    "prepMinutes": 7
+  },
+  {
+    "id": "agua-500",
+    "name": "Agua mineral 500 ml",
+    "priceCents": 100000,
+    "category": "drinks",
+    "dietaryTags": ["gluten_free", "vegan"],
+    "imageUrl": "/products/agua-500.jpg",
+    "available": true,
+    "prepMinutes": 1
+  },
+  {
+    "id": "gaseosa-500",
+    "name": "Gaseosa 500 ml",
+    "priceCents": 150000,
+    "category": "drinks",
+    "dietaryTags": ["gluten_free", "vegan"],
+    "imageUrl": "/products/gaseosa-500.jpg",
+    "available": true,
+    "prepMinutes": 1
+  },
+  {
+    "id": "jugo-naranja",
+    "name": "Jugo de naranja exprimido",
+    "priceCents": 180000,
+    "category": "drinks",
+    "dietaryTags": ["gluten_free", "vegan"],
+    "imageUrl": "/products/jugo-naranja.jpg",
+    "available": true,
+    "prepMinutes": 3
+  },
+  {
+    "id": "cafe-con-leche",
+    "name": "Café con leche",
+    "priceCents": 130000,
+    "category": "drinks",
+    "dietaryTags": ["gluten_free", "vegetarian"],
+    "imageUrl": "/products/cafe-con-leche.jpg",
+    "available": true,
+    "prepMinutes": 3
+  },
+  {
+    "id": "alfajor-maicena",
+    "name": "Alfajor de maicena",
+    "priceCents": 90000,
+    "category": "bakery",
+    "dietaryTags": ["vegetarian"],
+    "imageUrl": "/products/alfajor-maicena.jpg",
+    "available": true,
+    "prepMinutes": 1
+  }
+]

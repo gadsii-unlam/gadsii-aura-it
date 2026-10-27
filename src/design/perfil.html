@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Perfil · BuffetYa!</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/app.js" defer></script>
+<style>
+  .who {
+    display: flex; align-items: center; gap: var(--s4);
+    padding: var(--s6) var(--s4);
+    background: var(--brand); color: var(--on-brand);
+  }
+  .who__av {
+    display: grid; place-items: center;
+    width: 56px; height: 56px; flex: 0 0 auto;
+    border-radius: var(--r-pill);
+    background: rgba(255,255,255,.2);
+    font-weight: 800; font-size: var(--t-h3);
+  }
+  .who__name { font-size: var(--t-h3); font-weight: 700; }
+  .who__meta { font-size: var(--t-sm); color: var(--on-brand-2); }
+  .toggle {
+    position: relative; width: 44px; height: 26px; flex: 0 0 auto;
+    border-radius: var(--r-pill); background: var(--line-2);
+    transition: background var(--fast) var(--ease);
+  }
+  .toggle::after {
+    content: ""; position: absolute; top: 3px; left: 3px;
+    width: 20px; height: 20px; border-radius: var(--r-pill);
+    background: #fff; box-shadow: var(--lift-1);
+    transition: transform var(--fast) var(--ease);
+  }
+  .toggle[aria-checked="true"] { background: var(--ready-bright); }
+  .toggle[aria-checked="true"]::after { transform: translateX(18px); }
+</style>
+</head>
+<body class="is-phone">
+<!-- DIRECTION CONTRACT · seed key d8c4aa79 · the category canon at full craft. -->
+<div class="phone">
+
+  <header class="appbar appbar--brand">
+    <div class="appbar__grow"><h1 class="appbar__title">Perfil</h1></div>
+  </header>
+
+  <div class="who">
+    <div class="who__av" aria-hidden="true">MD</div>
+    <div>
+      <div class="who__name">Martín D.</div>
+      <div class="who__meta">alumno@ejemplo.com</div>
+      <div class="who__meta">DNI 43.664.688</div>
+    </div>
+  </div>
+
+  <div class="screen">
+
+    <div class="section">
+      <div class="section__head"><h2 class="section__title">Notificaciones</h2></div>
+    </div>
+
+    <div class="rows card" style="margin: 0 var(--s4); overflow: hidden;">
+      <div class="row">
+        <span class="row__icon"><svg><use href="#i-bell"/></svg></span>
+        <div class="row__grow">
+          <div class="row__name">Avisos de pedido listo</div>
+          <div class="row__meta">La notificación que evita la espera</div>
+        </div>
+        <button class="toggle" role="switch" aria-checked="true" aria-label="Avisos de pedido listo"></button>
+      </div>
+      <div class="row">
+        <span class="row__icon"><svg><use href="#i-star"/></svg></span>
+        <div class="row__grow">
+          <div class="row__name">Novedades del menú</div>
+          <div class="row__meta">Cuando el buffet suma platos nuevos</div>
+        </div>
+        <button class="toggle" role="switch" aria-checked="false" aria-label="Novedades del menú"></button>
+      </div>
+    </div>
+
+    <div style="padding: var(--s4)">
+      <div class="notice">
+        <svg><use href="#i-phone"/></svg>
+        <div>
+          <b>Estás usando BuffetYa! desde el navegador.</b>
+          Instalala en tu pantalla de inicio para recibir los avisos.
+          <div style="margin-top: var(--s3)">
+            <a class="btn btn--ghost btn--sm" href="instalar.html">
+              <svg><use href="#i-download"/></svg> Cómo instalarla
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section__head"><h2 class="section__title">Preferencias alimenticias</h2></div>
+    </div>
+
+    <div class="chiprow" data-chipgroup="many" style="padding-top: 0" aria-label="Preferencias alimenticias">
+      <button class="chip" aria-pressed="true"><svg><use href="#i-wheat"/></svg> Sin TACC</button>
+      <button class="chip" aria-pressed="false"><svg><use href="#i-leaf"/></svg> Vegetariano</button>
+      <button class="chip" aria-pressed="false"><svg><use href="#i-sprout"/></svg> Vegano</button>
+    </div>
+    <p class="cap muted" style="padding: 0 var(--s4) var(--s2)">
+      El menú se abre filtrado con lo que marques acá.
+    </p>
+
+    <div class="section">
+      <div class="section__head"><h2 class="section__title">Cuenta</h2></div>
+    </div>
+
+    <div class="rows card" style="margin: 0 var(--s4) var(--s6); overflow: hidden;">
+      <a class="row" href="#">
+        <span class="row__icon"><svg><use href="#i-user"/></svg></span>
+        <div class="row__grow"><div class="row__name">Datos personales</div></div>
+        <span class="row__chevron"><svg><use href="#i-chevronRight"/></svg></span>
+      </a>
+      <a class="row" href="#">
+        <span class="row__icon"><svg><use href="#i-card"/></svg></span>
+        <div class="row__grow">
+          <div class="row__name">Métodos de pago</div>
+          <div class="row__meta">Mercado Pago vinculado</div>
+        </div>
+        <span class="row__chevron"><svg><use href="#i-chevronRight"/></svg></span>
+      </a>
+      <a class="row" href="login.html">
+        <span class="row__icon"><svg><use href="#i-logout"/></svg></span>
+        <div class="row__grow"><div class="row__name">Cerrar sesión</div></div>
+        <span class="row__chevron"><svg><use href="#i-chevronRight"/></svg></span>
+      </a>
+    </div>
+
+  </div>
+
+  <nav class="tabbar" aria-label="Navegación principal">
+    <a class="tab" href="menu.html"><svg><use href="#i-list"/></svg> Menú</a>
+    <a class="tab" href="pedido.html"><svg><use href="#i-package"/></svg> Mi pedido</a>
+    <a class="tab" href="historial.html"><svg><use href="#i-clock"/></svg> Historial</a>
+    <a class="tab" href="perfil.html" aria-current="page"><svg><use href="#i-user"/></svg> Perfil</a>
+  </nav>
+
+</div>
+
+<script>
+document.querySelectorAll('.toggle').forEach(function (t) {
+  t.addEventListener('click', function () {
+    t.setAttribute('aria-checked', t.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
+  });
+});
+</script>
+</body>
+</html>
