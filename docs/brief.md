@@ -6,6 +6,7 @@
 <br>2.0 Se agrega el perfil del usuario real, sus necesidades, sus problemas, el contexto de uso relevado, la hipótesis de valor y el estado de los supuestos, todos puntos detallados en el TP2.</br>
 <br>2.1 Actualización con correcciones del TP2 tales como la incorporación del detalle de los cambios, y el reemplazo de la categoría "Parcialmente confirmado" por "Confirmado".</br>
 <br>3.0 Se definió qué funcionalidades y componentes serán incluidos en el MVP y cuales van a ser simulados durante las pruebas de usuario.</br>
+<br>4.0 Se incorporan los resultados de la prueba del MVP con usuarios reales (U1, U2 y U3), el estado de la hipótesis de valor frente al criterio de éxito y la decisión de perseverar con su fundamento.</br>
 
 
 ## Segmento elegido de la comunidad UNLaM y por qué ese.
@@ -95,3 +96,18 @@ Menú → selección → revisión → pago → estado → notificación → ret
 ## Atributos
 
 Eficiencia, prevención de errores y facilidad de aprendizaje.
+
+## Lo aprendido en la prueba
+
+* Los 3 usuarios completaron el flujo sin ayuda, en un tiempo de entre 1:10 y 2:20 (promedio de unos 1:30).
+* Agregar productos desde la grilla con los botones + y - resultó fluido.
+* Los filtros sirven a quien los necesita (U3), y U1 los ignoró sin problema. U2 se olvidó el filtro "Vegetariano" activo y estuvo 15 s buscando la milanesa.
+* Después de pagar, U1 bloqueó el celular y U3 pasó a otra app. U2 se quedó 30 s mirando la pantalla porque no confió en el texto "No hace falta que esperes".
+
+## Estado de la hipótesis
+
+Se sostiene en parte. El flujo es eficiente y nadie necesitó ayuda (3 de 3), pero solo 2 de 3 usuarios terminaron en menos de 2 minutos (67%, cuando el criterio pedía 80%). Ninguna condición de refutación se cumplió. La recurrencia (Repeat Order Rate) no se midió en la prueba.
+
+## Decisión: perseverar
+
+El problema de la espera está confirmado y ningún usuario abandonó el flujo ni pidió ayuda. Lo próximo a construir es el módulo de administración del buffet, para que los cambios de estado y la notificación dejen de simularse. Además hay que mostrar más claramente cuándo hay un filtro activo y hacer más visible el aviso de que el usuario se puede ir después de pagar.
