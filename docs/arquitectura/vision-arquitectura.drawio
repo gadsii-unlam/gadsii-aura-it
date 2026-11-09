@@ -1,0 +1,271 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="vision" name="Arquitectura de la gran visión">
+    <mxGraphModel dx="2946" dy="1560" grid="1" gridSize="5" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1520" pageHeight="940" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="fontFamily=Helvetica;fontSize=12;text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;fontSize=18;fontColor=#347659;" value="&lt;b&gt;BuffetYa! — Arquitectura de la gran visión&lt;/b&gt;" vertex="1">
+          <mxGeometry height="26" width="1200" x="20" y="6" as="geometry" />
+        </mxCell>
+        <mxCell id="phone" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=2;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#33475b;dashed=1;dashPattern=10 5;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontSize=14;" value="Celular del estudiante (Angular PWA)" vertex="1">
+          <mxGeometry height="370" width="420" x="20" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="screens" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#9be3b8;strokeColor=#1f7a4d;strokeWidth=1.5;" value="&lt;b&gt;Pantallas del MVP&lt;/b&gt;&lt;br&gt;menú, carrito, pago, estado del pedido y retiro" vertex="1">
+          <mxGeometry height="80" width="185" x="40" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="screens_new" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;" value="&lt;b&gt;Login, perfil e historial&lt;/b&gt;&lt;br&gt;cuenta del estudiante y sus pedidos anteriores" vertex="1">
+          <mxGeometry height="80" width="185" x="235" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="client" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#9be3b8;strokeColor=#1f7a4d;strokeWidth=1.5;" value="&lt;b&gt;Estado del cliente&lt;/b&gt;&lt;br&gt;carrito y pedidos en curso; llama a la API y recibe los cambios de estado en vivo" vertex="1">
+          <mxGeometry height="65" width="380" x="40" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="sw" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#9be3b8;strokeColor=#1f7a4d;strokeWidth=1.5;" value="&lt;b&gt;Service Worker&lt;/b&gt;&lt;br&gt;hace instalable la app y muestra la notificación; en la visión también recibe el push" vertex="1">
+          <mxGeometry height="95" width="230" x="40" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="ls" parent="1" style="fontFamily=Helvetica;fontSize=12;shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#9be3b8;strokeColor=#1f7a4d;strokeWidth=1.5;" value="&lt;b&gt;localStorage&lt;/b&gt;&lt;br&gt;carrito y pedidos que sigue" vertex="1">
+          <mxGeometry height="95" width="130" x="290" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="e_screens" edge="1" parent="1" source="screens" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.4973;exitY=1.0;exitDx=0;exitDy=0;entryX=0.2421;entryY=0.0;entryDx=0;entryDy=0;" target="client" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_screens_new" edge="1" parent="1" source="screens_new" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.4973;exitY=1.0;exitDx=0;exitDy=0;entryX=0.7553;entryY=0.0;entryDx=0;entryDy=0;" target="client" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sw" edge="1" parent="1" source="client" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.3026;exitY=1.0;exitDx=0;exitDy=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;" target="sw" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ls" edge="1" parent="1" source="client" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.8289;exitY=1.0;exitDx=0;exitDy=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;" target="ls" value="guarda">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tablet" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=2;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#33475b;dashed=1;dashPattern=10 5;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontSize=14;" value="Tablet o monitor del buffet" vertex="1">
+          <mxGeometry height="150" width="420" x="20" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="panel" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;" value="&lt;b&gt;Panel del personal del buffet&lt;/b&gt;&lt;br&gt;ve la cola de pedidos, los pasa a «en preparación», «listo» y «entregado», y marca productos sin stock" vertex="1">
+          <mxGeometry height="90" width="380" x="40" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="server" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=2;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#33475b;dashed=1;dashPattern=10 5;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontSize=14;" value="Servidor en Azure (VM) · proceso NestJS" vertex="1">
+          <mxGeometry height="505" width="940" x="540" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nginx" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;" value="&lt;b&gt;nginx&lt;/b&gt;&lt;br&gt;HTTPS con certificado y proxy hacia NestJS" vertex="1">
+          <mxGeometry height="40" width="900" x="560" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="l_api" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=0;whiteSpace=wrap;html=1;fillColor=#e9eef3;strokeColor=#8a99a8;align=left;verticalAlign=bottom;spacingLeft=8;spacingBottom=3;fontStyle=1;fontSize=11;fontColor=#33475b;" value="API HTTP · valida la sesión de cada usuario con Firebase Auth" vertex="1">
+          <mxGeometry height="105" width="900" x="560" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c_api" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#9be3b8;strokeColor=#1f7a4d;strokeWidth=1.5;fontSize=11;" value="&lt;b&gt;Productos y pedidos&lt;/b&gt;&lt;br&gt;/api/products y /api/orders (REST y avisos en vivo por SSE)" vertex="1">
+          <mxGeometry height="60" width="260" x="575" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c_panel" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;" value="&lt;b&gt;API del panel del buffet&lt;/b&gt;&lt;br&gt;cola de pedidos, estados y stock" vertex="1">
+          <mxGeometry height="60" width="210" x="850" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c_static" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#9be3b8;strokeColor=#1f7a4d;strokeWidth=1.5;fontSize=11;" value="&lt;b&gt;Archivos de la app&lt;/b&gt;&lt;br&gt;entrega la PWA al celular" vertex="1">
+          <mxGeometry height="60" width="190" x="1075" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c_webhook" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;" value="&lt;b&gt;Webhook de pagos&lt;/b&gt;&lt;br&gt;recibe la confirmación de Mercado Pago" vertex="1">
+          <mxGeometry height="60" width="165" x="1280" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="l_app" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=0;whiteSpace=wrap;html=1;fillColor=#e9eef3;strokeColor=#8a99a8;align=left;verticalAlign=bottom;spacingLeft=8;spacingBottom=3;fontStyle=1;fontSize=11;fontColor=#33475b;" value="Aplicación" vertex="1">
+          <mxGeometry height="95" width="900" x="560" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="usecases" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#9be3b8;strokeColor=#1f7a4d;strokeWidth=1.5;" value="&lt;b&gt;Casos de uso del MVP&lt;/b&gt;&lt;br&gt;menú, stock, pedidos, pago y estados" vertex="1">
+          <mxGeometry height="55" width="330" x="575" y="283" as="geometry" />
+        </mxCell>
+        <mxCell id="uc_new" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;" value="&lt;b&gt;Casos de uso nuevos&lt;/b&gt;&lt;br&gt;historial y cuenta del usuario" vertex="1">
+          <mxGeometry height="55" width="210" x="920" y="283" as="geometry" />
+        </mxCell>
+        <mxCell id="ports" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#9be3b8;strokeColor=#1f7a4d;dashed=1;strokeWidth=1.5;" value="&lt;b&gt;Puertos&lt;/b&gt;&lt;br&gt;interfaces hacia afuera" vertex="1">
+          <mxGeometry height="55" width="300" x="1145" y="283" as="geometry" />
+        </mxCell>
+        <mxCell id="l_dom" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=0;whiteSpace=wrap;html=1;fillColor=#e9eef3;strokeColor=#8a99a8;align=left;verticalAlign=bottom;spacingLeft=8;spacingBottom=3;fontStyle=1;fontSize=11;fontColor=#33475b;" value="Dominio (sin dependencias)" vertex="1">
+          <mxGeometry height="75" width="570" x="560" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="domain" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#9be3b8;strokeColor=#1f7a4d;strokeWidth=1.5;fontSize=11;" value="&lt;b&gt;Reglas del negocio&lt;/b&gt;&lt;br&gt;estados del pedido, precios, demora y código de retiro" vertex="1">
+          <mxGeometry height="42" width="540" x="575" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="l_infra" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=0;whiteSpace=wrap;html=1;fillColor=#e9eef3;strokeColor=#8a99a8;align=left;verticalAlign=bottom;spacingLeft=8;spacingBottom=3;fontStyle=1;fontSize=11;fontColor=#33475b;" value="Adaptadores (implementan los puertos)" vertex="1">
+          <mxGeometry height="85" width="900" x="560" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="repo" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;" value="&lt;b&gt;Repositorio Firestore&lt;/b&gt;&lt;br&gt;reemplaza a los archivos JSON" vertex="1">
+          <mxGeometry height="52" width="215" x="575" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="events" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#9be3b8;strokeColor=#1f7a4d;strokeWidth=1.5;fontSize=11;" value="&lt;b&gt;Eventos en vivo&lt;/b&gt;&lt;br&gt;difunde cada cambio de estado (SSE)" vertex="1">
+          <mxGeometry height="52" width="215" x="805" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="push" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;" value="&lt;b&gt;Notificador push&lt;/b&gt;&lt;br&gt;manda el aviso «listo» por FCM" vertex="1">
+          <mxGeometry height="52" width="210" x="1035" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="pay" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;" value="&lt;b&gt;Pago Mercado Pago&lt;/b&gt;&lt;br&gt;crea el cobro; reemplaza al pago simulado" vertex="1">
+          <mxGeometry height="52" width="185" x="1260" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="cloud" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=2;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#33475b;dashed=1;dashPattern=10 5;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontSize=14;" value="Servicios en la nube" vertex="1">
+          <mxGeometry height="170" width="940" x="540" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="firebase" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=0;whiteSpace=wrap;html=1;fillColor=#f1edff;strokeColor=#6741d9;align=left;verticalAlign=top;spacingLeft=8;spacingTop=3;fontStyle=1;fontSize=11;fontColor=#4b2db3;" value="Firebase" vertex="1">
+          <mxGeometry height="125" width="700" x="560" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="firestore" parent="1" style="fontFamily=Helvetica;fontSize=12;shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;" value="&lt;b&gt;Firestore&lt;/b&gt;&lt;br&gt;usuarios, pedidos, historial, menú y stock" vertex="1">
+          <mxGeometry height="95" width="215" x="575" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="auth" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;" value="&lt;b&gt;Firebase Auth&lt;/b&gt;&lt;br&gt;cuentas con email y contraseña" vertex="1">
+          <mxGeometry height="75" width="215" x="805" y="665" as="geometry" />
+        </mxCell>
+        <mxCell id="fcm" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;" value="&lt;b&gt;Cloud Messaging (FCM)&lt;/b&gt;&lt;br&gt;entrega el push aunque la app esté cerrada" vertex="1">
+          <mxGeometry height="75" width="210" x="1035" y="665" as="geometry" />
+        </mxCell>
+        <mxCell id="mp" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;" value="&lt;b&gt;Mercado Pago&lt;/b&gt;&lt;br&gt;checkout y cobro real" vertex="1">
+          <mxGeometry height="90" width="185" x="1275" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="e_client_nginx" edge="1" parent="1" source="client" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1.0;exitY=0.3846;exitDx=0;exitDy=0;entryX=0.0;entryY=0.425;entryDx=0;entryDy=0;" target="nginx" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="235" />
+              <mxPoint x="500" y="112" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_client" parent="1" style="fontFamily=Helvetica;fontSize=12;text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;fontSize=10;" value="HTTPS: app, REST y SSE" vertex="1">
+          <mxGeometry height="34" width="92" x="446" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="e_panel_nginx" edge="1" parent="1" source="panel" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;fontColor=#4b2db3;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.0;entryY=0.75;entryDx=0;entryDy=0;" target="nginx" value="HTTPS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="545" />
+              <mxPoint x="520" y="125" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_nginx_api" edge="1" parent="1" source="nginx" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;" target="l_api" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_login" edge="1" parent="1" source="phone" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;fontColor=#4b2db3;exitX=1.0;exitY=0.8649;exitDx=0;exitDy=0;entryX=0.4977;entryY=1.0;entryDx=0;entryDy=0;" target="auth" value="inicia sesión">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="380" />
+              <mxPoint x="480" y="785" />
+              <mxPoint x="912" y="785" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_checkout" edge="1" parent="1" source="phone" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;fontColor=#4b2db3;exitX=1.0;exitY=0.9054;exitDx=0;exitDy=0;entryX=0.4973;entryY=1.0;entryDx=0;entryDy=0;" target="mp" value="paga en el checkout de MP">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="395" />
+              <mxPoint x="470" y="795" />
+              <mxPoint x="1367" y="795" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_push" edge="1" parent="1" source="fcm" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;fontColor=#4b2db3;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;entryX=0.5;entryY=1.0;entryDx=0;entryDy=0;" target="sw" value="push «pedido listo»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1140" y="808" />
+              <mxPoint x="458" y="808" />
+              <mxPoint x="458" y="420" />
+              <mxPoint x="155" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_webhook" edge="1" parent="1" source="mp" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;fontColor=#4b2db3;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;entryX=1.0;entryY=0.5;entryDx=0;entryDy=0;" target="c_webhook" value="confirma el pago">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1500" y="695" />
+              <mxPoint x="1500" y="195" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_api_uc" edge="1" parent="1" source="c_api" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;entryX=0.3939;entryY=0.0;entryDx=0;entryDy=0;" target="usecases" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_panel_uc" edge="1" parent="1" source="c_panel" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.2381;exitY=1.0;exitDx=0;exitDy=0;entryX=0.9242;entryY=0.0;entryDx=0;entryDy=0;" target="usecases" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="255" />
+              <mxPoint x="880" y="255" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_panel_ucnew" edge="1" parent="1" source="c_panel" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.7143;exitY=1.0;exitDx=0;exitDy=0;entryX=0.381;entryY=0.0;entryDx=0;entryDy=0;" target="uc_new" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_webhook_uc" edge="1" parent="1" source="c_webhook" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.4848;exitY=1.0;exitDx=0;exitDy=0;entryX=0.803;entryY=0.0;entryDx=0;entryDy=0;" target="usecases" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1360" y="262" />
+              <mxPoint x="840" y="262" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_uc_dom" edge="1" parent="1" source="usecases" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;entryX=0.3056;entryY=0.0;entryDx=0;entryDy=0;" target="domain" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ucnew_ports" edge="1" parent="1" source="uc_new" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1.0;exitY=0.4909;exitDx=0;exitDy=0;entryX=0.0;entryY=0.4909;entryDx=0;entryDy=0;" target="ports" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_impl" edge="1" parent="1" source="l_infra" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=0;endSize=12;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;dashed=1;exitX=0.9556;exitY=0.0;exitDx=0;exitDy=0;entryX=0.9167;entryY=1.0;entryDx=0;entryDy=0;" target="ports" value="implementan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_repo_fs" edge="1" parent="1" source="repo" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;fontColor=#4b2db3;exitX=0.4977;exitY=1.0;exitDx=0;exitDy=0;entryX=0.4977;entryY=0.0;entryDx=0;entryDy=0;" target="firestore" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_push_fcm" edge="1" parent="1" source="push" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;fontColor=#4b2db3;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;" target="fcm" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_pay_mp" edge="1" parent="1" source="pay" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;fontColor=#4b2db3;exitX=0.4973;exitY=1.0;exitDx=0;exitDy=0;entryX=0.4162;entryY=0.0;entryDx=0;entryDy=0;" target="mp" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_auth_check" edge="1" parent="1" source="l_api" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#6741d9;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;fontColor=#4b2db3;dashed=1;exitX=1.0;exitY=0.7619;exitDx=0;exitDy=0;entryX=1.0;entryY=0.4667;entryDx=0;entryDy=0;" target="auth" value="verifica la sesión">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1475" y="230" />
+              <mxPoint x="1475" y="585" />
+              <mxPoint x="1030" y="585" />
+              <mxPoint x="1030" y="700" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=2;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#33475b;dashed=1;dashPattern=10 5;strokeWidth=2;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontSize=14;fontSize=12;dashed=0;strokeWidth=1;strokeColor=#999999;" value="Referencias" vertex="1">
+          <mxGeometry height="95" width="1460" x="20" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_m" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#9be3b8;strokeColor=#1f7a4d;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="22" width="40" x="40" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_m_t" parent="1" style="fontFamily=Helvetica;fontSize=12;text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;" value="&lt;b&gt;Ya lo cubre el MVP&lt;/b&gt;" vertex="1">
+          <mxGeometry height="22" width="200" x="86" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_n" parent="1" style="fontFamily=Helvetica;fontSize=12;rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="22" width="40" x="290" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_n_t" parent="1" style="fontFamily=Helvetica;fontSize=12;text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;" value="&lt;b&gt;Nuevo en la gran visión&lt;/b&gt;" vertex="1">
+          <mxGeometry height="22" width="200" x="336" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_d" parent="1" style="fontFamily=Helvetica;fontSize=12;shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=10;fillColor=#cdbcff;strokeColor=#6741d9;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="36" width="28" x="540" y="853" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_d_t" parent="1" style="fontFamily=Helvetica;fontSize=12;text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;" value="Datos" vertex="1">
+          <mxGeometry height="22" width="120" x="574" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_e" edge="1" parent="1" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=1;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="871" as="sourcePoint" />
+            <mxPoint x="745" y="871" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg_e_t" parent="1" style="fontFamily=Helvetica;fontSize=12;text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;" value="A depende de B" vertex="1">
+          <mxGeometry height="22" width="130" x="751" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_i" edge="1" parent="1" style="fontFamily=Helvetica;fontSize=12;html=1;rounded=0;endArrow=block;endFill=0;endSize=12;strokeColor=#333333;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;dashed=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="890" y="871" as="sourcePoint" />
+            <mxPoint x="935" y="871" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg_i_t" parent="1" style="fontFamily=Helvetica;fontSize=12;text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;" value="Implementa" vertex="1">
+          <mxGeometry height="22" width="90" x="941" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="lg_x" parent="1" style="fontFamily=Helvetica;fontSize=12;text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=11;fontColor=#333333;" value="Recuadro punteado = máquina física o servicio externo" vertex="1">
+          <mxGeometry height="22" width="430" x="1040" y="860" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
