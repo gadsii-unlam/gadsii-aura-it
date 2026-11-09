@@ -7,6 +7,7 @@
 <br>2.1 Actualización con correcciones del TP2 tales como la incorporación del detalle de los cambios, y el reemplazo de la categoría "Parcialmente confirmado" por "Confirmado".</br>
 <br>3.0 Se definió qué funcionalidades y componentes serán incluidos en el MVP y cuales van a ser simulados durante las pruebas de usuario.</br>
 <br>4.0 Se incorporan los resultados de la prueba del MVP con usuarios reales (U1, U2 y U3), el estado de la hipótesis de valor frente al criterio de éxito y la decisión de perseverar con su fundamento.</br>
+<br>5.0 Se incorpora la gran visión del producto en términos de arquitectura: qué cubre el MVP, qué componentes agrega la visión, cuál es el salto más grande entre ambos y qué tecnologías suma. También se agregan las restricciones técnicas del contexto (UNLaM, dispositivos y mantenimiento), todo según el TP6.</br>
 
 
 ## Segmento elegido de la comunidad UNLaM y por qué ese.
@@ -111,3 +112,27 @@ Se sostiene en parte. El flujo es eficiente y nadie necesitó ayuda (3 de 3), pe
 ## Decisión: perseverar
 
 El problema de la espera está confirmado y ningún usuario abandonó el flujo ni pidió ayuda. Lo próximo a construir es el módulo de administración del buffet, para que los cambios de estado y la notificación dejen de simularse. Además hay que mostrar más claramente cuándo hay un filtro activo y hacer más visible el aviso de que el usuario se puede ir después de pagar.
+
+## Arquitectura de la gran visión
+
+El MVP es una app web instalable (PWA en Angular) que habla con un único servidor NestJS. El servidor está organizado en capas: API, casos de uso, dominio y adaptadores. Los datos se guardan en un archivo JSON, el pago con Mercado Pago está simulado y los cambios de estado los hace el equipo desde un backstage. El aviso de "pedido listo" llega por una conexión en vivo (SSE), solo con la app abierta.
+
+La gran visión mantiene el dominio, los casos de uso y los puertos del MVP, y agrega alrededor:
+
+* Login, perfil e historial de pedidos para el estudiante.
+* Un panel para el personal del buffet, que reemplaza al backstage.
+* Mercado Pago real, con confirmación del pago por webhook.
+* Notificaciones push con Firebase Cloud Messaging, para que el aviso llegue con la app cerrada.
+* Cuentas y base de datos en la nube con Firebase Authentication y Cloud Firestore, en lugar del archivo JSON.
+* Deploy en una VM de Azure, detrás de nginx con HTTPS.
+
+**El salto más grande** es pasar de un sistema cerrado, que controla todo por sí mismo, a uno que depende de servicios externos: los datos y las cuentas pasan a Firebase, el aviso depende de que FCM entregue el push y el pago lo confirma Mercado Pago por su cuenta. **El componente más riesgoso** es el aviso de "pedido listo": en la prueba solo funcionó porque se simuló, y es el que permite al estudiante no esperar en el mostrador.
+
+Diagramas: `docs/arquitectura/mvp-arquitectura-real.drawio` y `docs/arquitectura/vision-arquitectura.drawio`.
+
+## Restricciones técnicas del contexto
+
+* **Sin login institucional:** la UNLaM no expone una API pública de autenticación, así que no se puede iniciar sesión con las credenciales de MIEL. El producto necesita cuentas propias, que más adelante se pueden restringir al email institucional.
+* **HTTPS obligatorio:** sin HTTPS no hay Service Worker, y sin él la app no se instala ni recibe notificaciones push.
+* **Conectividad y picos:** el uso depende del WiFi del centro de estudiantes o de los datos móviles del estudiante, y la demanda se concentra en los recreos.
+* **Mantenimiento:** detrás del producto no hay un equipo de sistemas, así que se priorizan servicios administrados (Firebase, Mercado Pago) por sobre servidores propios.
