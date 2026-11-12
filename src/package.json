@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "BuffetYa! — pre-ordering for the UNLaM university buffet.",
+  "packageManager": "pnpm@11.24.0",
   "engines": {
     "node": ">=22"
   },

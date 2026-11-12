@@ -36,6 +36,17 @@ rutas del cliente (`/carrito`, `/pedido`, …). En la VM alcanza con ponerlo det
 un proxy con HTTPS (nginx + Let's Encrypt) y mantenerlo vivo con un supervisor
 (systemd o pm2).
 
+### Deploy gratis en Render
+
+`render.yaml` (en la raíz del repo) describe un único *Web Service* del plan Free.
+En Render: **New → Blueprint**, elegir este repositorio y confirmar. Render genera
+`BACKSTAGE_KEY` (se ve en *Environment*) y da la URL con HTTPS.
+
+- El plan Free se duerme tras ~15 minutos sin tráfico: la primera visita tarda
+  cerca de un minuto en despertarlo.
+- No hay disco persistente: los pedidos (`db.json`) se borran en cada reinicio o
+  deploy. El menú vuelve a cargarse desde el seed.
+
 > [!warning] HTTPS es obligatorio para la PWA
 > El *service worker* y las notificaciones solo funcionan en HTTPS o en `localhost`.
 > Sin HTTPS la app funciona, pero no se instala ni avisa al celular.

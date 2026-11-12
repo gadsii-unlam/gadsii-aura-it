@@ -1,0 +1,21 @@
+# Render Blueprint: one free web service runs NestJS, which also serves the
+# built Angular PWA (see src/backend/src/bootstrap.ts). HTTPS comes with Render.
+# shortcut: the free plan has no persistent disk, so db.json (orders) resets on
+# every restart or deploy; add a disk or a real database if data must survive.
+services:
+  - type: web
+    name: buffetya
+    runtime: node
+    plan: free
+    rootDir: src
+    # NODE_ENV=production would make pnpm skip devDependencies (Angular and Nest CLIs).
+    buildCommand: corepack enable && NODE_ENV=development pnpm install --frozen-lockfile && pnpm build
+    startCommand: pnpm start
+    healthCheckPath: /api/products
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NODE_ENV
+        value: production
+      - key: BACKSTAGE_KEY
+        generateValue: true
