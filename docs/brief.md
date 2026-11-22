@@ -20,7 +20,7 @@ _**BuffetYa!**_
 
 Pérdida de tiempo al trasladarse, esperar fila para comprar y pagar en el buffet universitario.
 
-A estudiantes y docentes de carreras universitarias del DIIT de la UNLaM.
+A estudiantes de los departamentos de Derecho y Ciencia Política, Humanidades y Ciencias Sociales y Ciencias de la Salud de la UNLaM que usan habitualmente el buffet universitario.
 
 ## Funcionalidades core
 
