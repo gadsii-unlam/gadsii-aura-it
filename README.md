@@ -1,146 +1,225 @@
 <div align="center">
 
-<img src="src/frontend/public/icons/icon-192.png" alt="BuffetYa!" width="96">
+<img src="src/frontend/public/icons/icon-192.png" alt="Logo de BuffetYa!" width="88">
 
-# BuffetYa!
+<h1>BuffetYa!</h1>
 
-**Pedí, pagá y retirá en el buffet de la UNLaM sin hacer fila.**
+<p><strong>Pedí, pagá y retirá en el buffet de la UNLaM sin hacer fila.</strong></p>
 
-[![Probar la app](https://img.shields.io/badge/Probar_la_app-buffetya.onrender.com-2E7D5B?style=for-the-badge)](https://buffetya.onrender.com)
+<p>
+  <a href="https://buffetya.onrender.com"><img src="https://img.shields.io/badge/demo-online-2E7D5B?style=flat-square" alt="Demo online"></a>
+  <img src="https://img.shields.io/badge/estado-MVP-F0A202?style=flat-square" alt="Estado: MVP">
+  <img src="https://img.shields.io/badge/Angular-PWA-DD0031?style=flat-square&logo=angular&logoColor=white" alt="Angular PWA">
+  <img src="https://img.shields.io/badge/NestJS-API-E0234E?style=flat-square&logo=nestjs&logoColor=white" alt="NestJS">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/pnpm-workspaces-F69220?style=flat-square&logo=pnpm&logoColor=white" alt="pnpm">
+</p>
 
-![Angular](https://img.shields.io/badge/Angular-PWA-DD0031?logo=angular&logoColor=white)
-![NestJS](https://img.shields.io/badge/NestJS-API-E0234E?logo=nestjs&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![Render](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render&logoColor=white)
+<p>
+  <a href="https://buffetya.onrender.com"><strong>Ver la demo</strong></a> ·
+  <a href="docs/brief.md">Brief del producto</a> ·
+  <a href="#arquitectura">Arquitectura</a> ·
+  <a href="#hoja-de-ruta">Hoja de ruta</a>
+</p>
 
-[Brief del producto](docs/brief.md) · [Arquitectura](#-arquitectura) · [Cómo se ejecuta](#-cómo-se-ejecuta) · [Cómo se continúa](#-cómo-se-continúa)
-
-<br>
-
-<table>
-  <tr>
-    <td align="center"><img src="docs/capturas/menu.jpg" width="160" alt="Menú"><br><sub><b>1. Menú</b></sub></td>
-    <td align="center"><img src="docs/capturas/carrito.jpg" width="160" alt="Carrito"><br><sub><b>2. Carrito</b></sub></td>
-    <td align="center"><img src="docs/capturas/pago-simulado.jpg" width="160" alt="Pago"><br><sub><b>3. Pago</b></sub></td>
-    <td align="center"><img src="docs/capturas/estado.jpg" width="160" alt="Estado del pedido"><br><sub><b>4. En preparación</b></sub></td>
-    <td align="center"><img src="docs/capturas/listo.jpg" width="160" alt="Listo para retirar"><br><sub><b>5. Listo para retirar</b></sub></td>
-  </tr>
-</table>
-
-<sub>Gestión Aplicada al Desarrollo de Software II (3665) · Ingeniería Informática · UNLaM · 2.º cuatrimestre 2026 · Equipo <b>Aura IT</b></sub>
+<img src="docs/capturas/menu.jpg" width="150" alt="Menú">&nbsp;
+<img src="docs/capturas/carrito.jpg" width="150" alt="Carrito">&nbsp;
+<img src="docs/capturas/pago-simulado.jpg" width="150" alt="Pago">&nbsp;
+<img src="docs/capturas/estado.jpg" width="150" alt="Pedido en preparación">&nbsp;
+<img src="docs/capturas/listo.jpg" width="150" alt="Pedido listo para retirar">
 
 </div>
 
-> [!NOTE]
-> La app corre en el plan gratuito de Render: **la primera carga puede tardar cerca de un minuto** y los pedidos se borran cada vez que el servidor se reinicia.
+<br>
 
----
+## Tabla de contenidos
 
-## 🎯 El problema
+- [Acerca del proyecto](#acerca-del-proyecto)
+  - [Construido con](#construido-con)
+- [Funcionalidades](#funcionalidades)
+- [Primeros pasos](#primeros-pasos)
+  - [Requisitos previos](#requisitos-previos)
+  - [Instalación](#instalación)
+  - [Uso](#uso)
+- [Scripts](#scripts)
+- [Despliegue](#despliegue)
+- [Arquitectura](#arquitectura)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Hoja de ruta](#hoja-de-ruta)
+- [Documentación](#documentación)
+- [Equipo](#equipo)
+- [Agradecimientos](#agradecimientos)
+- [Licencia](#licencia)
 
-Entre el trayecto, la fila y el pago, comprar en el buffet se come buena parte de un recreo corto. En el relevamiento, **el 86% de los estudiantes calificó la espera como muy molesta** y **el 100% quería conocer el menú y los precios antes de ir**.
+## Acerca del proyecto
 
-## 👤 Para quién
+Entre el trayecto, la fila y el pago, comprar en el buffet de la UNLaM se come buena parte de un recreo corto. En el relevamiento con estudiantes, **el 86% calificó la espera como muy molesta** y **el 100% quería conocer el menú y los precios antes de ir**.
 
-**Usuario primario:** estudiantes de los departamentos de Derecho y Ciencia Política, Humanidades y Ciencias Sociales y Ciencias de la Salud que usan habitualmente el buffet.
-**Grupos secundarios:** docentes y personal administrativo de la UNLaM.
+BuffetYa! es una app web instalable (PWA) que permite consultar el menú, armar el pedido, pagarlo desde el celular e irse a hacer otra cosa hasta que la app avise que está listo para retirar.
 
-## 🔁 Cómo funciona
-
-```mermaid
-flowchart LR
-    A[Consulta el menú<br>y los precios] --> B[Arma el pedido]
-    B --> C[Ve el tiempo estimado<br>y paga]
-    C --> D[Se va a hacer<br>otra cosa]
-    D --> E[Recibe el aviso<br>de pedido listo]
-    E --> F[Retira con<br>su código]
-```
-
-Sin registro: para comprar alcanza con el nombre.
-
-## 📦 Estado del producto
-
-| | Qué incluye |
+| | |
 |---|---|
-| ✅ **Construido** | PWA instalable · menú con precios y filtros opcionales (Sin TACC, Vegetariano, Vegano) · carrito con tiempo estimado **antes de pagar** · pago aprobado y rechazado · estado del pedido en vivo · código de retiro · backend propio en NestJS |
-| 🧪 **Simulado** | Cobro con Mercado Pago (checkout que imita al real) · operación del buffet: estados del pedido y stock desde el *backstage* del equipo |
-| ⏳ **Diferido** | Cuentas, perfil e historial · panel del personal del buffet · Mercado Pago real · notificaciones push con la app cerrada · base de datos en la nube |
+| **Usuario primario** | Estudiantes de los departamentos de Derecho y Ciencia Política, Humanidades y Ciencias Sociales y Ciencias de la Salud que usan habitualmente el buffet |
+| **Usuarios secundarios** | Docentes y personal administrativo de la UNLaM |
+| **Contexto** | Proyecto de la materia Gestión Aplicada al Desarrollo de Software II (3665), Ingeniería Informática, UNLaM, 2.º cuatrimestre 2026 |
 
-El detalle completo —segmento, hipótesis de valor, resultados de la prueba con usuarios y gran visión— está en el [**brief del producto**](docs/brief.md) (versión 5).
+### Construido con
 
-## 🚀 Cómo se ejecuta
+| Capa | Tecnología |
+|---|---|
+| Frontend | [Angular](https://angular.dev) como PWA instalable, con *service worker* |
+| Backend | [NestJS](https://nestjs.com), organizado en puertos y adaptadores |
+| Tipos compartidos | Paquete `shared` en TypeScript |
+| Persistencia | Archivos JSON (MVP) |
+| Monorepo | [pnpm workspaces](https://pnpm.io/workspaces) |
+| Tests | [Vitest](https://vitest.dev) (unitarios y end-to-end) |
+| Despliegue | [Render](https://render.com) |
 
-**Requisitos:** Node.js 22 o superior y pnpm.
+## Funcionalidades
+
+- **Menú con precios y fotos**, con filtros opcionales: Sin TACC, Vegetariano y Vegano.
+- **Carrito** con el tiempo estimado de preparación **antes de pagar**, calculado según los pedidos que hay en cocina.
+- **Compra sin registro**: para pedir alcanza con el nombre.
+- **Pago** con casos de aprobado y rechazado, y reintento que conserva el carrito.
+- **Estado del pedido en vivo** y aviso cuando está listo.
+- **Código de retiro** para mostrar en el mostrador.
+
+| Estado | Alcance |
+|---|---|
+| ✅ Construido | Todo lo anterior, incluido el backend propio |
+| 🧪 Simulado | Cobro con Mercado Pago (un checkout que imita al real) y operación del buffet (estados del pedido y stock desde el *backstage* del equipo) |
+| ⏳ Diferido | Cuentas e historial, panel del buffet, Mercado Pago real, push con la app cerrada y base de datos en la nube. Ver la [hoja de ruta](#hoja-de-ruta) |
+
+## Primeros pasos
+
+### Requisitos previos
+
+- [Node.js](https://nodejs.org) 22 o superior
+- [pnpm](https://pnpm.io/installation), o `corepack enable` para usar la versión fijada en el proyecto
+
+### Instalación
 
 ```bash
-cd src
+git clone https://github.com/gadsii-unlam/gadsii-aura-it.git
+cd gadsii-aura-it/src
 pnpm install
+```
+
+No hace falta crear un `.env` para desarrollar. Para cambiar valores, copiá `src/.env.example` a `src/.env`.
+
+### Uso
+
+```bash
 pnpm dev
 ```
 
-| Qué | Dónde |
+| Servicio | URL |
 |---|---|
 | App | http://localhost:4200 |
 | API | http://localhost:3000/api |
-| Backstage (simula al buffet y a Mercado Pago) | http://localhost:4200/backstage — clave `buffetya-dev` |
+| Backstage | http://localhost:4200/backstage (clave `buffetya-dev`) |
 
-La guía completa —build de producción, variables de entorno, deploy en Render con `render.yaml` y cómo operar el backstage en una sesión de prueba— está en [`src/README.md`](src/README.md).
+El **backstage** es una pantalla interna, no enlazada desde la app, que simula al personal del buffet y a Mercado Pago: avanza los estados del pedido, marca productos sin stock y fuerza un pago rechazado. Cómo usarlo en una sesión de prueba está en [`src/README.md`](src/README.md#backstage-cómo-simular-lo-que-pasa-por-detrás-en-una-sesión-de-prueba).
 
-## 🏗 Arquitectura
+## Scripts
+
+Se ejecutan desde `src/`.
+
+| Comando | Qué hace |
+|---|---|
+| `pnpm dev` | Levanta frontend y backend en modo desarrollo |
+| `pnpm build` | Compila `shared`, frontend y backend |
+| `pnpm start` | Inicia el servidor de producción, que sirve la API y la app compilada |
+| `pnpm test` | Corre los tests de todos los paquetes |
+| `pnpm lint` | Corre el linter |
+
+## Despliegue
+
+El archivo [`render.yaml`](render.yaml) describe un único *web service* en Render: un proceso de NestJS que sirve la API en `/api` y la PWA compilada en el resto de las rutas, con HTTPS incluido.
+
+> [!NOTE]
+> En el plan gratuito, el servicio se duerme a los 15 minutos sin uso, así que la primera visita puede tardar cerca de un minuto. Además, no hay disco persistente: los pedidos se borran en cada reinicio.
+
+> [!WARNING]
+> El *service worker* y las notificaciones solo funcionan con HTTPS o en `localhost`.
+
+## Arquitectura
 
 <div align="center">
 <img src="docs/arquitectura/mvp-arquitectura-real.png" alt="Arquitectura real del MVP" width="820">
 </div>
 
-Una PWA en Angular habla con un único servidor NestJS organizado en capas: API, casos de uso, reglas del negocio y adaptadores. Los datos se guardan en archivos JSON y las piezas en naranja están simuladas. La arquitectura de la gran visión está en [`docs/arquitectura/`](docs/arquitectura/).
+La PWA en Angular habla por HTTPS (REST y eventos en vivo) con un único servidor NestJS organizado en capas: API, casos de uso, dominio y adaptadores. El dominio no tiene dependencias externas, y cada integración vive detrás de un puerto. Por eso, reemplazar una pieza simulada por la real es escribir un adaptador nuevo. Las piezas en naranja están simuladas.
 
-## 🧭 Cómo se continúa
+La arquitectura de la gran visión está en [`docs/arquitectura/`](docs/arquitectura/).
 
-El backend usa **puertos y adaptadores** (`src/backend/src/`: `domain`, `application`, `adapters`). Reemplazar una pieza simulada por la real es escribir un adaptador nuevo sin tocar las reglas del negocio. Las variables de Firebase y Mercado Pago ya están previstas en `src/.env.example`.
+## Estructura del proyecto
 
-**Orden recomendado para salir a producción:**
+```text
+gadsii-aura-it/
+├── docs/
+│   ├── brief.md            # Brief de producto (v1 a v5)
+│   ├── prompts.md          # Registro del trabajo con IA
+│   ├── arquitectura/       # Diagramas del MVP y de la gran visión
+│   ├── capturas/           # Capturas del MVP
+│   ├── diseno/wireframe/   # Alternativas A, B, C y D (la construida)
+│   ├── evaluacion/         # Evaluación heurística del TP4
+│   └── evidencia/          # Relevamiento (tp2) y prueba con usuarios (tp5)
+├── src/
+│   ├── frontend/           # PWA en Angular
+│   ├── backend/            # API en NestJS
+│   │   └── src/
+│   │       ├── domain/       # Reglas del negocio
+│   │       ├── application/  # Casos de uso y puertos
+│   │       └── adapters/     # HTTP, persistencia, pago, eventos
+│   └── shared/             # Tipos compartidos
+└── render.yaml             # Despliegue en Render
+```
 
-1. 🔔 **Aviso de "pedido listo" por push** (Firebase Cloud Messaging). Hoy solo llega con la app abierta: es el componente más riesgoso.
-2. 🧑‍🍳 **Panel del personal del buffet**, que reemplace al backstage: cola de pedidos, estados, stock y carga del menú.
-3. 💳 **Mercado Pago real**, con confirmación del pago por webhook.
-4. 🗄 **Base de datos persistente** (Cloud Firestore) en lugar del archivo JSON.
+## Hoja de ruta
+
+- [x] Menú, carrito, pago simulado, estado del pedido y código de retiro
+- [x] Prueba con usuarios reales del segmento
+- [x] Despliegue público en Render
+- [ ] Aviso de "pedido listo" por push con la app cerrada (Firebase Cloud Messaging)
+- [ ] Panel para el personal del buffet: cola de pedidos, estados, stock y menú
+- [ ] Cobro real con Mercado Pago y confirmación por webhook
+- [ ] Base de datos persistente (Cloud Firestore)
+- [ ] Cuentas de usuario e historial de pedidos
 
 > [!IMPORTANT]
-> Antes de transferir el proyecto, el hosting, Firebase y Mercado Pago tienen que quedar a nombre de la institución o del buffet, no de un integrante del equipo. La cuenta de Mercado Pago debe ser la del buffet, que es quien cobra.
+> Para salir a producción, el hosting, Firebase y Mercado Pago tienen que quedar a nombre de la institución o del buffet, no de un integrante del equipo. La cuenta de Mercado Pago debe ser la del buffet, que es quien cobra.
 
-## 🗂 Mapa del repositorio
+## Documentación
 
-| Ruta | Contenido |
+| Documento | Contenido |
 |---|---|
-| [`docs/brief.md`](docs/brief.md) | Brief de producto, versiones 1 a 5 |
-| [`docs/prompts.md`](docs/prompts.md) | Registro del trabajo con IA |
-| [`docs/evidencia/tp2/`](docs/evidencia/tp2/) | Respuestas de la encuesta del relevamiento (anonimizadas) |
-| [`docs/evidencia/tp5/`](docs/evidencia/tp5/) | Registro de la prueba del MVP con usuarios (U1, U2, U3) |
-| [`docs/diseno/wireframe/`](docs/diseno/wireframe/) | Alternativas de diseño A, B y C, y alternativa D (B con las correcciones del TP4), que es la construida |
-| [`docs/evaluacion/`](docs/evaluacion/) | Evaluación heurística cruzada del TP4 (equipo e IA) |
-| [`docs/arquitectura/`](docs/arquitectura/) | Arquitectura real del MVP y de la gran visión |
-| [`docs/capturas/`](docs/capturas/) | Capturas del MVP en funcionamiento |
-| [`src/`](src/) | Código fuente: `frontend/` (Angular), `backend/` (NestJS), `shared/` |
+| [Brief del producto](docs/brief.md) | Segmento, hipótesis de valor, resultados de la prueba y gran visión |
+| [Registro de IA](docs/prompts.md) | Cada uso de IA, con fecha, herramienta y resultado |
+| [Evidencia del relevamiento](docs/evidencia/tp2/) | Respuestas anonimizadas de la encuesta |
+| [Evidencia de la prueba](docs/evidencia/tp5/) | Registro de la prueba del MVP con U1, U2 y U3 |
+| [Wireframes](docs/diseno/wireframe/) | Alternativas de diseño y la versión construida |
+| [Evaluación de usabilidad](docs/evaluacion/) | Evaluación heurística cruzada, del equipo y de la IA |
+| [Guía técnica](src/README.md) | Puesta en marcha, variables de entorno y despliegue |
 
-## 🏷 Líneas base
+Cada entrega quedó marcada con un tag: `tp1`, `tp2`, `tp3`, `tp4-entrega`, `tp4`, `tp5`, `tp6` y `tpi`.
 
-| Tag | Trabajo práctico |
-|---|---|
-| `tp1` | Definición del producto y del segmento |
-| `tp2` | Análisis de usuarios e hipótesis de valor |
-| `tp3` | Scope del MVP y diseño de la interacción |
-| `tp4-entrega` | Material entregado al equipo evaluador en el TP4 |
-| `tp4` | Evaluación de usabilidad |
-| `tp5` | Construcción del MVP, prueba y aprendizaje |
-| `tp6` | Arquitectura del sistema |
-| `tpi` | Trabajo Práctico Integrador |
+## Equipo
 
-## 👥 Equipo Aura IT
+**Aura IT**
 
-| Integrante |
-|---|
-| Mathieu Andrés Santamaría Loiacono |
-| Martín Alejandro Didolich |
-| Alejo Rodrigo Lopez Rodofile |
-| Agustín Ignacio Garcia Riveros |
-| Juan Ignacio Bernardez |
+- Mathieu Andrés Santamaría Loiacono
+- Martín Alejandro Didolich
+- Alejo Rodrigo Lopez Rodofile
+- Agustín Ignacio Garcia Riveros
+- Juan Ignacio Bernardez
+
+## Agradecimientos
+
+- A la cátedra de Gestión Aplicada al Desarrollo de Software II de la UNLaM.
+- A los estudiantes que respondieron la encuesta y probaron el MVP.
+- Las fotos de los productos vienen de [Pexels](https://www.pexels.com) y [Wikimedia Commons](https://commons.wikimedia.org). El detalle de cada una está en [`CREDITS.md`](src/frontend/public/products/CREDITS.md).
+
+## Licencia
+
+Proyecto académico, sin licencia de uso definida.
